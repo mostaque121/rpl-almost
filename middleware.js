@@ -13,7 +13,7 @@ export async function middleware(req) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    if (token.role !== "admin" || token.role !== "boss") {
+    if (token.role !== "admin" && token.role !== "boss") {
         return NextResponse.json({ error: "Forbidden: You do not have access" }, { status: 403 });
     }
 
