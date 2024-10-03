@@ -1,20 +1,11 @@
-import { cookies } from 'next/headers';
-
 export async function fetchDataForAdmin(url) {
     const nextUrl = process.env.NEXT_PUBLIC_API_URL;
     if (!nextUrl) {
         return null;
     }
 
-    const cookieStore = cookies();
-    const sessionToken = cookieStore.get('next-auth.session-token')?.value;
-
     try {
-        const response = await fetch(`${nextUrl}/${url}`, {
-            headers: {
-                'Cookie': `next-auth.session-token=${sessionToken}`,
-            },
-        });
+        const response = await fetch(`${nextUrl}/${url}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -33,16 +24,8 @@ export async function fetchReviewForAdmin(url) {
     if (!nextUrl) {
         return null;
     }
-
-    const cookieStore = cookies();
-    const sessionToken = cookieStore.get('next-auth.session-token')?.value;
     try {
-        const response = await fetch(`${nextUrl}/${url}`, {
-            next: { tags: ['review'] },
-            headers: {
-                'Cookie': `next-auth.session-token=${sessionToken}`,
-            },
-        });
+        const response = await fetch(`${nextUrl}/${url}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

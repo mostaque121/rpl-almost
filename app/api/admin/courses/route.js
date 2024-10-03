@@ -3,9 +3,12 @@ import dbConnect from '@/app/lib/mongodb';
 import { NextResponse } from 'next/server';
 import { updateIndicesEditCourse } from '../../lib/UpdateIndicesEditCourse';
 import { updateIndicesUploadCourse } from '../../lib/UpdateIndicesUploadCourse';
+import { authorizeAdmin } from '../../lib/auth';
 import { updateSection } from '../../lib/updateSection';
 
 export async function POST(req) {
+    const authResponse = await authorizeAdmin(req);
+    if (authResponse) return authResponse;
     try {
         const body = await req.json();
 
@@ -65,6 +68,8 @@ export async function POST(req) {
 }
 
 export async function PUT(req) {
+    const authResponse = await authorizeAdmin(req);
+    if (authResponse) return authResponse;
     try {
         // Parse the JSON body from the request
         const body = await req.json();
@@ -137,6 +142,8 @@ export async function PUT(req) {
 
 
 export async function DELETE(request) {
+    const authResponse = await authorizeAdmin(req);
+    if (authResponse) return authResponse;
     try {
         const { id } = await request.json();
 
