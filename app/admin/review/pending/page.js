@@ -1,11 +1,11 @@
-import { fetchReviewForAdmin } from "@/app/lib/fetchData";
 import ReviewCard from "../../components/card/ReviewCard";
+import { fetchReviewForAdmin } from "../../lib/fetchDataForAdmin";
 export default async function Page() {
     const reviews = await fetchReviewForAdmin('api/admin/reviews/pending');
 
     return (reviews &&
         <div className="p-6">
-            <h2 className="text-2xl text-dark-text font-bold mb-4">User Reviews</h2>
+            <h2 className="text-2xl text-black font-bold mb-4">User Reviews</h2>
             {reviews.length > 0 ? (
                 reviews.map((review) => (
                     <ReviewCard
@@ -14,7 +14,7 @@ export default async function Page() {
                     />
                 ))
             ) : (
-                <p className="text-dark-text">No pending reviews found.</p> // Message when no reviews are available
+                <p className="text-black">No pending reviews found.</p> // Message when no reviews are available
             )}
         </div>
     );

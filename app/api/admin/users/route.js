@@ -1,6 +1,7 @@
 import dbConnect from "@/app/lib/mongodb";
 import User from "@/app/Models/User";
 import { NextResponse } from "next/server";
+
 export async function GET(req) {
     try {
         await dbConnect();
@@ -18,7 +19,6 @@ export async function GET(req) {
 export async function PUT(request) {
     try {
         const { userId, role } = await request.json();
-
 
         await dbConnect();
 

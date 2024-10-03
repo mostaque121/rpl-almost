@@ -1,6 +1,3 @@
-'use server'
-import { cookies } from 'next/headers';
-
 export async function fetchData(url) {
   const nextUrl = process.env.NEXT_PUBLIC_API_URL;
   if (!nextUrl) {
@@ -22,33 +19,7 @@ export async function fetchData(url) {
   }
 }
 
-export async function fetchDataForAdmin(url) {
-  const nextUrl = process.env.NEXT_PUBLIC_API_URL;
-  if (!nextUrl) {
-    return null;
-  }
 
-  const cookieStore = cookies();
-  const sessionToken = cookieStore.get('next-auth.session-token')?.value;
-
-  try {
-    const response = await fetch(`${nextUrl}/${url}`, {
-      headers: {
-        'Cookie': `next-auth.session-token=${sessionToken}`,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return null;
-  }
-}
 
 export async function fetchDataNoStore(url) {
   const nextUrl = process.env.NEXT_PUBLIC_API_URL
@@ -110,31 +81,6 @@ export async function fetchReview(url) {
   }
 }
 
-export async function fetchReviewForAdmin(url) {
-  const nextUrl = process.env.NEXT_PUBLIC_API_URL
-  if (!nextUrl) {
-    return null;
-  }
-
-  const cookieStore = cookies();
-  const sessionToken = cookieStore.get('next-auth.session-token')?.value;
-  try {
-    const response = await fetch(`${nextUrl}/${url}`, {
-      next: { tags: ['review'] },
-      headers: {
-        'Cookie': `next-auth.session-token=${sessionToken}`,
-      },
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return null;
-  }
-}
 
 export async function fetchSection(url) {
   const nextUrl = process.env.NEXT_PUBLIC_API_URL

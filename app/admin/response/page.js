@@ -1,4 +1,4 @@
-import fetchDataForAdmin from "../lib/fetchDataForAdmin";
+import { fetchDataForAdmin } from "../lib/fetchDataForAdmin";
 import DeleteButton from "./components/DeleteButton";
 
 export default async function Page() {
