@@ -1,13 +1,25 @@
+import { cookies } from 'next/headers';
+
 export async function fetchData(url) {
-  const nextUrl = process.env.NEXT_PUBLIC_API_URL
+  const nextUrl = process.env.NEXT_PUBLIC_API_URL;
   if (!nextUrl) {
     return null;
   }
+
+  const cookieStore = cookies();
+  const sessionToken = cookieStore.get('next-auth.session-token')?.value;
+
   try {
-    const response = await fetch(`${nextUrl}/${url}`);
+    const response = await fetch(`${nextUrl}/${url}`, {
+      headers: {
+        'Cookie': `next-auth.session-token=${sessionToken}`,
+      },
+    });
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
+
     const data = await response.json();
     return data;
   } catch (error) {
@@ -60,9 +72,15 @@ export async function fetchReview(url) {
   if (!nextUrl) {
     return null;
   }
+
+  const cookieStore = cookies();
+  const sessionToken = cookieStore.get('next-auth.session-token')?.value;
   try {
     const response = await fetch(`${nextUrl}/${url}`, {
-      next: { tags: ['review'] }
+      next: { tags: ['review'] }, // This is correct for Next.js
+      headers: {
+        'Cookie': `next-auth.session-token=${sessionToken}`,
+      },
     });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

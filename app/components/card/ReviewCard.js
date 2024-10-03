@@ -53,9 +53,13 @@ const ReviewCard = ({ review }) => {
             </div>
 
             {/* Course Link */}
-            <Link href={`/courses/${purchasedCourse.link}`}>
-                <p className="text-charcoal font-semibold text-sm bg-light-gray hover:bg-light-gray-hover px-2 py-1 rounded-md transition-all mb-4">{purchasedCourse.title}</p>
-            </Link>
+
+            {purchasedCourse &&
+                <Link href={`/courses/${purchasedCourse.link}`}>
+                    <p className="text-charcoal font-semibold text-sm bg-light-gray hover:bg-light-gray-hover px-2 py-1 rounded-md transition-all mb-4">{purchasedCourse.title}</p>
+                </Link>
+            }
+
 
             {/* Review Text */}
             <p className="text-dark-gray mb-4">"{reviewText}"</p>

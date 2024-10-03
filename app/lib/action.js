@@ -42,6 +42,7 @@ export async function revalidateAfterUploadCourse(sectionLink) {
 
 export async function revalidateAfterEditCourse(prevCourseLink, prevSectionLink, newSectionLink) {
     revalidateTag('section')
+    revalidateTag('course')
     revalidatePath(`/admin/${prevSectionLink}`);
     revalidatePath(`/admin/${newSectionLink}`);
     revalidatePath(`/section/${prevSectionLink}`);
@@ -51,10 +52,8 @@ export async function revalidateAfterEditCourse(prevCourseLink, prevSectionLink,
 }
 
 export async function revalidateAfterDeleteCourse(courseLink, sectionLink) {
-    revalidatePath(`/courses`);
-    revalidatePath(`/admin/courses`);
-    revalidatePath(`/admin/upload/courses/section`);
-    revalidatePath(`/admin/upload/courses/course`);
+    revalidateTag('section')
+    revalidateTag('course')
     revalidatePath(`/admin/${sectionLink}`);
     revalidatePath(`/section/${sectionLink}`);
     revalidatePath(`/courses/${courseLink}`);

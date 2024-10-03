@@ -100,7 +100,8 @@ const ReviewCard = ({ review }) => {
                         <span key={index} className="text-gray-300">★</span>
                     ))}
                 </div>
-                <p className="text-gray-400 text-dark-accent text-sm">{purchasedCourse.title}</p>
+                {purchasedCourse && <p className="text-gray-400 text-dark-accent text-sm">{purchasedCourse.title}</p>}
+
                 <p className="mt-2 text-dark-muted">{reviewText}</p>
                 {reviewImage && (
                     <Image
