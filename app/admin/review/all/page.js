@@ -1,8 +1,8 @@
-import { fetchReview } from "@/app/lib/fetchData";
+import { fetchReviewForAdmin } from "@/app/lib/fetchData";
 import ReviewCard from "../../components/card/ReviewCard";
 
 export default async function Page() {
-    const reviews = await fetchReview('api/admin/reviews/all');
+    const reviews = await fetchReviewForAdmin('api/admin/reviews/all');
 
     return (reviews &&
         <div className="p-6">
