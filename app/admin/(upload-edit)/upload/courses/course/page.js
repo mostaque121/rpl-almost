@@ -1,7 +1,7 @@
 import CourseUploadForm from "@/app/admin/components/form/CourseUploadForm";
-import { fetchData } from "@/app/lib/fetchData";
+import { fetchSection } from "@/app/lib/fetchData";
 export default async function Page() {
-    const availableCourses = await fetchData(`/api/sections`);
+    const availableCourses = await fetchSection('api/sections');
     return (availableCourses &&
         <div>
             <CourseUploadForm mode="upload" availableCourses={availableCourses} />

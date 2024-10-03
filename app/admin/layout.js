@@ -19,7 +19,7 @@ export const generateMetadata = () => {
 
 export default async function AdminLayout({ children }) {
   const session = await getServerSession(authOptions);
-  if (!session || session.user.role !== 'admin') {
+  if (!session || session.user.role == 'user') {
     notFound();
   }
 
@@ -28,11 +28,11 @@ export default async function AdminLayout({ children }) {
       <div className="flex flex-col h-screen">
         <AdminNavbar />
         <div className="flex overflow-y-auto flex-1">
-          <div className="relative">
+          <div className="relative overflow-y-auto scrollbar-hidden">
             <AdminSidebar />
           </div>
 
-          <main className="flex-1 bg-dark-secondary overflow-y-auto">
+          <main className="flex-1 bg-light-gray overflow-y-auto">
             {children}
           </main>
         </div>

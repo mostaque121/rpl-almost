@@ -1,4 +1,5 @@
 'use client';
+import { revalidateAfterDeleteCourse, revalidateAfterEditCourse, revalidateAfterUploadCourse } from '@/app/lib/action';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -81,6 +82,24 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
       }
 
       toast.success(`${mode === 'edit' ? 'Edit' : 'Submission'} successful!`);
+      if (mode === 'upload') {
+        const data = await res.json();
+        const sectionLink = data.sectionLink
+        await revalidateAfterUploadCourse(sectionLink);
+        router.push(`/admin/${sectionLink}`);
+      } else {
+        const data = await res.json();
+        const prevCourseLink = data.prevCourseLink;
+        const prevSectionLink = data.prevSectionLink;
+        const newSectionLink = data.newSectionLink;
+
+
+        await revalidateAfterEditCourse(prevCourseLink, prevSectionLink, newSectionLink);
+        router.push(`/admin/${newSectionLink}`);
+
+      }
+
+
 
     } catch (error) {
       console.error('Error posting data:', error);
@@ -100,8 +119,6 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
         setCoreUnits('');
         setElectiveUnits('');
         setSelectedIndex('');
-      } else {
-        router.push('/admin/courses');
       }
       setLoading(false);
     }
@@ -129,8 +146,11 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
         position: 'top-right',
       });
 
-      // Navigate only on success
-      router.back();
+      const data = await res.json();
+      const courseLink = data.courseLink;
+      const sectionLink = data.sectionLink;
+      await revalidateAfterDeleteCourse(courseLink, sectionLink);
+      router.push(`/admin/${sectionLink}`);
 
     } catch (error) {
       console.error('Error deleting data:', error);
@@ -145,7 +165,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
 
 
   return (
-    <div className="container mx-auto mb-5 p-6 bg-dark-background shadow-lg rounded-md max-w-3xl">
+    <div className="qualification container mx-auto mb-5 p-6 bg-dark-background shadow-lg rounded-md max-w-3xl">
       <h1 className='text-3xl font-semibold text-dark-text mb-6 text-center'>
         {mode === 'edit' ? 'Edit Course' : 'Course Uploader'}
       </h1>

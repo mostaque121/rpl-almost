@@ -1,5 +1,4 @@
 import { Course, Section } from '@/app/Models/models';
-import { revalidateAfterDeleteCourse, revalidateAfterEditCourse, revalidateAfterUploadCourse } from '@/app/lib/action';
 import dbConnect from '@/app/lib/mongodb';
 import { NextResponse } from 'next/server';
 import { updateIndicesEditCourse } from '../../lib/UpdateIndicesEditCourse';
@@ -51,7 +50,6 @@ export async function POST(req) {
             select: 'link'
         });
         const sectionLink = populatedSavedCourse.section.link;
-        revalidateAfterUploadCourse(sectionLink);
 
         await Section.findByIdAndUpdate(
             section,
@@ -59,7 +57,7 @@ export async function POST(req) {
             { new: true }
         );
 
-        return NextResponse.json({ success: true, data: savedCourse });
+        return NextResponse.json({ success: true, sectionLink: sectionLink, data: savedCourse });
     } catch (error) {
         console.error('Error saving Course:', error);
         return new Response(JSON.stringify({ message: 'Error uploading data', error: error.message }), { status: 500 });
@@ -127,10 +125,9 @@ export async function PUT(req) {
             select: 'link'
         });
         const newSectionLink = populatedUpdatedCourse.section.link;
-        revalidateAfterEditCourse(prevCourseLink, prevSectionLink, newSectionLink);
 
         // Send back a success response with the updated course data
-        return NextResponse.json({ success: true, data: updatedCourse });
+        return NextResponse.json({ success: true, prevCourseLink, prevSectionLink, newSectionLink, data: updatedCourse });
     } catch (error) {
         console.error('Error updating course:', error);
         // Send an error response
@@ -170,9 +167,7 @@ export async function DELETE(request) {
             { new: true }
         );
 
-        revalidateAfterDeleteCourse(existingCourse.link, existingCourse.section.link)
-
-        return new Response(JSON.stringify({ message: 'Course deleted successfully' }), { status: 200 });
+        return new Response(JSON.stringify({ message: 'Course deleted successfully', courseLink: existingCourse.link, sectionLink: existingCourse.section.link }), { status: 200 });
     } catch (error) {
         console.error('Error deleting course:', error); // Updated log message
         return new Response(JSON.stringify({ message: 'Internal Server Error' }), { status: 500 });

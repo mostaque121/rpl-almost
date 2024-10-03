@@ -1,7 +1,6 @@
 'use client';
 import ScrollReveal from '@/app/lib/ScrollReveal';
 import Link from 'next/link';
-import { useState } from 'react';
 import { MdStar, MdStarHalf } from "react-icons/md";
 import ReviewCard from '../card/ReviewCard';
 
@@ -26,10 +25,8 @@ const ReviewSection = ({ reviews }) => {
     const fractionalStar = avgStar - wholeStars;
     const emptyStars = 5 - Math.ceil(avgStar);
 
-    const [visibleReviewsCount, setVisibleReviewsCount] = useState(5); // State to track the number of visible reviews
-
     // Get the currently visible reviews
-    const displayedReviews = reviews.slice(0, visibleReviewsCount); // Limit to the number of visible reviews
+    const displayedReviews = reviews.slice(0, 5);
 
     return (
         <div className="flex flex-col md:flex-row p-6 bg-white rounded-lg shadow-lg">
@@ -89,7 +86,7 @@ const ReviewSection = ({ reviews }) => {
                         <ReviewCard review={review} />
                     </ScrollReveal>
                 ))}
-                {visibleReviewsCount < totalReviews && ( // Show "Show More" button only if there are more reviews
+                {5 < totalReviews && ( // Show "Show More" button only if there are more reviews
                     <Link href="/review">
                         <button
                             className="mt-4 py-2 px-4 border border-gray-300 rounded bg-white hover:bg-gray-100 transition duration-200 ease-in-out"

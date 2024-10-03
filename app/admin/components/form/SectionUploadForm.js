@@ -1,4 +1,5 @@
 'use client';
+import { revalidateAfterUploadSection } from '@/app/lib/action';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
@@ -6,6 +7,7 @@ import { ClipLoader } from 'react-spinners';
 import DropzoneUploader from '../ImageUploader/DropzoneUploader';
 import SelectIndexEditSection from '../input/SelectIndexEditSection';
 import SelectIndexUploadSection from '../input/SelectIndexUploadSection';
+
 
 const SectionUploadForm = ({ mode, initialData, availableItems }) => {
     const router = useRouter();
@@ -69,9 +71,8 @@ const SectionUploadForm = ({ mode, initialData, availableItems }) => {
                 setPublicIdCover('');
                 setPublicIdSquare('');
             }
-            else {
-                router.push('/admin/courses');
-            }
+            await revalidateAfterUploadSection();
+            router.push('/admin/courses');
             setLoading(false);
         }
     };
@@ -98,6 +99,7 @@ const SectionUploadForm = ({ mode, initialData, availableItems }) => {
                 position: 'top-right',
             });
 
+            await revalidateAfterUploadSection();
             // Navigate only on success
             router.push('/admin/courses');
 
@@ -156,6 +158,7 @@ const SectionUploadForm = ({ mode, initialData, availableItems }) => {
                     <h2 className='text-lg font-medium text-dark-muted mb-2'>Section Index:</h2>
                     <SelectIndexUploadSection
                         setSelectedIndex={setSelectedIndex}
+                        selectedIndex={selectedIndex}
                         availableItems={availableItems}
                     />
                 </div>

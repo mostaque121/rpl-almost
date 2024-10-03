@@ -1,18 +1,18 @@
-import { fetchData } from "@/app/lib/fetchData";
+import { fetchSection } from "@/app/lib/fetchData";
 import SectionCardForAdmin from "../components/card/SectionCardForAdmin";
 export default async function Page() {
 
-    const sections = await fetchData(`/api/sections`);
+    const sections = await fetchSection('api/sections');
     return (sections &&
         <div>
             <div className="relative w-full py-16 sm:px-10 px-3 h-auto bg-cover bg-center" style={{ backgroundImage: 'url("/DeWatermark.ai_1726683796769.png")' }}>
-                <div className="relative p-6  bg-dark-secondary bg-opacity-90 max-w-4xl mx-auto rounded-lg text-center">
-                    <h1 className="text-dark-text text-2xl sm:text-4xl font-bold mb-4">
+                <div className="relative p-6  bg-light-gray bg-opacity-90 max-w-4xl mx-auto rounded-lg text-center">
+                    <h1 className="text-black text-2xl sm:text-4xl font-bold mb-4">
                         Courses
                     </h1>
                 </div>
             </div>
-            <div className="bg-dark-background sm:px-10 px-3  py-10 ">
+            <div className="bg-light-gray sm:px-10 px-3  py-10 ">
                 <div className="max-w-4xl mx-auto">
                     <div className="grid gap-3 md:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                         {sections.map((section) => (

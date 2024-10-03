@@ -1,11 +1,11 @@
 import CourseCard from "@/app/components/card/CourseCard";
-import { fetchData } from "@/app/lib/fetchData";
+import { fetchSection } from "@/app/lib/fetchData";
 
 export async function generateMetadata({ params }) {
     const { section } = params;
 
     try {
-        const data = await fetchData(`/api/sections/${section}`);
+        const data = await fetchSection(`/api/sections/${section}`);
 
         const keywords = data.courses.map(course => course.title).join(", ");
 
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
     const { section } = params;
-    const data = await fetchData(`/api/sections/${section}`);
+    const data = await fetchSection(`/api/sections/${section}`);
 
     return (data &&
         <div>

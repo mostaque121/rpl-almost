@@ -11,8 +11,8 @@ export async function getCoursesAndSections() {
     try {
         // Fetch courses and sections concurrently
         const [coursesRes, sectionsRes] = await Promise.all([
-            fetch(`${nextUrl}/api/courses`, { next: { tags: 'search' } }),
-            fetch(`${nextUrl}/api/sections`, { next: { tags: 'search' } })
+            fetch(`${nextUrl}/api/courses`, { next: { tags: 'course' } }),
+            fetch(`${nextUrl}/api/sections`, { next: { tags: 'section' } })
         ]);
 
         // Check if both requests were successful
@@ -30,38 +30,18 @@ export async function getCoursesAndSections() {
     }
 }
 
-export async function revalidateAfterEditSection(sectionLink) {
-    revalidatePath(`/home`);
-    revalidatePath(`/courses`);
-    revalidatePath(`/admin/courses`);
-    revalidatePath(`/admin/upload/courses/section`);
-    revalidatePath(`/admin/upload/courses/course`);
-    revalidatePath(`/admin/${sectionLink}`);
-    revalidatePath(`/section/${sectionLink}`);
-}
-
 export async function revalidateAfterUploadSection() {
-    revalidatePath(`/home`);
-    revalidatePath(`/courses`);
-    revalidatePath(`/admin/courses`);
-    revalidatePath(`/admin/upload/courses/section`);
-    revalidatePath(`/admin/upload/courses/course`);
+    revalidateTag('section')
 }
 
 export async function revalidateAfterUploadCourse(sectionLink) {
-    revalidatePath(`/courses`);
-    revalidatePath(`/admin/courses`);
-    revalidatePath(`/admin/upload/courses/section`);
-    revalidatePath(`/admin/upload/courses/course`);
+    revalidateTag('section')
     revalidatePath(`/admin/${sectionLink}`);
     revalidatePath(`/section/${sectionLink}`);
 }
 
 export async function revalidateAfterEditCourse(prevCourseLink, prevSectionLink, newSectionLink) {
-    revalidatePath(`/courses`);
-    revalidatePath(`/admin/courses`);
-    revalidatePath(`/admin/upload/courses/section`);
-    revalidatePath(`/admin/upload/courses/course`);
+    revalidateTag('section')
     revalidatePath(`/admin/${prevSectionLink}`);
     revalidatePath(`/admin/${newSectionLink}`);
     revalidatePath(`/section/${prevSectionLink}`);
@@ -80,15 +60,7 @@ export async function revalidateAfterDeleteCourse(courseLink, sectionLink) {
     revalidatePath(`/courses/${courseLink}`);
     revalidatePath(`admin/courses/${courseLink}`);
 }
-export async function revalidateAfterDeleteSection(sectionLink) {
-    revalidatePath(`/home`);
-    revalidatePath(`/courses`);
-    revalidatePath(`/admin/courses`);
-    revalidatePath(`/admin/upload/courses/section`);
-    revalidatePath(`/admin/upload/courses/course`);
-    revalidatePath(`/admin/${sectionLink}`);
-    revalidatePath(`/section/${sectionLink}`);
-}
+
 
 export async function revalidateAfterReview() {
     revalidatePath(`/admin/review/pending`);
@@ -103,4 +75,8 @@ export async function revalidateAfterUploadHappyClient() {
 
 export async function revalidateAfterResponse() {
     revalidatePath('/admin/response');
+}
+
+export async function revalidateUsers() {
+    revalidatePath('/admin/users');
 }

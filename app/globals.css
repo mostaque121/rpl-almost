@@ -115,6 +115,14 @@ body {
   animation: spin 1s linear infinite;
   margin-bottom: 10px;
 }
+.loader-small {
+  border: 2px solid transparent;
+  border-top: 2px solid white; /* Change to your desired color */
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  animation: spin 0.6s linear infinite;
+}
 .loader-btn {
   border: 2px solid #f3f3f3; /* Light grey */
   border-top: 2px solid #3498db; /* Blue */

@@ -1,9 +1,10 @@
-import { fetchData } from "@/app/lib/fetchData";
+import { fetchSection } from "@/app/lib/fetchData";
 import CourseCardForAdmin from "../components/card/CourseCardForAdmin";
+
 export default async function Page({ params }) {
 
     const { section } = params;
-    const data = await fetchData(`/api/sections/${section}`);
+    const data = await fetchSection(`/api/sections/${section}`);
     return (data &&
         <div>
             <div className="relative w-full py-16 sm:px-10 px-3 h-auto bg-cover bg-center" style={{ backgroundImage: `url(${data.imageCoverLink})` }}>

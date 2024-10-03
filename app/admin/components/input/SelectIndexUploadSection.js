@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-const SelectIndexUploadSection = ({ availableItems, setSelectedIndex }) => {
+const SelectIndexUploadSection = ({ availableItems, selectedIndex, setSelectedIndex }) => {
     // Calculate the maximum index from available items or default to 0
     const maxIndex = availableItems.length > 0
         ? Math.max(...availableItems.map((item) => item.index))
@@ -29,7 +29,7 @@ const SelectIndexUploadSection = ({ availableItems, setSelectedIndex }) => {
                 id="index-select"
                 name="index"
                 onChange={handleChange}
-                value={nextIndex} // Set the current value to nextIndex
+                value={selectedIndex}
                 className="w-full px-4 h-10 py-2 border border-gray-300 bg-dark-text rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
                 {availableItems.length === 0 ? (

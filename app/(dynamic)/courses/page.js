@@ -1,9 +1,9 @@
 import SectionCard from "@/app/components/card/SectionCard";
-import { fetchData } from "@/app/lib/fetchData";
+import { fetchSection } from "@/app/lib/fetchData";
 
 export async function generateMetadata() {
     try {
-        const sections = await fetchData('/api/sections');
+        const sections = await fetchSection('api/sections');
         const keywords = sections.map(section => section.title).join(", ");
 
         return {
@@ -17,7 +17,7 @@ export async function generateMetadata() {
 }
 export default async function Page() {
 
-    const sections = await fetchData('/api/sections');
+    const sections = await fetchSection('api/sections');
 
     return (sections &&
         <div>

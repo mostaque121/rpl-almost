@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa';
 
-const SidebarItemWithDropdown = ({ icon, label, isOpen, subItems }) => {
+const SidebarItemWithDropdown = ({ icon, label, subItems }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -18,17 +18,16 @@ const SidebarItemWithDropdown = ({ icon, label, isOpen, subItems }) => {
       >
         <div className="flex items-center">
           <span className="text-xl">{icon}</span>
-          {isOpen && <span className="ml-4">{label}</span>}
+          <span className="ml-4">{label}</span>
         </div>
-        {isOpen && (
-          <span className="ml-auto text-xl">
-            {isDropdownOpen ? <FaAngleUp /> : <FaAngleDown />}
-          </span>
-        )}
+
+        <span className="ml-auto text-xl">
+          {isDropdownOpen ? <FaAngleUp /> : <FaAngleDown />}
+        </span>
       </div>
 
       {/* Sub-items dropdown */}
-      {isDropdownOpen && isOpen && (
+      {isDropdownOpen && (
         <div className="ml-8 flex flex-col space-y-2">
           {subItems.map((subItem, index) => (
             <Link href={subItem.href} key={index}>

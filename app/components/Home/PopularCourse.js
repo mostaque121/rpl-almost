@@ -1,10 +1,10 @@
-import { fetchData } from "@/app/lib/fetchData";
+import { fetchSection } from "@/app/lib/fetchData";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function PopularCourse() {
 
-    const sections = await fetchData(`/api/sections`);
+    const sections = await fetchSection('api/sections');
 
     return (sections &&
         <div className="bg-white px-3 sm:px-5 py-5">

@@ -1,6 +1,5 @@
 import { updateIndicesEdit } from "@/app/api/lib/updateIndicesEdit";
 import { updateIndicesUpload } from "@/app/api/lib/updateIndicesUpload";
-import { revalidateAfterDeleteSection, revalidateAfterEditSection, revalidateAfterUploadSection } from "@/app/lib/action";
 import dbConnect from "@/app/lib/mongodb";
 import { Section } from "@/app/Models/models";
 import { NextResponse } from "next/server";
@@ -37,8 +36,6 @@ export async function POST(req) {
         });
 
         const savedSection = await newSection.save();
-
-        await revalidateAfterUploadSection();
 
         return NextResponse.json({ success: true, data: savedSection });
     } catch (error) {
@@ -89,7 +86,6 @@ export async function PUT(req) {
 
         const updatedSection = await existingSection.save();
 
-        await revalidateAfterEditSection(prevLink);
 
         return NextResponse.json({ success: true, data: updatedSection });
 
@@ -125,8 +121,6 @@ export async function DELETE(request) {
             { index: { $gt: existingSection.index } },
             { $inc: { index: -1 } }
         );
-
-        revalidateAfterDeleteSection(existingSection.link)
 
         return new Response(JSON.stringify({ message: 'Section deleted successfully' }), { status: 200 });
     } catch (error) {
