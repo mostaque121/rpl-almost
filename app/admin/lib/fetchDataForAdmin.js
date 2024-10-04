@@ -3,6 +3,7 @@ import UserResponse from "@/app/Models/UserResponse";
 import { Review } from "@/app/Models/models";
 import dbConnect from "@/app/lib/mongodb";
 import { unstable_cache } from "next/cache";
+
 export async function fetchUser() {
     try {
         await dbConnect();

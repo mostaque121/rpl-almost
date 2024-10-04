@@ -1,4 +1,5 @@
 'use client'
+import { revalidateAfterEditReview } from '@/app/lib/action';
 import Image from 'next/image'; // Import Image from next/image
 import { useState } from 'react';
 import toast from 'react-hot-toast';
@@ -29,7 +30,7 @@ const ReviewCard = ({ review }) => {
             if (!res.ok) {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
-
+            await revalidateAfterEditReview();
             toast.success('Approved successfully!', {
                 duration: 3000,
                 position: 'top-right',
@@ -58,7 +59,7 @@ const ReviewCard = ({ review }) => {
             if (!res.ok) {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
-
+            await revalidateAfterEditReview();
             toast.success('Deleted successfully!', {
                 duration: 3000,
                 position: 'top-right',

@@ -1,5 +1,4 @@
 export const dynamic = 'force-dynamic'
-import { revalidateAfterEditReview } from "@/app/lib/action";
 import dbConnect from "@/app/lib/mongodb";
 import { Review } from "@/app/Models/models";
 import { NextResponse } from "next/server";
@@ -37,7 +36,6 @@ export async function PUT(request) {
         const result = await Review.findByIdAndUpdate(id, { approved: true }, { new: true });
 
         if (result) {
-            revalidateAfterEditReview();
             return NextResponse.json({ message: 'Review approved successfully', review: result }, { status: 200 });
         } else {
             return NextResponse.json({ error: 'Failed to approve review' }, { status: 500 });
