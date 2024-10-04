@@ -62,7 +62,6 @@ export async function DELETE(request) {
         const result = await Review.findByIdAndDelete(id);
 
         if (result) {
-            revalidateAfterEditReview();
             return NextResponse.json({ message: 'Review deleted successfully' }, { status: 200 });
         } else {
             return NextResponse.json({ error: 'Failed to delete review' }, { status: 500 });
