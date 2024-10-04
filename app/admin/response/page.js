@@ -1,8 +1,8 @@
-import { fetchDataForAdmin } from "../lib/fetchDataForAdmin";
+import { fetchResponse } from "../lib/fetchDataForAdmin";
 import DeleteButton from "./components/DeleteButton";
 
 export default async function Page() {
-    const responses = await fetchDataForAdmin('api/admin/response');
+    const responses = await fetchResponse();
 
     return (
         responses && (

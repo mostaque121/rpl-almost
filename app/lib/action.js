@@ -35,7 +35,8 @@ export async function revalidateAfterUploadSection() {
 }
 
 export async function revalidateAfterUploadCourse(sectionLink) {
-    revalidateTag('section')
+    revalidateTag('section');
+    revalidateTag('course');
     revalidatePath(`/admin/${sectionLink}`);
     revalidatePath(`/section/${sectionLink}`);
 }

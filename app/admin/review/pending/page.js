@@ -1,7 +1,8 @@
 import ReviewCard from "../../components/card/ReviewCard";
-import { fetchReviewForAdmin } from "../../lib/fetchDataForAdmin";
+import { fetchPendingReview } from "../../lib/fetchDataForAdmin";
+
 export default async function Page() {
-    const reviews = await fetchReviewForAdmin('api/admin/reviews/pending');
+    const reviews = await fetchPendingReview();
 
     return (reviews &&
         <div className="p-6">

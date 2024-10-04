@@ -1,11 +1,8 @@
 import dbConnect from "@/app/lib/mongodb";
 import User from "@/app/Models/User";
 import { NextResponse } from "next/server";
-import { authorizeAdmin, authorizeBoss } from "../../lib/auth";
 
 export async function GET(req) {
-    const authResponse = await authorizeAdmin(req);
-    if (authResponse) return authResponse;
     try {
         await dbConnect();
         const data = await User.find().sort({ createdAt: -1 })
@@ -20,8 +17,6 @@ export async function GET(req) {
 }
 
 export async function PUT(request) {
-    const authResponse = await authorizeBoss(req);
-    if (authResponse) return authResponse;
     try {
         const { userId, role } = await request.json();
 

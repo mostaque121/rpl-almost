@@ -1,9 +1,9 @@
-import { fetchDataForAdmin } from "../lib/fetchDataForAdmin";
+import { fetchUser } from "../lib/fetchDataForAdmin";
 
 import UserTable from "./components/UserTable";
 export default async function Page() {
 
-  const users = await fetchDataForAdmin('api/admin/users');
+  const users = await fetchUser();
 
   return (users &&
     <div className="container mx-auto p-4">

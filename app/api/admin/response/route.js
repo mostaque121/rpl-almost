@@ -1,12 +1,8 @@
 import dbConnect from "@/app/lib/mongodb";
 import UserResponse from "@/app/Models/UserResponse";
 import { NextResponse } from "next/server";
-import { authorizeAdmin } from "../../lib/auth";
 
 export async function GET(req) {
-    const authResponse = await authorizeAdmin(req);
-    if (authResponse) return authResponse;
-
     try {
         await dbConnect();
         const data = await UserResponse.find().sort({ createdAt: -1 });
@@ -20,8 +16,6 @@ export async function GET(req) {
     }
 }
 export async function DELETE(request) {
-    const authResponse = await authorizeAdmin(req);
-    if (authResponse) return authResponse;
     try {
         const { id } = await request.json();
         await dbConnect();

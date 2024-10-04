@@ -3,11 +3,8 @@ import { updateIndicesUpload } from "@/app/api/lib/updateIndicesUpload";
 import dbConnect from "@/app/lib/mongodb";
 import { Section } from "@/app/Models/models";
 import { NextResponse } from "next/server";
-import { authorizeAdmin } from "../../lib/auth";
 
 export async function POST(req) {
-    const authResponse = await authorizeAdmin(req);
-    if (authResponse) return authResponse;
     try {
         const body = await req.json();
         const { title, imageSquareLink, index, imageSquarePublicId, imageCoverLink, imageCoverPublicId } = body;
@@ -49,8 +46,6 @@ export async function POST(req) {
 
 
 export async function PUT(req) {
-    const authResponse = await authorizeAdmin(req);
-    if (authResponse) return authResponse;
     try {
         const body = await req.json();
         const { id, title, imageSquareLink, index, imageSquarePublicId, imageCoverLink, imageCoverPublicId } = body;
@@ -101,8 +96,6 @@ export async function PUT(req) {
 }
 
 export async function DELETE(request) {
-    const authResponse = await authorizeAdmin(req);
-    if (authResponse) return authResponse;
     try {
         const { id } = await request.json(); // Get the ID from the request body
 

@@ -2,11 +2,8 @@ import { revalidateAfterUploadHappyClient } from "@/app/lib/action";
 import dbConnect from "@/app/lib/mongodb";
 import HappyClient from "@/app/Models/HappyClient";
 import { NextResponse } from "next/server";
-import { authorizeAdmin } from "../../lib/auth";
 
 export async function POST(req) {
-    const authResponse = await authorizeAdmin(req);
-    if (authResponse) return authResponse;
     try {
         const body = await req.json();
 
@@ -35,8 +32,6 @@ export async function POST(req) {
 }
 
 export async function DELETE(request) {
-    const authResponse = await authorizeAdmin(req);
-    if (authResponse) return authResponse;
     try {
         const { id } = await request.json();
 

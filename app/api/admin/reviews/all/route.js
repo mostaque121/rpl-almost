@@ -1,12 +1,9 @@
 export const dynamic = 'force-dynamic'
-import { authorizeAdmin } from "@/app/api/lib/auth";
 import { revalidateAfterEditReview } from "@/app/lib/action";
 import dbConnect from "@/app/lib/mongodb";
 import { Review } from "@/app/Models/models";
 import { NextResponse } from "next/server";
 export async function GET(req) {
-    const authResponse = await authorizeAdmin(req);
-    if (authResponse) return authResponse;
     try {
         await dbConnect();
 
@@ -26,8 +23,6 @@ export async function GET(req) {
 }
 
 export async function PUT(request) {
-    const authResponse = await authorizeAdmin(req);
-    if (authResponse) return authResponse;
     await dbConnect(); // Connect to the database
 
     try {
@@ -55,8 +50,6 @@ export async function PUT(request) {
 
 // DELETE request - Delete a review
 export async function DELETE(request) {
-    const authResponse = await authorizeAdmin(req);
-    if (authResponse) return authResponse;
     await dbConnect(); // Connect to the database
 
     try {
