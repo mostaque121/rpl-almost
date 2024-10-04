@@ -1,4 +1,5 @@
 'use client'
+import DeleteButton from '@/app/components/Button/DeleteButton';
 import { revalidateAfterEditReview } from '@/app/lib/action';
 import Image from 'next/image'; // Import Image from next/image
 import { useState } from 'react';
@@ -77,67 +78,60 @@ const ReviewCard = ({ review }) => {
     const { userName, userImage, userEmail, reviewImage, purchasedCourse, reviewText, givenStar, createdAt, approved } = reviews;
 
     return (
-        <div className="bg-dark-gray shadow-md rounded-lg p-4 flex flex-col sm:flex-row items-start mb-4">
-            <Image
-                src={userImage}
-                alt={userName}
-                width={64} // Set width for Image
-                height={64} // Set height for Image
-                className="rounded-full mr-4"
-            />
-            <div className="flex-1">
-                <div className="flex justify-between items-center">
-                    <div>
-                        <h3 className="text-lg text-dark-muted font-semibold">{userName}</h3>
-                        <p className="text-dark-muted text-sm">{userEmail}</p>
-                    </div>
-                    <p className="text-dark-muted text-sm">{formatDate(createdAt)}</p>
+        <div className="white sm:w-72 float-left sm:ml-5 bg-white w-full shadow-md rounded-lg px-4 pb-4  mb-4">
+            <p className="text-dark-gray block text-right py-4 text-xs">{formatDate(createdAt)}</p>
+            <div className='flex items-start flex-wrap gap-2 w-full'>
+                <Image
+                    src={userImage}
+                    alt={userName}
+                    width={64} // Set width for Image
+                    height={64} // Set height for Image
+                    className="rounded-full mr-4"
+                />
+                <div>
+                    <h3 className=" text-dark-gray font-semibold">{userName}</h3>
+                    <p className="text-dark-gray text-xs">{userEmail}</p>
                 </div>
-                <div className="mt-2">
-                    {Array.from({ length: givenStar }).map((_, index) => (
-                        <span key={index} className="text-yellow-400">★</span>
-                    ))}
-                    {Array.from({ length: 5 - givenStar }).map((_, index) => (
-                        <span key={index} className="text-gray-300">★</span>
-                    ))}
-                </div>
-                {purchasedCourse && <p className="text-gray-400 text-dark-accent text-sm">{purchasedCourse.title}</p>}
+            </div>
 
-                <p className="mt-2 text-dark-muted">{reviewText}</p>
-                {reviewImage && (
-                    <Image
-                        src={reviewImage}
-                        alt="Review"
-                        width={300} // Set width for review image
-                        height={200} // Set height for review image
-                        className="mt-2 rounded-md w-60 h-auto"
-                    />
-                )}
-                <div className="mt-4 flex space-x-2">
-                    {!approved && (
-                        <button
-                            onClick={() => handleApprove(review._id)}
-                            className={`bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 flex items-center justify-center ${approving ? 'opacity-50 cursor-not-allowed' : ''}`}
-                            disabled={approving}
-                        >
-                            {approving ? (
-                                <span className="loader-btn"></span>
-                            ) : (
-                                'Approve'
-                            )}
-                        </button>
-                    )}
+
+            <div className="mt-2">
+                {Array.from({ length: givenStar }).map((_, index) => (
+                    <span key={index} className="text-yellow-400 text-2xl">★</span>
+                ))}
+                {Array.from({ length: 5 - givenStar }).map((_, index) => (
+                    <span key={index} className="text-gray-300">★</span>
+                ))}
+            </div>
+            {purchasedCourse && <p className="text-gray-400 text-dark-accent text-sm">{purchasedCourse.title}</p>}
+
+            <p className="mt-2 text-charcoal">{reviewText}</p>
+            {reviewImage && (
+                <Image
+                    src={reviewImage}
+                    alt="Review"
+                    width={300} // Set width for review image
+                    height={200} // Set height for review image
+                    className="mt-2 rounded-md w-60 h-auto"
+                />
+            )}
+            <div className="mt-4 flex space-x-2">
+                {!approved && (
                     <button
-                        onClick={() => handleDelete(review._id)}
-                        className={`bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 flex items-center justify-center ${deleting ? 'opacity-50 cursor-not-allowed' : ''}`}
-                        disabled={deleting}
+                        onClick={() => handleApprove(review._id)}
+                        className={`bg-blue-500 text-white px-3 py-1 w-full rounded-md hover:bg-blue-600 flex items-center justify-center ${approving ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        disabled={approving}
                     >
-                        {deleting ? (
+                        {approving ? (
                             <span className="loader-btn"></span>
                         ) : (
-                            'Delete'
+                            'Approve'
                         )}
                     </button>
+                )}
+
+                <div className='block w-full'>
+                    <DeleteButton loading={deleting} handleClick={() => handleDelete(review._id)} />
                 </div>
             </div>
         </div>

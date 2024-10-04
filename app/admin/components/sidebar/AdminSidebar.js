@@ -29,15 +29,15 @@ const AdminSidebar = () => {
         {/* Sidebar Items */}
         <nav className="flex flex-col p-3 sm:p-4 space-y-4 scrollbar-hidden overflow-y-auto max-h-screen">
           {/* Sidebar items without sub-items */}
-          <SidebarItem href="/admin/home" icon={<FaHome />} label="Home" isOpen={isOpen} />
-          <SidebarItem href="/admin/users" icon={<FaUsers />} label="Users" isOpen={isOpen} />
-          <SidebarItem href="/admin/response" icon={<FaPaperPlane />} label="Response" isOpen={isOpen} />
+          <SidebarItem href="/admin/home" icon={<FaHome />} label="Home" setIsOpen={setIsOpen} />
+          <SidebarItem href="/admin/users" icon={<FaUsers />} label="Users" setIsOpen={setIsOpen} />
+          <SidebarItem href="/admin/response" icon={<FaPaperPlane />} label="Response" setIsOpen={setIsOpen} />
 
           {/* Sidebar items with sub-items (Dropdown) */}
           <SidebarItemWithDropdown
             icon={<FaCloudUploadAlt />}
             label="Upload"
-            isOpen={isOpen}
+            setIsOpen={setIsOpen}
             subItems={[
               { href: '/admin/upload/courses/section', label: 'Section' },
               { href: '/admin/upload/courses/course', label: 'Course' },
@@ -46,7 +46,7 @@ const AdminSidebar = () => {
           <SidebarItemWithDropdown
             icon={<FaGlobe />}
             label="Content"
-            isOpen={isOpen}
+            setIsOpen={setIsOpen}
             subItems={[
               { href: '/admin/courses', label: 'Courses' },
             ]}
@@ -55,7 +55,7 @@ const AdminSidebar = () => {
           <SidebarItemWithDropdown
             icon={<MdReviews />}
             label="Reviews"
-            isOpen={isOpen}
+            setIsOpen={setIsOpen}
             subItems={[
               { href: '/admin/review/all', label: 'All Reviews' },
               { href: '/admin/review/pending', label: 'Pending Reviews' },
@@ -64,7 +64,7 @@ const AdminSidebar = () => {
           <SidebarItemWithDropdown
             icon={<IoMdHappy />}
             label="Happy Client"
-            isOpen={isOpen}
+            setIsOpen={setIsOpen}
             subItems={[
               { href: '/admin/upload/happyclient', label: 'Upload' },
               { href: '/admin/happyclient', label: 'See All' },

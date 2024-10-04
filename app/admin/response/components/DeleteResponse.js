@@ -1,10 +1,10 @@
 'use client'
+import DeleteButton from '@/app/components/Button/DeleteButton';
 import { revalidateAfterResponse } from '@/app/lib/action';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
-import { ClipLoader } from 'react-spinners';
 
-const DeleteButton = ({ id }) => {
+const DeleteResponse = ({ id }) => {
     const [deleting, setDeleting] = useState(false)
     const handleDelete = async () => {
         setDeleting(true);
@@ -41,13 +41,14 @@ const DeleteButton = ({ id }) => {
 
     return (
         <div>
-            <button
+            {/* <button
                 className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600"
                 onClick={handleDelete}>
                 {deleting ? <ClipLoader color="#fff" size={20} /> : 'Delete'}
-            </button>
+            </button> */}
+            <DeleteButton handlClick={handleDelete} loading={deleting} defaultText='delete' />
         </div>
     );
 };
 
-export default DeleteButton;
+export default DeleteResponse;

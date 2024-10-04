@@ -1,4 +1,5 @@
 'use client';
+import DeleteButton from '@/app/components/Button/DeleteButton';
 import { revalidateAfterDeleteCourse, revalidateAfterEditCourse, revalidateAfterUploadCourse } from '@/app/lib/action';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
@@ -283,12 +284,11 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
       </button>
 
       {mode === 'edit' &&
-        <button
-          onClick={handleDelete}
-          className="w-full text-center mt-5 py-2 rounded-md text-dark-text bg-red-500 hover:bg-red-600 active:bg-red-700 duration-200 ease-in-out transition-all"
-        >
-          {deleting ? <ClipLoader color="#fff" size={20} /> : 'Delete section'}
-        </button>
+
+        <div className='mt-5 ' >
+          <DeleteButton handleClick={handleDelete} loading={deleting} defaultText={'Delete This Course'} />
+        </div>
+
       }
     </div>
   );

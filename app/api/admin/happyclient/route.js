@@ -1,4 +1,4 @@
-import { revalidateAfterUploadHappyClient } from "@/app/lib/action";
+
 import dbConnect from "@/app/lib/mongodb";
 import HappyClient from "@/app/Models/HappyClient";
 import { NextResponse } from "next/server";
@@ -23,7 +23,6 @@ export async function POST(req) {
         });
 
         const savedHappyClient = await newHappyClient.save();
-        revalidateAfterUploadHappyClient();
         return NextResponse.json({ success: true, data: savedHappyClient });
     } catch (error) {
         console.error('Error saving HappyClient:', error);
@@ -38,8 +37,6 @@ export async function DELETE(request) {
         await dbConnect();
 
         await HappyClient.findByIdAndDelete(id);
-
-        revalidateAfterUploadHappyClient();
 
         return new Response(JSON.stringify({ message: 'HappyClient deleted successfully' }), { status: 200 });
     } catch (error) {

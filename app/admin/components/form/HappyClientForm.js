@@ -1,10 +1,13 @@
 'use client'
 import Button from '@/app/components/Button/Button';
+import { revalidateAfterUploadHappyClient } from '@/app/lib/action';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import DropzoneUploader from '../ImageUploader/DropzoneUploader';
 
 const HappyClientForm = () => {
+    const router = useRouter();
     const [imageUrl, setImageUrl] = useState('');
     const [imagePublicId, setImagePublicId] = useState('');
     const [uploading, setUploading] = useState(false);
@@ -32,8 +35,10 @@ const HappyClientForm = () => {
                 },
                 body: JSON.stringify(payload),
             });
+            await revalidateAfterUploadHappyClient();
 
             toast.success('Upload successful!');
+            router.push(`/admin/happyclient`);
 
         } catch (error) {
             console.error('Error posting data:', error);
@@ -48,7 +53,7 @@ const HappyClientForm = () => {
     return (
         <div>
             <div className="mb-6">
-                <label className="text-lg font-medium text-dark-muted mb-2">Client Image</label>
+                <label className="text-lg font-medium text-black mb-2">Client Image</label>
                 <DropzoneUploader
                     fileUrl={imageUrl}
                     setFileUrl={setImageUrl}

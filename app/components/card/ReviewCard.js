@@ -34,7 +34,7 @@ const ReviewCard = ({ review }) => {
                 </div>
                 <div className='w-full'>
                     <div className='flex items-center justify-between w-full'>
-                        <h3 className="text-lg font-semibold">{userName}</h3>
+                        <h3 className="text-lg text-black font-semibold">{userName}</h3>
                         <p className="text-sm text-gray-500">{formatDate(createdAt)}</p>
                     </div>
 
@@ -62,7 +62,7 @@ const ReviewCard = ({ review }) => {
 
 
             {/* Review Text */}
-            <p className="text-dark-gray mb-4">"{reviewText}"</p>
+            <p className="text-black mb-4">"{reviewText}"</p>
 
             {/* Review Image */}
             {reviewImage && (

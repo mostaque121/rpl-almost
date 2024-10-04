@@ -29,7 +29,7 @@ const ReviewSection = ({ reviews }) => {
     const displayedReviews = reviews.slice(0, 5);
 
     return (
-        <div className="flex flex-col md:flex-row p-6 bg-white rounded-lg shadow-lg">
+        <div className="flex flex-col md:flex-row px-3 sm:px-6 py-6 bg-white rounded-lg shadow-lg">
 
             <div className="md:w-96 w-full mb-6 md:mb-0">
                 <p className="text-charcoal text-2xl font-semibold mb-4">{totalReviews} reviews</p>
@@ -67,7 +67,7 @@ const ReviewSection = ({ reviews }) => {
                                         ></div>
                                     </ScrollReveal>
                                 </div>
-                                <span className="text-gray-600">{percentage}%</span>
+                                <span className="text-dark-gray  w-14">{percentage}%</span>
                             </div>
                         );
                     })}

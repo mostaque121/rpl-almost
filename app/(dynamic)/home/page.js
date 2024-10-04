@@ -77,7 +77,7 @@ export default function Home() {
                 <HappyClientSection />
             </div>
 
-            <div className='mx-5'>
+            <div className='sm:mx-5 mx-3 my-5'>
                 <UserReview />
             </div>
 

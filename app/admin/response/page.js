@@ -1,5 +1,5 @@
 import { fetchResponse } from "../lib/fetchDataForAdmin";
-import DeleteButton from "./components/DeleteButton";
+import DeleteResponse from "./components/DeleteResponse";
 
 export default async function Page() {
     const responses = await fetchResponse();
@@ -13,7 +13,7 @@ export default async function Page() {
                 ) : (
                     <>
                         {/* Desktop view */}
-                        <div className="md:block overflow-x-auto hidden">
+                        <div className="md:block overflow-x-auto  hidden">
                             <table className="min-w-full bg-white border border-light-gray-hover">
                                 <thead>
                                     <tr>
@@ -33,8 +33,8 @@ export default async function Page() {
                                             <td className="border-b border-light-gray-hover px-4 py-2">{response.phone}</td>
                                             <td className="border-b border-light-gray-hover px-4 py-2">{response.message}</td>
                                             <td className="border-b border-light-gray-hover px-4 py-2">{response.interest}</td>
-                                            <td className="border-b border-light-gray-hover px-4 py-2">
-                                                <DeleteButton id={response._id} />
+                                            <td className="border-b border-light-gray-hover px-4 py-2 relative">
+                                                <DeleteResponse id={response._id} />
                                             </td>
                                         </tr>
                                     ))}
@@ -67,7 +67,7 @@ export default async function Page() {
                                         <p>{response.interest}</p>
                                     </div>
                                     <div className="mt-4">
-                                        <DeleteButton id={response._id} />
+                                        <DeleteResponse id={response._id} />
                                     </div>
                                 </div>
                             ))}

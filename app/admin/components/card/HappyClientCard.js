@@ -1,4 +1,5 @@
 'use client'
+import DeleteButton from '@/app/components/Button/DeleteButton';
 import { revalidateAfterUploadHappyClient } from '@/app/lib/action';
 import Image from 'next/image'; // Import Image from next/image
 import { useState } from 'react';
@@ -22,11 +23,13 @@ const HappyClientCard = ({ happyClient }) => {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
 
+
+            await revalidateAfterUploadHappyClient();
+
             toast.success('Deleted successfully!', {
                 duration: 3000,
                 position: 'top-right',
             });
-            revalidateAfterUploadHappyClient();
         } catch (error) {
             toast.error('Delete failed. Please try again.', {
                 duration: 3000,
@@ -38,7 +41,7 @@ const HappyClientCard = ({ happyClient }) => {
     };
 
     return (
-        <div className="bg-dark-gray shadow-md rounded-lg p-4  mb-4">
+        <div className="bg-white w-60 float-left ml-5 shadow-md rounded-lg p-4  mb-4">
             <div className='relative'>
                 <Image
                     src={happyClient.image}
@@ -48,18 +51,8 @@ const HappyClientCard = ({ happyClient }) => {
                     className="mt-2 rounded-md w-60 h-auto"
                 />
             </div>
-            <div className="mt-4 flex space-x-2">
-                <button
-                    onClick={() => handleDelete(happyClient._id)}
-                    className={`bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 flex items-center justify-center ${deleting ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    disabled={deleting}
-                >
-                    {deleting ? (
-                        <span className="loader-btn"></span>
-                    ) : (
-                        'Delete'
-                    )}
-                </button>
+            <div className="mt-4 max-w-60 space-x-2 w-full">
+                <DeleteButton loading={deleting} handleClick={() => handleDelete(happyClient._id)} />
             </div>
         </div>
     );

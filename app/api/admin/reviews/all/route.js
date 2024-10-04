@@ -53,7 +53,6 @@ export async function DELETE(request) {
     try {
         const body = await request.json();
         const { id } = body;
-
         if (!id) {
             return NextResponse.json({ error: 'Review ID is required' }, { status: 400 });
         }

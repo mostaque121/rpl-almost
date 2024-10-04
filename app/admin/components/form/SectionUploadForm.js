@@ -1,4 +1,5 @@
 'use client';
+import DeleteButton from '@/app/components/Button/DeleteButton';
 import { revalidateAfterUploadSection } from '@/app/lib/action';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -185,13 +186,11 @@ const SectionUploadForm = ({ mode, initialData, availableItems }) => {
             </button>
 
             {mode === 'edit' &&
-                <button
-                    onClick={handleDelete}
-                    className={`w-full text-center mt-5 py-2 rounded-md text-dark-text ${initialData.courses.length !== 0 ? 'bg-red-400 cursor-not-allowed' : 'bg-red-500 hover:bg-red-600 active:bg-red-700 duration-200 ease-in-out transition-all'}`}
-                    disabled={initialData.courses.length !== 0}
-                >
-                    {deleting ? <ClipLoader color="#fff" size={20} /> : 'Delete section'}
-                </button>
+
+                <div className='mt-5'>
+                    <DeleteButton defaultText='Delete Section' loading={deleting} whenDisable={initialData.courses.length !== 0} handleClick={handleDelete} />
+                </div>
+
             }
         </div>
     );
