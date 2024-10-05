@@ -12,19 +12,18 @@ const Footer = () => {
         <div className=" grid md:grid-cols-4 grid-cols-2 gap-5">
           {/* About Section */}
           <div>
-            <h3 className="text-lg font-semibold">About Us</h3>
+            <h3 className="text-lg font-semibold mb-2">About Us</h3>
             <p className="text-sm">We help you get recognized for your skills through the RPL process, empowering your career and personal growth.</p>
             <Link href="/about" className="text-light-blue">Learn More</Link>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
             <div className="text-sm space-y-2">
               <p><Link href="/home">Home</Link></p>
-              <p><Link href="/enroll">Enroll Now</Link></p>
               <p><Link href="/courses">Courses</Link></p>
-              <p><Link href="/testimonials">Testimonials</Link></p>
+              <p><Link href="/about">About us</Link></p>
               <p><Link href="/faq">FAQs</Link></p>
               <p><Link href="/contact">Contact Us</Link></p>
             </div>
@@ -32,9 +31,8 @@ const Footer = () => {
 
           {/* Support Section */}
           <div>
-            <h3 className="text-lg font-semibold">Support</h3>
+            <h3 className="text-lg font-semibold mb-2">Support</h3>
             <div className="text-sm space-y-2">
-              <p><Link href="/help-center">Help Center</Link></p>
               <p><Link href="/terms">Terms & Conditions</Link></p>
               <p><Link href="/privacy">Privacy Policy</Link></p>
               <p><Link href="/refund">Refund Policy</Link></p>
@@ -43,12 +41,11 @@ const Footer = () => {
 
           {/* Contact Section */}
           <div>
-            <h3 className="text-lg font-semibold">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
             <div className="text-sm space-y-2">
-              <p>Phone: +61483921139</p>
-              <p>Email: rplfasttrack@gmail.com</p>
-              <p>Address: 123 RPL St, Learning City</p>
-              <p>Mon-Fri: 9am - 6pm</p>
+              <a href="tel:+61483921139">Phone: +61483921139</a>
+              <a href="mailto:rplfasttrack@gmail.com">Email: rplfasttrack@gmail.com</a>
+              <p>Address: 26 Clement Way, Melton South, Victoria 3338</p>
             </div>
           </div>
         </div>
@@ -56,25 +53,7 @@ const Footer = () => {
 
 
         {/* Bottom Section */}
-        <div className="mt-8 flex flex-col items-center gap-8 md:flex-row md:justify-between">
-          {/* Newsletter Signup */}
-          <div className="flex flex-col items-center gap-4">
-            <h3 className="text-xl font-semibold mb-2">Subscribe to our Newsletter</h3>
-            <form className="flex">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="p-3 rounded-l-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-light-blue transition duration-300"
-              />
-              <button
-                type="submit"
-                className="bg-light-blue text-charcoal p-3 rounded-r-md hover:bg-light-blue-hover transition duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-
+        <div className="mt-8 flex items-center justify-center ">
           {/* Social Media Links */}
           <div className="flex flex-col items-center gap-4">
             <h3 className="text-xl font-semibold mb-2">Follow Us</h3>

@@ -5,12 +5,12 @@ export default function UpperBar() {
         <div className="bg-blue-500 py-1 flex justify-between px-5">
             <div className="flex gap-5 text-light-gray">
                 <div className="flex gap-1 items-center">
-                    <MdCall className="" />
-                    <h1 className=' cursor-pointer hover:underline'>+61483921139</h1>
+                    <MdCall />
+                    <a href="tel:+61483921139" className=' cursor-pointer hover:underline'>+61483921139</a>
                 </div>
                 <div className="flex gap-1 items-center">
-                    <MdMail className="" />
-                    <h1 className=' cursor-pointer hover:underline'>mostaqueahmad121@gmail.com</h1>
+                    <MdMail />
+                    <a href="mailto:rplfasttrack@gmail.com" className=' cursor-pointer hover:underline'> rplfasttrack@gmail.com</a>
                 </div>
             </div>
             <div className="flex gap-1 items-center">

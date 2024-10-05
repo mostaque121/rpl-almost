@@ -1,4 +1,7 @@
+import HappyClientSection from '@/app/components/content/HappyClientSection';
+import UserReview from '@/app/components/content/UserReview';
 import Link from 'next/link';
+import { FaFlagCheckered, FaRocket, FaUsers } from 'react-icons/fa';
 
 export const metadata = {
   title: 'About Us',
@@ -7,58 +10,89 @@ export const metadata = {
 };
 const AboutUs = () => {
   return (
-    <div className="bg-white p-8 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-center mb-8">About Us</h1>
+    <div>
+      <div className="bg-gray-50 p-8 max-w-4xl mx-auto rounded-lg">
+        <h1 className="text-5xl font-bold text-center text-gray-800 mb-8">About Us</h1>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
-        <p className="mb-4">
-          At [Your Company Name], our mission is to [briefly describe your mission or goal]. We are dedicated to [describe what you do, e.g., providing high-quality education, delivering exceptional customer service, etc.]. Our goal is to [explain your broader aim or vision].
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold text-gray-700 mb-4">Our Mission</h2>
+          <p className="mb-4 text-gray-600">
+            At <span className="font-bold text-blue-600">RPL Fast Track</span>, our mission is to empower individuals through recognition of prior learning (RPL) and help them achieve their career goals.
+            We are dedicated to providing high-quality, efficient certification processes that recognize your skills and experiences. Our goal is to facilitate a seamless pathway to success for every learner.
+          </p>
+          <FaRocket className="text-blue-600 text-5xl mx-auto mb-4" />
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold text-gray-700 mb-4">Our Values</h2>
+          <ul className="list-disc list-inside mb-4 text-gray-600">
+            <li><strong>Integrity:</strong> We maintain transparency and honesty in all our dealings.</li>
+            <li><strong>Innovation:</strong> We embrace new ideas and technologies to improve our services.</li>
+            <li><strong>Customer Satisfaction:</strong> We prioritize our clients' needs and strive for excellence.</li>
+          </ul>
+          <p className="mb-4 text-gray-600">
+            These values guide our actions and decisions, ensuring that we deliver exceptional service while fostering a culture of respect and accountability.
+          </p>
+          <FaFlagCheckered className="text-blue-600 text-5xl mx-auto mb-4" />
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold text-gray-700 mb-4">Our Story</h2>
+          <p className="mb-4 text-gray-600">
+            <span className="font-bold text-blue-600">RPL Fast Track</span> began with the vision of simplifying the certification process for individuals seeking recognition for their skills.
+            Over the years, we have streamlined our services to better meet the needs of our clients and have successfully certified thousands of individuals.
+            Our journey has been driven by a commitment to excellence and a passion for helping others succeed.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold text-gray-700 mb-4">Meet the Team</h2>
+          <p className="mb-4 text-gray-600">
+            Our team is composed of experienced professionals with diverse backgrounds in education, industry, and certification processes.
+            Each member brings unique expertise and passion to our work, dedicated to supporting our clients every step of the way.
+            Together, we strive to create a positive and enriching experience for all those we serve.
+          </p>
+          <FaUsers className="text-blue-600 text-5xl mx-auto mb-4" />
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold text-gray-700 mb-4">What Sets Us Apart</h2>
+          <p className="mb-4 text-gray-600">
+            What distinguishes <span className="font-bold text-blue-600">RPL Fast Track</span> is our commitment to a fast, user-friendly, and transparent certification process.
+            We utilize innovative technology to ensure that your application is processed swiftly and accurately.
+            Our dedicated team is here to guide you through every stage of the RPL process, making it as seamless as possible.
+          </p>
+          <p className="text-gray-600">
+            We are committed to providing personalized support, ensuring that each client's unique journey is recognized and valued.
+            Our goal is to empower individuals to unlock their full potential and achieve their career aspirations.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold text-gray-700 mb-4">Get in Touch</h2>
+          <p className="mb-4 text-gray-600">
+            We’d love to hear from you! If you have any questions or would like to learn more about us, feel free to reach out through our website or connect with us on social media.
+            Your journey matters to us, and we are here to assist you.
+          </p>
+          <Link href="/contact">
+            <span className="text-blue-600 underline cursor-pointer">Contact Us</span>
+          </Link>
+        </section>
+
+        <p className="text-center text-sm mt-10 text-gray-600">
+          <Link href="/home">
+            <span className="text-blue-600 underline cursor-pointer">Back to Home</span>
+          </Link>
         </p>
-      </section>
+      </div>
+      <div className='bg-light-blue px-3 sm:px-6  py-6'>
+        <HappyClientSection />
+      </div>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Our Values</h2>
-        <p className="mb-4">
-          We believe in [list your core values, e.g., integrity, innovation, customer satisfaction]. These values guide our actions and decisions, ensuring that we [explain how these values influence your work or company culture].
-        </p>
-      </section>
+      <UserReview />
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
-        <p className="mb-4">
-          Founded in [year], [Your Company Name] began with [briefly describe the origin or inspiration behind the company]. Over the years, we have [describe major milestones, achievements, or growth]. Our journey has been driven by [explain what motivates or inspires you].
-        </p>
-      </section>
-
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Meet the Team</h2>
-        <p className="mb-4">
-          Our team is composed of [describe your team or key personnel]. Each member brings unique expertise and passion to our work. [Optionally, include brief bios or roles of key team members].
-        </p>
-      </section>
-
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">What Sets Us Apart</h2>
-        <p className="mb-4">
-          What distinguishes [Your Company Name] is [describe what makes you unique, such as innovative approaches, exceptional service, specific expertise, etc.]. We are committed to [explain how you stand out in your industry or field].
-        </p>
-      </section>
-
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
-        <p className="mb-4">
-          We’d love to hear from you! If you have any questions or would like to learn more about us, feel free to [describe how people can reach out, e.g., contact us through our website, social media, etc.].
-        </p>
-        <Link href="/contact">
-          <span className="text-light-blue underline">Contact Us</span>
-        </Link>
-      </section>
-
-      <p className="text-center text-sm mt-10">
-        <Link href="/">Back to Home</Link>
-      </p>
     </div>
+
   );
 };
 

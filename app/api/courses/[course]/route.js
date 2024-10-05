@@ -9,7 +9,7 @@ export async function GET(req, { params }) {
         const data = await Course.findOne({ link: course })
             .populate({
                 path: 'section',
-                select: 'link',
+                select: 'link,title',
             });
 
         return NextResponse.json(data);

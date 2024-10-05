@@ -63,7 +63,7 @@ const ResponseForm = ({ title }) => {
                     </h1>
                 )}
                 <h1 className="text-center text-lg font-semibold text-gray-800 mb-5">
-                    Get your free consultation today!
+                    Get your free consultants!
                 </h1>
 
                 {!success ? (

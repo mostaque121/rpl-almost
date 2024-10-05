@@ -5,9 +5,11 @@ export default async function HappyClientSection() {
     const happyClients = await fetchHappyClient('api/happyclient');
 
     return (happyClients &&
-        <div>
-            <h1 className="font-semibold text-3xl text-center py-8 text-black">Happy Clients</h1>
+        <section className="happy-client-section">
+            <h1 className="font-bold text-4xl text-center py-6 text-gray-800">
+                Our Happy Clients.
+            </h1>
             <SlickCarousel happyClients={happyClients} />
-        </div>
+        </section>
     );
 }

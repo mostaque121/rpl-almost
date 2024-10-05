@@ -54,7 +54,7 @@ export default function LowerBar({ toggleModal }) {
             </div>
             <div className="flex md:hidden text-black gap-1 items-center">
                 <MdCall />
-                <h1 className=' cursor-pointer font-semibold hover:underline'>+61483921139</h1>
+                <a href="tel:+61483921139" className=' cursor-pointer font-semibold hover:underline'>+61483921139</a>
             </div>
         </div>
     );

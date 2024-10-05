@@ -1,4 +1,8 @@
 import SectionCard from "@/app/components/card/SectionCard";
+import RPLTimeline from "@/app/components/content/StepsSection";
+import UserReview from "@/app/components/content/UserReview";
+import FAQ from "@/app/components/Home/FAQ";
+import WhyChooseUs from "@/app/components/Home/WhyChooseUs";
 import { fetchSection } from "@/app/lib/fetchData";
 
 export async function generateMetadata() {
@@ -40,6 +44,22 @@ export default async function Page() {
                         ))}
                     </div>
                 </div>
+            </div>
+
+            <div>
+                <RPLTimeline />
+            </div>
+
+            <div className='bg-light-blue'>
+                <WhyChooseUs />
+            </div>
+
+            <div>
+                <FAQ />
+            </div>
+
+            <div>
+                <UserReview />
             </div>
         </div>
     );

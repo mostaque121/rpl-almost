@@ -1,10 +1,11 @@
 import HappyClientSection from '@/app/components/content/HappyClientSection';
+import RPLInfoSection from '@/app/components/content/RPLInfoSection';
+import RPLTimeline from '@/app/components/content/StepsSection';
 import UserReview from '@/app/components/content/UserReview';
 import ResponseForm from '@/app/components/form/ResponseForm';
+import FAQ from '@/app/components/Home/FAQ';
 import PopularCourse from '@/app/components/Home/PopularCourse';
-import RPLProcess from '@/app/components/Home/ProcessOfRpl';
 import WhyChooseUs from '@/app/components/Home/WhyChooseUs';
-import ScrollReveal from '@/app/lib/ScrollReveal';
 import Link from 'next/link';
 
 export default function Home() {
@@ -29,11 +30,11 @@ export default function Home() {
                 <ResponseForm />
             </div>
 
-            <ScrollReveal initial={{ opacity: 0, rotateY: 90 }} animate={{ opacity: 1, rotateY: 0 }}>
-                <div>
-                    <PopularCourse />
-                </div>
-            </ScrollReveal>
+
+            <div>
+                <PopularCourse />
+            </div>
+
 
 
             <div className="mx-3 sm:mx-5 my-5 rounded-md overflow-hidden flex justify-center items-center bg-white shadow-md">
@@ -65,21 +66,27 @@ export default function Home() {
             </div>
 
             <div>
-                <RPLProcess />
+                <RPLTimeline />
             </div>
 
             <div>
                 <WhyChooseUs />
             </div>
 
+            <div>
+                <FAQ />
+            </div>
+
+            <div className='bg-light-blue px-3 py-10 sm:px-8'>
+                <RPLInfoSection />
+            </div>
 
             <div className='px-5 pb-8 bg-white'>
                 <HappyClientSection />
             </div>
 
-            <div className='sm:mx-5 mx-3 my-5'>
-                <UserReview />
-            </div>
+
+            <UserReview />
 
         </div>
     )

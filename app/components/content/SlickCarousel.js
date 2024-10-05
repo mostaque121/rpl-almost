@@ -27,11 +27,13 @@ const SlickCarousel = ({ happyClients }) => {
   };
 
   return (happyClients && happyClients.length !== 0 &&
-    <div>
+    <div className='bg-light-blue p-6 rounded-md'>
       <Slider {...settings}>
         {happyClients.map((happyClient) => (
-          <div className='relative p-2 ' key={happyClient._id}>
-            <Image src={happyClient.image} alt='image' width={900} height={1200} />
+          <div className='p-2'>
+            <div className='relative p-2 bg-white hadow-md rounded-md ' key={happyClient._id}>
+              <Image src={happyClient.image} alt='image' width={900} height={1200} className='rounded-md' />
+            </div>
           </div>
         ))}
       </Slider>

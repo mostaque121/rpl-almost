@@ -2,17 +2,15 @@
 import { useState } from 'react';
 import { MdExpandLess, MdExpandMore } from 'react-icons/md'; // Import the icons
 
-const Units = ({ coreUnits,electiveUnits }) => {
+const Units = ({ coreUnits, electiveUnits }) => {
     const [isCoreUnitsOpen, setCoreUnitsOpen] = useState(false);
     const [isElectiveUnitsOpen, setElectiveUnitsOpen] = useState(false);
 
     return (
-        <div className='pt-8'>
-            <h1 className="text-2xl font-bold mb-4">Units</h1>
-
+        <div className='sm:px-6 px-3 py-6 rounded-md bg-light-blue'>
             <div className="mb-4">
-                <h2 
-                    className="text-xl font-semibold cursor-pointer mb-2 flex items-center"
+                <h2
+                    className="sm:text-xl text-base font-semibold cursor-pointer mb-2 flex items-center"
                     onClick={() => setCoreUnitsOpen(!isCoreUnitsOpen)}
                 >
                     Core Units
@@ -30,8 +28,8 @@ const Units = ({ coreUnits,electiveUnits }) => {
             </div>
 
             <div>
-                <h2 
-                    className="text-xl font-semibold cursor-pointer mb-2 flex items-center"
+                <h2
+                    className="sm:text-xl text-base font-semibold cursor-pointer mb-2 flex items-center"
                     onClick={() => setElectiveUnitsOpen(!isElectiveUnitsOpen)}
                 >
                     Elective Units

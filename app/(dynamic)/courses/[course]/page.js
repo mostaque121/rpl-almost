@@ -1,9 +1,12 @@
 import HappyClientSection from "@/app/components/content/HappyClientSection";
+import RPLInfoSection from "@/app/components/content/RPLInfoSection";
+import RPLOutcomeSection from "@/app/components/content/RPLOutcome";
+import RPLTimeline from "@/app/components/content/StepsSection";
 import UserReview from "@/app/components/content/UserReview";
 import ResponseForm from "@/app/components/form/ResponseForm";
 import Units from "@/app/components/qualifications/Units";
 import { fetchData } from "@/app/lib/fetchData";
-import ScrollReveal from "@/app/lib/ScrollReveal";
+import Link from "next/link";
 import { MdOutlineNavigateNext } from "react-icons/md";
 
 export async function generateMetadata({ params }) {
@@ -46,14 +49,23 @@ export default async function Page({ params }) {
     const data = await fetchData(`/api/courses/${course}`);
     return (data &&
         <div className="qualification ">
-            <div className="bg-light-blue px-3 sm:px-6 md:px-10 pt-10 pb-10">
-                <div className="flex flex-col md:flex-row gap-8 justify-center" >
+            <div className="bg-light-blue  px-3 sm:px-8 md:px-10 pt-10 pb-10">
+                <div className="flex flex-col md:flex-row gap-8 items-end justify-end" >
                     <div >
                         <h1 className="text-4xl text-charcoal font-semibold">{data.title}</h1>
                         <div className="mt-2">
-                            <span className="inline-block text-blue-500 hover:scale-95 active:scale-90 transition duration-200 ease-in-out cursor-pointer hover:text-blue-600">Qualification</span>
+                            <Link href='/courses'>
+                                <span className="inline-block text-blue-500 hover:scale-95 active:scale-90 transition duration-200 ease-in-out cursor-pointer hover:text-blue-600">
+                                    Courses
+                                </span>
+                            </Link>
+
                             <span className="inline-block  align-middle"><MdOutlineNavigateNext /></span>
-                            <span className="inline-block text-blue-500 hover:scale-95 active:scale-90 transition duration-200 ease-in-out cursor-pointer hover:text-blue-600">{data.section.title}</span>
+                            <Link href={`/${data.section.link}`}>
+                                <span className="inline-block text-blue-500 hover:scale-95 active:scale-90 transition duration-200 ease-in-out cursor-pointer hover:text-blue-600">
+                                    {data.section.title}
+                                </span>
+                            </Link>
                             <span className="inline-block align-middle"><MdOutlineNavigateNext /></span>
                             <span className="inline-block text-dark-gray font-semibold align-middle">{data.title}</span>
                         </div>
@@ -65,38 +77,47 @@ export default async function Page({ params }) {
                     </div>
                 </div>
             </div>
-            <ScrollReveal initial={{ opacity: 0, rotateY: 90 }} animate={{ opacity: 1, rotateY: 0 }}>
-                <div className="px-3 sm:px-6 md:px-10" >
-                    <h1 className="text-2xl font-semibold mt-8 mb-2 text-charcoal">Qualification description</h1>
-                    <div className="text-dark-gray text-sm" dangerouslySetInnerHTML={{ __html: data.description }} />
-                </div>
-            </ScrollReveal>
-            <div className="px-3 sm:px-6 md:px-10"  >
-                <h1 className="text-2xl font-semibold mt-8 mb-2 text-charcoal">Job Opportunities</h1>
-                <div className="text-dark-gray text-sm" dangerouslySetInnerHTML={{ __html: data.jobOpportunity }} />
+
+            <div className="px-3 sm:px-8 md:px-10 sm:py-8 py-6" >
+                <h1 className="sm:text-2xl text-lg text-center font-semibold mb-2 text-charcoal">Qualification description</h1>
+                <div className="text-dark-gray bg-light-blue rounded-md sm:px-6 px-3 py-6 text-sm" dangerouslySetInnerHTML={{ __html: data.description }} />
             </div>
 
-            <div className="px-3 sm:px-6 md:px-10"  >
-                <h1 className="text-2xl font-semibold mt-8 mb-2 text-charcoal">Entry Requirements</h1>
-                <div className="text-dark-gray text-sm" dangerouslySetInnerHTML={{ __html: data.entryRequirement }} />
+            <div className="px-3 sm:px-8 md:px-10 sm:py-8 py-6 bg-light-blue"  >
+                <h1 className="sm:text-2xl text-lg text-center font-semibold  mb-2 text-charcoal">Job Opportunities</h1>
+                <div className="text-dark-gray bg-white rounded-md sm:px-6 px-3 py-6 text-sm" dangerouslySetInnerHTML={{ __html: data.jobOpportunity }} />
             </div>
 
-            <div className="px-3 sm:px-6 md:px-10" >
-                <h1 className="text-2xl font-semibold mt-8 mb-2 text-charcoal">Packaging Rules</h1>
-                <div className="text-dark-gray text-sm" dangerouslySetInnerHTML={{ __html: data.packagingRule }} />
+            <div className="px-3 sm:px-8 md:px-10 sm:py-8 py-6"  >
+                <h1 className="sm:text-2xl text-lg text-center font-semibold  mb-2 text-charcoal">Entry Requirements</h1>
+                <div className="text-dark-gray sm:px-6 px-3 py-6 bg-light-blue rounded-md text-sm" dangerouslySetInnerHTML={{ __html: data.entryRequirement }} />
             </div>
 
-            <div className="px-3 sm:px-6 md:px-10" >
+            <div className="px-3 bg-light-blue sm:px-8 md:px-10 sm:py-8 py-6" >
+                <h1 className="sm:text-2xl text-lg text-center font-semibold mb-2 text-charcoal">Packaging Rules</h1>
+                <div className="text-dark-gray bg-white rounded-md sm:px-6 px-3 py-6 text-sm" dangerouslySetInnerHTML={{ __html: data.packagingRule }} />
+            </div>
+
+            <div className="px-3 sm:px-8 md:px-10 sm:py-8 py-6" >
+                <h1 className="sm:text-2xl text-lg text-center font-bold mb-2">Units</h1>
                 <Units coreUnits={data.coreUnits} electiveUnits={data.electiveUnits} />
             </div>
 
-            <hr className='mt-5'></hr>
+            <div className='bg-light-blue px-3 py-10 sm:px-8'>
+                <RPLInfoSection />
+            </div>
+
+            <div className='bg-white px-3 py-10 sm:px-8'>
+                <RPLOutcomeSection />
+            </div>
+
+            <div><RPLTimeline /></div>
 
             <div className="px-3 sm:px-6 md:px-10" >
                 <HappyClientSection />
             </div>
 
-            <div className="px-3 sm:px-6 md:px-10 bg-light-blue">
+            <div >
                 <UserReview />
             </div>
 
