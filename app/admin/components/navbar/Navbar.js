@@ -19,9 +19,12 @@ const AdminNavbar = () => {
   return (
     <nav className="bg-white z-[100] text-black px-4 py-2 flex justify-between items-center shadow-md">
       {/* Logo */}
-      <div className="flex items-center md:ml-0 ml-10 space-x-4">
-        <img src="/logo.png" alt="Admin Logo" className="h-10" /> {/* Replace with your logo */}
-      </div>
+      <Link href='/home'>
+        <div className="flex items-center md:ml-0 ml-10 space-x-4">
+          <img src="/logo.png" alt="Admin Logo" className="h-10" /> {/* Replace with your logo */}
+        </div>
+      </Link>
+
 
       {/* Middle Navigation Items */}
       <div className="sm:flex hidden items-center space-x-4">

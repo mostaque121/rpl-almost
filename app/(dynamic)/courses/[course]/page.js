@@ -47,6 +47,7 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
     const { course } = params;
     const data = await fetchData(`/api/courses/${course}`);
+    console.log(data)
     return (data &&
         <div className="qualification ">
             <div className="bg-light-blue  px-3 sm:px-8 md:px-10 pt-10 pb-10">
