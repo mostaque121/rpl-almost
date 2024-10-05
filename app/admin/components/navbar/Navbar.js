@@ -1,6 +1,7 @@
 "use client"; // Necessary to enable client-side features
 import { signOut, useSession } from "next-auth/react"; // Import useSession and signOut
 import Image from "next/image"; // Import the Image component from Next.js
+import Link from "next/link";
 import { useState } from "react";
 import { FaSignOutAlt } from "react-icons/fa";
 
