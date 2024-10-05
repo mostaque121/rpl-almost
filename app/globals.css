@@ -40,13 +40,13 @@ body {
   margin-bottom: 20px;
 }
 
-.qualification .li {
+.qualification li {
   display: list-item;
   text-align: -webkit-match-parent;
   unicode-bidi: isolate;
 }
 
-.qualification .ul {
+.qualification ul {
   display: block;
   list-style-type: disc;
   margin-block-start: 1em;
@@ -56,7 +56,7 @@ body {
   padding-inline-start: 40px;
   unicode-bidi: isolate;
 }
-.qualification .ol {
+.qualification ol {
   display: block;
   list-style-type: decimal;
   margin-block-start: 1em;
@@ -67,42 +67,42 @@ body {
   unicode-bidi: isolate;
 }
 
-.qualification. figure.table {
+.qualification figure.table {
   width: 100%; /* Ensure the figure takes full width */
   display: block;
   margin: 0;
 }
 
-.qualification. table {
+.qualification table {
   width: 100%; /* Make the table take up full width */
   border-collapse: collapse; /* Ensure no gaps between cells */
   table-layout: auto; /* Allow columns to adjust dynamically */
 }
 
-.qualification. td,
-.qualification. th {
+.qualification td,
+.qualification th {
   border: 1px solid #ddd; /* Light border for cells */
   padding: 12px 15px; /* Padding inside cells */
   text-align: left;
 }
 
-.qualification. td:first-child {
+.qualification td:first-child {
   min-width: 150px;
 }
 
-.qualification. td:nth-child(2) {
+.qualification td:nth-child(2) {
   width: 10000px;
 }
 
-.qualification. td[colspan] {
+.qualification td[colspan] {
   width: 100%; /* Ensure colspan <td> takes full width */
 }
 
-.qualification. tr:nth-child(even) {
+.qualification tr:nth-child(even) {
   background-color: #f9f9f9; /* Alternate row color */
 }
 
-.qualification. tr:hover {
+.qualification tr:hover {
   background-color: #f1f1f1; /* Hover effect */
 }
 
