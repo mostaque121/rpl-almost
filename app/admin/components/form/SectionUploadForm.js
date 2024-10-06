@@ -130,6 +130,7 @@ const SectionUploadForm = ({ mode, initialData, availableItems }) => {
                     setFileUrl={setFileUrlSquare}
                     preset={"service-square"}
                     setPublicId={setPublicIdSquare}
+                    aspectRatio={1280 / 1280}
                 />
             </div>
 
@@ -140,6 +141,7 @@ const SectionUploadForm = ({ mode, initialData, availableItems }) => {
                     setFileUrl={setFileUrlCover}
                     preset={"service-cover"}
                     setPublicId={setPublicIdCover}
+                    aspectRatio={1500 / 720}
                 />
             </div>
 

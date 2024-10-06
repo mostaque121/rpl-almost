@@ -212,6 +212,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
           setFileUrl={setFileUrlSquare}
           preset={"certificate-square"}
           setPublicId={setPublicIdSquare}
+          aspectRatio={1280 / 1280}
         />
       </div>
 
@@ -222,6 +223,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
           setFileUrl={setFileUrlCover}
           preset={"certificate-cover"}
           setPublicId={setPublicIdCover}
+          aspectRatio={1500 / 720}
         />
       </div>
 

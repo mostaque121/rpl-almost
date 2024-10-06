@@ -7,43 +7,47 @@ const Units = ({ coreUnits, electiveUnits }) => {
     const [isElectiveUnitsOpen, setElectiveUnitsOpen] = useState(false);
 
     return (
-        <div className='sm:px-6 px-3 py-6 rounded-md bg-light-blue'>
+        <div className='sm:px-6 px-3 py-6 rounded-md bg-white shadow-md border border-gray-200'>
+            {/* Core Units Section */}
             <div className="mb-4">
                 <h2
-                    className="sm:text-xl text-base font-semibold cursor-pointer mb-2 flex items-center"
+                    className="sm:text-xl text-base font-semibold cursor-pointer mb-2 flex items-center justify-between transition-colors duration-300 text-gray-800 hover:text-indigo-600"
                     onClick={() => setCoreUnitsOpen(!isCoreUnitsOpen)}
                 >
-                    Core Units
-                    {isCoreUnitsOpen ? (
-                        <MdExpandLess className="ml-2" />
-                    ) : (
-                        <MdExpandMore className="ml-2" />
-                    )}
+                    <span className="flex items-center">
+                        <span className={`mr-2 transition-transform duration-300 ${isCoreUnitsOpen ? 'rotate-180' : 'rotate-0'}`}>
+                            {isCoreUnitsOpen ? <MdExpandLess size={24} /> : <MdExpandMore size={24} />}
+                        </span>
+                        Core Units
+                    </span>
                 </h2>
-                {isCoreUnitsOpen && (
-                    <div>
-                        <div className='text-sm' dangerouslySetInnerHTML={{ __html: coreUnits }} />
-                    </div>
-                )}
+                <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isCoreUnitsOpen ? 'max-h-screen' : 'max-h-0'
+                        }`}
+                >
+                    <div className='text-sm text-gray-600 py-2' dangerouslySetInnerHTML={{ __html: coreUnits }} />
+                </div>
             </div>
 
+            {/* Elective Units Section */}
             <div>
                 <h2
-                    className="sm:text-xl text-base font-semibold cursor-pointer mb-2 flex items-center"
+                    className="sm:text-xl text-base font-semibold cursor-pointer mb-2 flex items-center justify-between transition-colors duration-300 text-gray-800 hover:text-indigo-600"
                     onClick={() => setElectiveUnitsOpen(!isElectiveUnitsOpen)}
                 >
-                    Elective Units
-                    {isElectiveUnitsOpen ? (
-                        <MdExpandLess className="ml-2" />
-                    ) : (
-                        <MdExpandMore className="ml-2" />
-                    )}
+                    <span className="flex items-center">
+                        <span className={`mr-2 transition-transform duration-300 ${isElectiveUnitsOpen ? 'rotate-180' : 'rotate-0'}`}>
+                            {isElectiveUnitsOpen ? <MdExpandLess size={24} /> : <MdExpandMore size={24} />}
+                        </span>
+                        Elective Units
+                    </span>
                 </h2>
-                {isElectiveUnitsOpen && (
-                    <div>
-                        <div className='text-sm' dangerouslySetInnerHTML={{ __html: electiveUnits }} />
-                    </div>
-                )}
+                <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isElectiveUnitsOpen ? 'max-h-screen' : 'max-h-0'
+                        }`}
+                >
+                    <div className='text-sm text-gray-600 py-2' dangerouslySetInnerHTML={{ __html: electiveUnits }} />
+                </div>
             </div>
         </div>
     );

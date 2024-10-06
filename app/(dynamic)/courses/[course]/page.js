@@ -47,7 +47,7 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
     const { course } = params;
     const data = await fetchData(`/api/courses/${course}`);
-    console.log(data)
+
     return (data &&
         <div className="qualification ">
             <div className="bg-light-blue  px-3 sm:px-8 md:px-10 pt-10 pb-10">
@@ -62,7 +62,7 @@ export default async function Page({ params }) {
                             </Link>
 
                             <span className="inline-block  align-middle"><MdOutlineNavigateNext /></span>
-                            <Link href={`/${data.section.link}`}>
+                            <Link href={`/section/${data.section.link}`}>
                                 <span className="inline-block text-blue-500 hover:scale-95 active:scale-90 transition duration-200 ease-in-out cursor-pointer hover:text-blue-600">
                                     {data.section.title}
                                 </span>
@@ -78,31 +78,41 @@ export default async function Page({ params }) {
                     </div>
                 </div>
             </div>
+            <div className="qualification-container px-3 sm:px-8 py-6 space-y-6">
 
-            <div className="px-3 sm:px-8 md:px-10 sm:py-8 py-6" >
-                <h1 className="sm:text-2xl text-lg text-center font-semibold mb-2 text-charcoal">Qualification description</h1>
-                <div className="text-dark-gray bg-light-blue rounded-md sm:px-6 px-3 py-6 text-sm" dangerouslySetInnerHTML={{ __html: data.description }} />
+                {/* Qualification Description */}
+                <section className="bg-white p-6 rounded-md shadow-md border border-gray-200">
+                    <h1 className="text-xl font-semibold text-gray-800 mb-4">Qualification Description</h1>
+                    <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.description }} />
+                </section>
+
+                {/* Job Opportunities */}
+                <section className="bg-white p-6 rounded-md shadow-md border border-gray-200">
+                    <h1 className="text-xl font-semibold text-gray-800 mb-4">Job Opportunities</h1>
+                    <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.jobOpportunity }} />
+                </section>
+
+                {/* Entry Requirements */}
+                <section className="bg-white p-6 rounded-md shadow-md border border-gray-200">
+                    <h1 className="text-xl font-semibold text-gray-800 mb-4">Entry Requirements</h1>
+                    <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.entryRequirement }} />
+                </section>
+
+                {/* Packaging Rules */}
+                <section className="bg-white p-6 rounded-md shadow-md border border-gray-200">
+                    <h1 className="text-xl font-semibold text-gray-800 mb-4">Packaging Rules</h1>
+                    <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.packagingRule }} />
+                </section>
+
+                {/* Units Section */}
+                <section className="bg-white p-6 rounded-md shadow-md border border-gray-200">
+                    <h1 className="text-xl font-semibold text-gray-800 mb-4">Units</h1>
+                    <Units coreUnits={data.coreUnits} electiveUnits={data.electiveUnits} />
+                </section>
+
             </div>
 
-            <div className="px-3 sm:px-8 md:px-10 sm:py-8 py-6 bg-light-blue"  >
-                <h1 className="sm:text-2xl text-lg text-center font-semibold  mb-2 text-charcoal">Job Opportunities</h1>
-                <div className="text-dark-gray bg-white rounded-md sm:px-6 px-3 py-6 text-sm" dangerouslySetInnerHTML={{ __html: data.jobOpportunity }} />
-            </div>
 
-            <div className="px-3 sm:px-8 md:px-10 sm:py-8 py-6"  >
-                <h1 className="sm:text-2xl text-lg text-center font-semibold  mb-2 text-charcoal">Entry Requirements</h1>
-                <div className="text-dark-gray sm:px-6 px-3 py-6 bg-light-blue rounded-md text-sm" dangerouslySetInnerHTML={{ __html: data.entryRequirement }} />
-            </div>
-
-            <div className="px-3 bg-light-blue sm:px-8 md:px-10 sm:py-8 py-6" >
-                <h1 className="sm:text-2xl text-lg text-center font-semibold mb-2 text-charcoal">Packaging Rules</h1>
-                <div className="text-dark-gray bg-white rounded-md sm:px-6 px-3 py-6 text-sm" dangerouslySetInnerHTML={{ __html: data.packagingRule }} />
-            </div>
-
-            <div className="px-3 sm:px-8 md:px-10 sm:py-8 py-6" >
-                <h1 className="sm:text-2xl text-lg text-center font-bold mb-2">Units</h1>
-                <Units coreUnits={data.coreUnits} electiveUnits={data.electiveUnits} />
-            </div>
 
             <div className='bg-light-blue px-3 py-10 sm:px-8'>
                 <RPLInfoSection />
