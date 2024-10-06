@@ -39,6 +39,22 @@ export async function generateMetadata({ params }) {
     }
 }
 
+export async function generateStaticParams() {
+    try {
+        // Fetch all courses
+        const sections = await fetchData('/api/sections');
+        if (!sections || sections.length === 0) {
+            return [];
+        }
+        return sections.map(section => ({
+            section: section.link,
+        }));
+    } catch (error) {
+        console.error('Failed to fetch courses:', error);
+        return [];
+    }
+}
+
 
 
 export default async function Page({ params }) {

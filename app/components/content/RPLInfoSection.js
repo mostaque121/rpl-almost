@@ -1,22 +1,24 @@
-
 const RPLInfoSection = () => {
     return (
         <div className="sm:px-6 px-3 py-5 bg-white rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold text-center text-blue-600 mb-4">
                 Why Choose Recognition of Prior Learning (RPL)?
             </h2>
-            <p className="text-gray-700 mb-4">
-                Recognition of Prior Learning (RPL) is a legitimate and valuable pathway to obtaining nationally recognized qualifications in Australia.
-            </p>
             <ul className="list-disc list-inside mb-4">
                 <li className="mb-2">
-                    <strong className="text-blue-500">Validation of Skills:</strong> RPL allows you to receive formal recognition for your existing skills and knowledge, making it easier to transition into new roles or advance your career.
+                    <strong className="text-blue-500">Skills Recognition:</strong> RPL offers formal acknowledgment of your existing skills and knowledge, ensuring they are officially recognized.
                 </li>
                 <li className="mb-2">
-                    <strong className="text-blue-500">Efficiency:</strong> By leveraging your past experiences, RPL can significantly shorten the time it takes to gain qualifications, saving you time and resources.
+                    <strong className="text-blue-500">Time Efficiency:</strong> By leveraging your prior experience, RPL can significantly reduce the time required to achieve qualifications.
                 </li>
                 <li className="mb-2">
-                    <strong className="text-blue-500">National Recognition:</strong> The RPL process is governed by the Australian Qualifications Framework, ensuring that your qualifications are recognized across the country and by employers.
+                    <strong className="text-blue-500">Nationally Recognized:</strong> RPL qualifications are recognized across Australia under the Australian Qualifications Framework, enhancing your professional credibility.
+                </li>
+                <li className="mb-2">
+                    <strong className="text-blue-500">Career Advancement:</strong> RPL can unlock new job opportunities, promotions, and career progression in your chosen field.
+                </li>
+                <li className="mb-2">
+                    <strong className="text-blue-500">Higher Earning Potential:</strong> With nationally recognized qualifications, you may become eligible for higher-paying roles, increasing your overall earning capacity.
                 </li>
             </ul>
             <p className="text-gray-700">

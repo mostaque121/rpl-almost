@@ -44,6 +44,22 @@ export async function generateMetadata({ params }) {
     }
 }
 
+export async function generateStaticParams() {
+    try {
+        // Fetch all courses
+        const courses = await fetchData('/api/courses');
+        if (!courses || courses.length === 0) {
+            return [];
+        }
+        return courses.map(course => ({
+            course: course.link,
+        }));
+    } catch (error) {
+        console.error('Failed to fetch courses:', error);
+        return [];
+    }
+}
+
 export default async function Page({ params }) {
     const { course } = params;
     const data = await fetchData(`/api/courses/${course}`);
