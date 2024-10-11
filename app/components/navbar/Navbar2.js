@@ -19,7 +19,7 @@ export default function Navbar({ fetchedData }) {
     };
 
     return (!isAdminPath && !isAuthPath &&
-        <div className="bg-light-blue-hover">
+        <div className="bg-white border-b-2 border-gray-100">
             <div className="hidden md:block">
                 <UpperBar />
             </div>

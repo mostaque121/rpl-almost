@@ -3,7 +3,7 @@
 import { revalidateAfterResponse } from '@/app/lib/action';
 import { useState } from 'react';
 
-const ResponseForm = ({ title }) => {
+const ResponseForm = ({ title = 'RPL' }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -56,20 +56,20 @@ const ResponseForm = ({ title }) => {
 
     return (
         <div>
-            <div className="bg-light-blue-active py-10 rounded-md px-5 w-full md:w-96 shadow-lg">
+            <div className="bg-custom-gradient py-10  rounded-lg px-8 w-full md:w-96 shadow-md">
                 {title && (
-                    <h1 className="text-xl font-bold text-gray-800 text-center mb-3 leading-tight">
-                        Interested in "{title}"?
+                    <h1 className="text-lg font-bold text-yellow-200 text-center mb-3 leading-tight">
+                        Interested in {title}?
                     </h1>
                 )}
-                <h1 className="text-center text-lg font-semibold text-gray-800 mb-5">
+                <h1 className="text-center text-2xl font-semibold text-white mb-10">
                     Get your free consultants!
                 </h1>
 
                 {!success ? (
                     <form onSubmit={handleSubmit}>
                         <input
-                            className="response-input"
+                            className="w-full p-2 border border-gray-300 mb-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                             type="text"
                             name="name"
                             value={formData.name}
@@ -78,7 +78,7 @@ const ResponseForm = ({ title }) => {
                             required
                         />
                         <input
-                            className="response-input"
+                            className="w-full p-2 border border-gray-300 mb-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                             type="email"
                             name="email"
                             value={formData.email}
@@ -87,7 +87,7 @@ const ResponseForm = ({ title }) => {
                             required
                         />
                         <input
-                            className="response-input"
+                            className="w-full p-2 border border-gray-300 mb-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                             type="text"
                             name="phone"
                             value={formData.phone}
@@ -96,14 +96,14 @@ const ResponseForm = ({ title }) => {
                             required
                         />
                         <textarea
-                            className="border-none outline-none resize-none h-20 rounded-md px-3 py-1.5 w-full"
+                            className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="Message"
                         ></textarea>
                         <button
-                            className="block mx-auto bg-dark-gray text-white mt-6 text-lg px-5 py-1 rounded-md hover:scale-95 active:scale-90 duration-200 transition-all ease-in-out"
+                            className="block w-full mx-auto bg-gray-900 text-gray-100 mt-6 text-lg px-5 py-1  rounded-md hover:scale-95 active:scale-90 duration-200 transition-all ease-in-out"
                             type="submit"
                             disabled={loading}
                         >

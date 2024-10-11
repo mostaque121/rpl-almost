@@ -4,8 +4,10 @@ import RPLOutcomeSection from "@/app/components/content/RPLOutcome";
 import RPLTimeline from "@/app/components/content/StepsSection";
 import UserReview from "@/app/components/content/UserReview";
 import ResponseForm from "@/app/components/form/ResponseForm";
+import WhyChooseUs from "@/app/components/Home/WhyChooseUs";
 import Units from "@/app/components/qualifications/Units";
 import { fetchData } from "@/app/lib/fetchData";
+import Image from "next/image";
 import Link from "next/link";
 import { MdOutlineNavigateNext } from "react-icons/md";
 
@@ -65,21 +67,21 @@ export default async function Page({ params }) {
     const data = await fetchData(`/api/courses/${course}`);
 
     return (data &&
-        <div className="qualification ">
-            <div className="bg-light-blue  px-3 sm:px-8 md:px-10 pt-10 pb-10">
-                <div className="flex flex-col md:flex-row gap-8 items-end justify-end" >
+        <div>
+            <div className="bg-gray-100  px-3 sm:px-8 md:px-10 pt-16 pb-10">
+                <div className="flex flex-col max-w-7xl mx-auto md:flex-row gap-8 items-end justify-end" >
                     <div >
                         <h1 className="text-4xl text-charcoal font-semibold">{data.title}</h1>
                         <div className="mt-2">
                             <Link href='/courses'>
-                                <span className="inline-block text-blue-500 hover:scale-95 active:scale-90 transition duration-200 ease-in-out cursor-pointer hover:text-blue-600">
+                                <span className="inline-block text-copy hover:scale-95 active:scale-90 transition duration-200 ease-in-out cursor-pointer ">
                                     Courses
                                 </span>
                             </Link>
 
                             <span className="inline-block  align-middle"><MdOutlineNavigateNext /></span>
                             <Link href={`/section/${data.section.link}`}>
-                                <span className="inline-block text-blue-500 hover:scale-95 active:scale-90 transition duration-200 ease-in-out cursor-pointer hover:text-blue-600">
+                                <span className="inline-block text-copy hover:scale-95 active:scale-90 transition duration-200 ease-in-out cursor-pointer ">
                                     {data.section.title}
                                 </span>
                             </Link>
@@ -87,66 +89,64 @@ export default async function Page({ params }) {
                             <span className="inline-block text-dark-gray font-semibold align-middle">{data.title}</span>
                         </div>
                         <p className="mt-5 text-charcoal mb-3">Advance your career by applying for a {data.title} through Recognition of Prior Learning with RPL Fast Track, our streamlined service designed to fast-track your qualification.</p>
-                        <img src={data.imageCoverLink} className="w-full rounded-md h-auto"></img>
+                        <div className='relative w-full rounded-md overflow-hidden shadow-md h-auto'>
+                            <Image
+                                src={data.imageCoverLink}
+                                alt={data.title}
+                                width={1500}
+                                height={720}
+
+                            />
+                        </div>
                     </div>
                     <div>
                         <ResponseForm title={data.title} />
                     </div>
                 </div>
             </div>
-            <div className="qualification-container px-3 sm:px-8 py-6 space-y-6">
+
+            <div className="qualification-container">
 
                 {/* Qualification Description */}
-                <section className="bg-white p-6 rounded-md shadow-md border border-gray-200">
+                <section className=" qualification sm:px-8 px-4 py-6 bg-white">
                     <h1 className="text-xl font-semibold text-gray-800 mb-4">Qualification Description</h1>
                     <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.description }} />
                 </section>
 
                 {/* Job Opportunities */}
-                <section className="bg-white p-6 rounded-md shadow-md border border-gray-200">
-                    <h1 className="text-xl font-semibold text-gray-800 mb-4">Job Opportunities</h1>
+                <section className="bg-gray-100 qualification sm:px-8 px-4 py-6">
+                    <h1 className="text-xl font-semibold text-black mb-4">Job Opportunities</h1>
                     <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.jobOpportunity }} />
                 </section>
 
                 {/* Entry Requirements */}
-                <section className="bg-white p-6 rounded-md shadow-md border border-gray-200">
+                <section className="bg-white qualification sm:px-8 px-4 py-6 ">
                     <h1 className="text-xl font-semibold text-gray-800 mb-4">Entry Requirements</h1>
                     <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.entryRequirement }} />
                 </section>
 
                 {/* Packaging Rules */}
-                <section className="bg-white p-6 rounded-md shadow-md border border-gray-200">
-                    <h1 className="text-xl font-semibold text-gray-800 mb-4">Packaging Rules</h1>
+                <section className="bg-gray-100 qualification sm:px-8 px-4 py-6">
+                    <h1 className="text-xl font-semibold text-black mb-4">Packaging Rules</h1>
                     <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.packagingRule }} />
                 </section>
-
-                {/* Units Section */}
-                <section className="bg-white p-6 rounded-md shadow-md border border-gray-200">
-                    <h1 className="text-xl font-semibold text-gray-800 mb-4">Units</h1>
-                    <Units coreUnits={data.coreUnits} electiveUnits={data.electiveUnits} />
-                </section>
-
             </div>
+            {/* Units Section */}
+            <section className="bg-white qualification sm:px-8 px-4 py-6">
+                <h1 className="text-xl font-semibold text-gray-800 mb-4">Units</h1>
+                <Units coreUnits={data.coreUnits} electiveUnits={data.electiveUnits} />
+            </section>
+            <RPLTimeline />
+            <RPLInfoSection />
+            <WhyChooseUs />
 
-
-
-            <div className='bg-light-blue px-3 py-10 sm:px-8'>
-                <RPLInfoSection />
-            </div>
 
             <div className='bg-white px-3 py-10 sm:px-8'>
                 <RPLOutcomeSection />
             </div>
+            <HappyClientSection />
 
-            <div><RPLTimeline /></div>
-
-            <div className="px-3 sm:px-6 md:px-10" >
-                <HappyClientSection />
-            </div>
-
-            <div >
-                <UserReview />
-            </div>
+            <UserReview />
 
         </div>
     );

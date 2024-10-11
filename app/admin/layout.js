@@ -1,5 +1,4 @@
 import { getServerSession } from "next-auth";
-import { notFound } from 'next/navigation'; // Import notFound function
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import ClientSessionProvider from "../components/context/ClientSessionProvider";
 import AdminNavbar from "./components/navbar/Navbar";
@@ -11,17 +10,14 @@ export const generateMetadata = () => {
     title: 'Admin Dashboard',
     description: 'Admin dashboard for managing application settings and content.',
     robots: {
-      index: false,   // Prevents the page from being indexed
-      follow: false,   // Prevents search engines from following links
+      index: false,
+      follow: false,
     },
   };
 };
 
 export default async function AdminLayout({ children }) {
   const session = await getServerSession(authOptions);
-  if (!session || session.user.role == 'user') {
-    notFound();
-  }
 
   return (
     <ClientSessionProvider session={session}>

@@ -7,9 +7,9 @@ const Footer = () => {
   const isAdminPath = pathname.startsWith('/admin');
   const isAuthPath = pathname.startsWith('/signin') || pathname.startsWith('/signup') || pathname.startsWith('/reset');
   return (!isAdminPath && !isAuthPath &&
-    <div>
-      <footer className="bg-dark-gray px-3 sm:px-5 text-white py-8">
-        <div className=" grid md:grid-cols-4 grid-cols-2 gap-5">
+    <div className="bg-dark-gray">
+      <footer className=" px-3 sm:px-5 max-w-7xl block mx-auto text-white py-8">
+        <div className=" grid md:grid-cols-4 grid-cols-2 gap-8">
           {/* About Section */}
           <div>
             <h3 className="text-lg font-semibold mb-2">About Us</h3>
@@ -43,8 +43,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
             <div className="text-sm space-y-2">
-              <a href="tel:+61483921139">Phone: +61483921139</a>
-              <a href="mailto:rplfasttrack@gmail.com">Email: rplfasttrack@gmail.com</a>
+              <p><a href="tel:+61483921139">Phone: +61483921139</a></p>
+              <p><a href="mailto:rplfasttrack@gmail.com">Email: rplfasttrack@gmail.com</a></p>
               <p>Address: 26 Clement Way, Melton South, Victoria 3338</p>
             </div>
           </div>

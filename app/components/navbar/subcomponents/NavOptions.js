@@ -5,24 +5,24 @@ import { usePathname } from 'next/navigation';
 export default function NavOptions() {
     const pathname = usePathname();
     return (
-        <div className='flex gap-2'>
+        <div className='flex gap-5'>
             <Link href="/home">
-                <p className={`px-2 py-1 text-charcoal transition ease-in duration-200 cursor-pointer rounded-md ${pathname === '/home' ? 'bg-light-blue-active font-semibold ' : ' hover:bg-light-blue-active'} `}>
+                <p className={`nav-option ${pathname === '/home' && 'active'} `}>
                     Home
                 </p>
             </Link>
             <Link href="/about">
-                <p className={`px-2 py-1 text-charcoal transition ease-in duration-200 rounded-md cursor-pointer ${pathname === '/about' ? 'bg-light-blue-active font-semibold' : ' hover:bg-light-blue-active'} `}>
+                <p className={` nav-option ${pathname === '/about' && 'active'} `}>
                     About Us
                 </p>
             </Link>
             <Link href="/courses">
-                <p className={`px-2 text-charcoal py-1 transition ease-in duration-200  rounded-md cursor-pointer ${pathname === '/courses' ? 'bg-light-blue-active font-semibold' : ' hover:bg-light-blue-active'} `}>
+                <p className={`nav-option ${pathname === '/courses' && 'active'} `}>
                     Courses
                 </p>
             </Link>
             <Link href="/contact">
-                <p className={`px-2 text-charcoal py-1 transition ease-in duration-200  cursor-pointer rounded-md ${pathname === '/contact' ? 'bg-light-blue-active font-semibold' : ' hover:bg-light-blue-active'} `}>
+                <p className={`nav-option ${pathname === '/contact' && 'active'} `}>
                     Contact Us
                 </p>
             </Link>

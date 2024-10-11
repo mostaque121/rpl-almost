@@ -1,12 +1,34 @@
 // components/Main.js or pages/index.js
-import { FaCertificate, FaCheckCircle, FaClipboardCheck, FaClock, FaFileAlt, FaMoneyBillWave, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+import Link from 'next/link';
+import { FaCertificate, FaCheckCircle, FaClipboardCheck, FaClock, FaFileAlt, FaHome, FaInfoCircle, FaMoneyBillWave, FaPhone, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 import FAQ from './components/Home/FAQ';
+import FreeConsultation from './components/content/FreeConsultation';
 import RPLTimeline from './components/content/StepsSection';
 export default function Page() {
 
 
   return (
     <div>
+      <nav className="bg-white shadow-lg relative">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center py-4">
+            <div className="text-2xl font-bold text-blue-600">
+              <Link href="/">RPL Services</Link>
+            </div>
+            <div className="space-x-6">
+              <Link href="/" className="text-gray-600 hover:text-blue-600 transition-all">
+                <FaHome className="inline mr-2" /> Home
+              </Link>
+              <Link href="/about" className="text-gray-600 hover:text-blue-600 transition-all">
+                <FaInfoCircle className="inline mr-2" /> About Us
+              </Link>
+              <Link href="/contact" className="text-gray-600 hover:text-blue-600 transition-all">
+                <FaPhone className="inline mr-2" /> Contact
+              </Link>
+            </div>
+          </div>
+        </div>
+      </nav>
       <section
         className="relative bg-cover bg-center h-screen"
         style={{ backgroundImage: "url('/cover.jpg')" }}
@@ -165,6 +187,8 @@ export default function Page() {
 
 
       <FAQ />
+
+      <FreeConsultation />
 
       <section className="py-16 bg-blue-600 text-white text-center">
         <div className="container mx-auto">

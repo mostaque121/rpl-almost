@@ -7,22 +7,22 @@ export default function SideOptions({ closeSidebar }) {
     return (
         <div>
             <Link href="/home">
-                <p onClick={closeSidebar} className={`px-3 py-2  text-charcoal text-lg transition ease-in duration-200 cursor-pointer  ${pathname === '/home' ? 'bg-light-blue-active-pro font-semibold ' : ' hover:bg-light-blue-active'} `}>
+                <p onClick={closeSidebar} className={`sidebar-option ${pathname === '/home' && 'active'} `}>
                     Home
                 </p>
             </Link>
             <Link href="/about">
-                <p onClick={closeSidebar} className={`px-3 py-2  text-charcoal text-lg transition ease-in duration-200  cursor-pointer ${pathname === '/about' ? 'bg-light-blue-active-pro font-semibold' : ' hover:bg-light-blue-active'} `}>
+                <p onClick={closeSidebar} className={`sidebar-option ${pathname === '/about' && 'active'}  `}>
                     About Us
                 </p>
             </Link>
             <Link href="/courses">
-                <p onClick={closeSidebar} className={`px-3 text-charcoal text-lg py-2  transition ease-in duration-200   cursor-pointer ${pathname === '/courses' ? 'bg-light-blue-active-pro font-semibold' : ' hover:bg-light-blue-active'} `}>
+                <p onClick={closeSidebar} className={`sidebar-option ${pathname === '/courses' && 'active'} '} `}>
                     courses
                 </p>
             </Link>
             <Link href="/contact">
-                <p onClick={closeSidebar} className={`px-3 text-charcoal text-lg py-2  transition ease-in duration-200  cursor-pointer  ${pathname === '/contact' ? 'bg-light-blue-active-pro font-semibold' : ' hover:bg-light-blue-active'} `}>
+                <p onClick={closeSidebar} className={`sidebar-option ${pathname === '/contact' && 'active'} '} `}>
                     Contact Us
                 </p>
             </Link>

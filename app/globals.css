@@ -170,3 +170,32 @@ body {
     margin: 0em 0 !important;
   }
 }
+
+.nav-option {
+  color: black;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.nav-option:hover {
+  color: #3a94d0;
+}
+.nav-option.active {
+  color: #3a94d0;
+}
+.sidebar-option {
+  color: black;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-size: 17px;
+  padding: 5px;
+  padding-left: 16px;
+  border-bottom: 1px solid gray;
+}
+.sidebar-option:hover {
+  color: #3a94d0;
+}
+.sidebar-option.active {
+  color: #3a94d0;
+}

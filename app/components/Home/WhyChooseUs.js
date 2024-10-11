@@ -46,21 +46,24 @@ const WhyChooseUs = () => {
 
 
   return (
-    <div className='py-5 sm:mx-8 mx-3'>
-      <h2 className='text-center text-3xl font-bold mb-5'>Why Choose Us</h2>
-      <div className='rounded-md grid md:grid-cols-3 sm:grid-cols-2 gap-3 sm:gap-5'>
-        {features.map((feature) => (
-          <div
-            key={feature.id}
-            className='flex flex-col items-center p-6 rounded-md shadow-md bg-white'
-          >
-            {feature.icon}
-            <h3 className='text-center py-3 text-lg sm:text-2xl font-semibold'>{feature.title}</h3>
-            <p className='text-base sm:text-lg text-gray-600'>{feature.description}</p>
-          </div>
-        ))}
+    <div className="sm:py-16 py-10 bg-gray-100 sm:px-8 px-6">
+      <div className=' block max-w-7xl mx-auto '>
+        <h2 className='text-center text-3xl font-bold mb-5'>Why Choose Us</h2>
+        <div className='rounded-md grid md:grid-cols-3 sm:grid-cols-2 gap-3 sm:gap-5'>
+          {features.map((feature) => (
+            <div
+              key={feature.id}
+              className='flex flex-col items-center p-6 rounded-md shadow-md bg-white'
+            >
+              {feature.icon}
+              <h3 className='text-center py-3 text-lg sm:text-2xl font-semibold'>{feature.title}</h3>
+              <p className='text-base sm:text-lg text-gray-600'>{feature.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
+
   );
 };
 

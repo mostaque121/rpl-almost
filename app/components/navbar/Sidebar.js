@@ -4,7 +4,7 @@ import Logo from "./subcomponents/Logo";
 import SideOptions from "./subcomponents/SideOptions";
 export default function Sidebar({ closeSidebar }) {
     return (
-        <div className="bg-light-blue-hover h-screen py-3">
+        <div className="bg-gray-100 h-screen py-3">
             <div className="flex w-full h-full flex-col">
                 <div className="flex pb-3 px-3 w-full items-center justify-between gap-5">
                     <Logo />

@@ -11,7 +11,7 @@ export const metadata = {
 const AboutUs = () => {
   return (
     <div>
-      <div className="bg-gray-50 p-8 max-w-4xl mx-auto rounded-lg">
+      <div className=" p-8 max-w-7xl mx-auto">
         <h1 className="text-5xl font-bold text-center text-gray-800 mb-8">About Us</h1>
 
         <section className="mb-8">
@@ -85,9 +85,9 @@ const AboutUs = () => {
           </Link>
         </p>
       </div>
-      <div className='bg-light-blue px-3 sm:px-6  py-6'>
-        <HappyClientSection />
-      </div>
+
+      <HappyClientSection />
+
 
       <UserReview />
 

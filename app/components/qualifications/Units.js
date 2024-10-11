@@ -7,8 +7,7 @@ const Units = ({ coreUnits, electiveUnits }) => {
     const [isElectiveUnitsOpen, setElectiveUnitsOpen] = useState(false);
 
     return (
-        <div className='sm:px-6 px-3 py-6 rounded-md bg-white shadow-md border border-gray-200'>
-            {/* Core Units Section */}
+        <div >
             <div className="mb-4">
                 <h2
                     className="sm:text-xl text-base font-semibold cursor-pointer mb-2 flex items-center justify-between transition-colors duration-300 text-gray-800 hover:text-indigo-600"
