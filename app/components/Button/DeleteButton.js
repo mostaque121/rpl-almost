@@ -1,46 +1,58 @@
-'use client'
+'use client';
 import { useState } from 'react';
 
+// Modal Component
+const Modal = ({ isOpen, onClose, onConfirm, loading, loadingText }) => {
+    if (!isOpen) return null; // Don't render if not open
+
+    return (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[1000]">
+            <div className="bg-white p-6 rounded shadow-md">
+                <h2 className="text-lg mb-4">Are you sure?</h2>
+                <div className="flex justify-center space-x-4">
+                    <button
+                        onClick={onConfirm}
+                        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                        disabled={loading}
+                    >
+                        {loading ? loadingText : 'Confirm'}
+                    </button>
+                    <button
+                        onClick={onClose}
+                        className="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// DeleteButton Component
 const DeleteButton = ({ handleClick, whenDisable = false, loading, loadingText = 'Deleting...', defaultText = 'Delete' }) => {
-    const [showConfirm, setShowConfirm] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const handleDeleteClick = () => {
-        if (showConfirm) {
-            handleClick(); // Call the parent function to delete
-            setShowConfirm(false); // Reset confirmation state after action
-        } else {
-            setShowConfirm(true); // Show confirmation message
-        }
+        setShowModal(true); // Show the modal when the delete button is clicked
     };
 
-    const handleCancel = () => {
-        setShowConfirm(false); // Reset to initial state
+    const handleConfirmDelete = () => {
+        handleClick(); // Call the parent function to delete
+        setShowModal(false); // Close the modal after action
     };
 
     return (
         <div className="relative block">
-            {showConfirm && (
-                <div className="absolute bottom-10 mb-2 z-10 right-0 bg-white p-3 shadow-sm border rounded-md ">
-                    <span className="block mb-2 text-sm">Are you sure?</span>
-                    <div className="flex justify-center space-x-2">
-                        <button
-                            onClick={handleDeleteClick}
-                            className="bg-red-500 text-sm text-white px-3 py-1 rounded hover:bg-red-600"
-                            disabled={loading}
-                        >
-                            {loading ? loadingText : 'Confirm'}
-                        </button>
-                        <button
-                            onClick={handleCancel}
-                            className="bg-light-gray-hover text-sm text-black px-3 py-1 rounded hover:bg-light-gray-active"
-                        >
-                            Cancel
-                        </button>
-                    </div>
-                </div>
-            )}
+            <Modal
+                isOpen={showModal}
+                onClose={() => setShowModal(false)}
+                onConfirm={handleConfirmDelete}
+                loading={loading}
+                loadingText={loadingText}
+            />
             <button
-                type="submit"
+                type="button"
                 className={`w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-300 ${loading || whenDisable ? 'cursor-not-allowed' : ''}`}
                 disabled={loading || whenDisable}
                 onClick={handleDeleteClick}

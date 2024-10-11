@@ -9,6 +9,7 @@ import Units from "@/app/components/qualifications/Units";
 import { fetchData } from "@/app/lib/fetchData";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { MdOutlineNavigateNext } from "react-icons/md";
 
 export async function generateMetadata({ params }) {
@@ -65,6 +66,11 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
     const { course } = params;
     const data = await fetchData(`/api/courses/${course}`);
+    if (!data) {
+        return (
+            notFound()
+        )
+    }
 
     return (data &&
         <div>

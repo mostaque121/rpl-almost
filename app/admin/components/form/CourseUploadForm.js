@@ -166,13 +166,13 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
 
 
   return (
-    <div className="qualification container mx-auto mb-5 p-6 bg-dark-background shadow-lg rounded-md max-w-3xl">
-      <h1 className='text-3xl font-semibold text-dark-text mb-6 text-center'>
+    <div className="qualification container mx-auto mb-5 p-6 max-w-3xl">
+      <h1 className='text-3xl font-semibold text-black mb-6 text-center'>
         {mode === 'edit' ? 'Edit Course' : 'Course Uploader'}
       </h1>
 
       <div className="mb-6">
-        <label className="text-lg font-medium text-dark-muted mb-2">Course Title:</label>
+        <label className="text-lg font-medium text-gray-800 mb-2">Course Title:</label>
         <input
           className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           type="text"
@@ -183,7 +183,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
       </div>
 
       <div className="mb-6">
-        <label className="text-lg font-medium text-dark-muted mb-2">Section:</label>
+        <label className="text-lg font-medium text-gray-800 mb-2">Section:</label>
         <SelectSection
           availableCourses={availableCourses}
           selectedSection={section}
@@ -193,7 +193,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
 
       {selectedObject && (
         <div className='mb-6'>
-          <h2 className='text-lg font-medium text-dark-muted mb-2'>Service Index:</h2>
+          <h2 className='text-lg font-medium text-gray-800 mb-2'>Service Index:</h2>
           <SelectIndexForCourse
             selectedIndex={selectedIndex}
             setSelectedIndex={setSelectedIndex}
@@ -206,7 +206,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
       )}
 
       <div className="mb-6">
-        <label className="text-lg font-medium text-dark-muted mb-2">Square Image:</label>
+        <label className="text-lg font-medium text-gray-800 mb-2">Square Image:</label>
         <DropzoneUploader
           fileUrl={fileUrlSquare}
           setFileUrl={setFileUrlSquare}
@@ -217,7 +217,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
       </div>
 
       <div className="mb-6">
-        <label className="text-lg font-medium text-dark-muted mb-2">Cover Image:</label>
+        <label className="text-lg font-medium text-gray-800 mb-2">Cover Image:</label>
         <DropzoneUploader
           fileUrl={fileUrlCover}
           setFileUrl={setFileUrlCover}
@@ -228,7 +228,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
       </div>
 
       <div className="mb-6">
-        <label className="text-lg font-medium text-dark-muted mb-2">Description:</label>
+        <label className="text-lg font-medium text-gray-800 mb-2">Description:</label>
         <CKEditorComponent
           value={description}
           onChange={(data) => setDescription(data)}
@@ -236,7 +236,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
       </div>
 
       <div className="mb-6">
-        <label className="text-lg font-medium text-dark-muted mb-2">Job Opportunities:</label>
+        <label className="text-lg font-medium text-gray-800 mb-2">Job Opportunities:</label>
         <CKEditorComponent
           value={jobOpportunity}
           onChange={(data) => setJobOpportunity(data)}
@@ -244,7 +244,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
       </div>
 
       <div className="mb-6">
-        <label className="text-lg font-medium text-dark-muted mb-2">Entry Requirements:</label>
+        <label className="text-lg font-medium text-gray-800 mb-2">Entry Requirements:</label>
         <CKEditorComponent
           value={entryRequirement}
           onChange={(data) => setEntryRequirement(data)}
@@ -252,7 +252,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
       </div>
 
       <div className="mb-6">
-        <label className="text-lg font-medium text-dark-muted mb-2">Packaging Rule:</label>
+        <label className="text-lg font-medium text-gray-800 mb-2">Packaging Rule:</label>
         <CKEditorComponent
           value={packagingRule}
           onChange={(data) => setPackagingRule(data)}
@@ -260,7 +260,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
       </div>
 
       <div className="mb-6">
-        <label className="text-lg font-medium text-dark-muted mb-2">Core Units:</label>
+        <label className="text-lg font-medium text-gray-800 mb-2">Core Units:</label>
         <CKEditorComponent
           value={coreUnits}
           onChange={(data) => setCoreUnits(data)}
@@ -268,7 +268,7 @@ const CourseUploadForm = ({ availableCourses, mode, initialData }) => {
       </div>
 
       <div className="mb-6">
-        <label className="text-lg font-medium text-dark-muted mb-2">Elective Units:</label>
+        <label className="text-lg font-medium text-gray-800 mb-2">Elective Units:</label>
         <CKEditorComponent
           value={electiveUnits}
           onChange={(data) => setElectiveUnits(data)}

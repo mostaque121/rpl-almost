@@ -8,6 +8,7 @@ import WhyChooseUs from "@/app/components/Home/WhyChooseUs";
 import { fetchSection } from "@/app/lib/fetchData";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { MdOutlineNavigateNext } from "react-icons/md";
 
 export async function generateMetadata({ params }) {
@@ -65,6 +66,11 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
     const { section } = params;
     const data = await fetchSection(`/api/sections/${section}`);
+    if (!data) {
+        return (
+            notFound()
+        )
+    }
 
     return (data &&
         <div>

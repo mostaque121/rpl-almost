@@ -14,7 +14,7 @@ const SidebarItemWithDropdown = ({ icon, label, subItems, setIsOpen }) => {
     <div>
       <div
         onClick={toggleDropdown}
-        className="flex items-center justify-between cursor-pointer p-2 hover:bg-gray-700 rounded-md"
+        className="flex items-center justify-between cursor-pointer p-2 hover:bg-gray-200 rounded-md"
       >
         <div className="flex items-center">
           <span className="text-xl">{icon}</span>
@@ -31,7 +31,7 @@ const SidebarItemWithDropdown = ({ icon, label, subItems, setIsOpen }) => {
         <div className="ml-8 flex flex-col space-y-2">
           {subItems.map((subItem, index) => (
             <Link href={subItem.href} key={index}>
-              <div onClick={() => setIsOpen(false)} className="flex items-center h-8 p-2 hover:bg-gray-600 rounded-md">
+              <div onClick={() => setIsOpen(false)} className="flex items-center h-8 p-2 hover:bg-gray-200 rounded-md">
                 <span>{subItem.label}</span>
               </div>
             </Link>

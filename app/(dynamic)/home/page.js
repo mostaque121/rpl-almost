@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 export default function Home() {
     return (
-        <div className="relative pb-2">
+        <div>
             <div className="relative bg-white px-3 sm:px-5 py-5 bg-cover h-[600px] bg-center" style={{ backgroundImage: `url('/group.jpg')` }}>
                 <div className="absolute inset-0 bg-black opacity-60"></div>
 

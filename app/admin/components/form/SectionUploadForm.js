@@ -118,13 +118,13 @@ const SectionUploadForm = ({ mode, initialData, availableItems }) => {
 
 
     return (
-        <div className='max-w-3xl mx-auto bg-dark-background rounded-lg shadow-lg p-8'>
-            <h1 className='text-3xl text-dark-text font-semibold text-gray-800 mb-6 text-center'>
+        <div className='max-w-3xl mx-auto  p-8'>
+            <h1 className='text-3xl  font-semibold text-gray-800 mb-6 text-center'>
                 {mode === 'edit' ? 'Edit Section' : 'Section Uploader'}
             </h1>
 
             <div className='mb-6'>
-                <h2 className='text-lg font-medium text-dark-muted mb-2'>Upload Square Image :</h2>
+                <h2 className='text-lg font-medium text-gray-800 mb-2'>Upload Square Image :</h2>
                 <DropzoneUploader
                     fileUrl={fileUrlSquare}
                     setFileUrl={setFileUrlSquare}
@@ -135,7 +135,7 @@ const SectionUploadForm = ({ mode, initialData, availableItems }) => {
             </div>
 
             <div className='mb-6'>
-                <h2 className='text-lg font-medium text-dark-muted mb-2'>Upload Cover Image:</h2>
+                <h2 className='text-lg font-medium text-gray-800 mb-2'>Upload Cover Image:</h2>
                 <DropzoneUploader
                     fileUrl={fileUrlCover}
                     setFileUrl={setFileUrlCover}
@@ -146,7 +146,7 @@ const SectionUploadForm = ({ mode, initialData, availableItems }) => {
             </div>
 
             <div className='mb-6'>
-                <h2 className='text-lg font-medium text-dark-muted mb-2'>Section Title:</h2>
+                <h2 className='text-lg font-medium text-gray-800 mb-2'>Section Title:</h2>
                 <input
                     className='border bg-dark-text border-gray-300 w-full px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
                     type='text'
@@ -158,7 +158,7 @@ const SectionUploadForm = ({ mode, initialData, availableItems }) => {
 
             {mode === 'upload' ? (
                 <div className='mb-6'>
-                    <h2 className='text-lg font-medium text-dark-muted mb-2'>Section Index:</h2>
+                    <h2 className='text-lg font-medium text-gray-800 mb-2'>Section Index:</h2>
                     <SelectIndexUploadSection
                         setSelectedIndex={setSelectedIndex}
                         selectedIndex={selectedIndex}
@@ -167,7 +167,7 @@ const SectionUploadForm = ({ mode, initialData, availableItems }) => {
                 </div>
             ) : (
                 <div className='mb-6'>
-                    <h2 className='text-lg font-medium text-dark-muted mb-2'>Service Index:</h2>
+                    <h2 className='text-lg font-medium text-gray-800 mb-2'>Service Index:</h2>
                     <SelectIndexEditSection
                         selectedIndex={selectedIndex}
                         setSelectedIndex={setSelectedIndex}

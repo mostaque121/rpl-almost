@@ -41,12 +41,7 @@ const DeleteResponse = ({ id }) => {
 
     return (
         <div>
-            {/* <button
-                className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600"
-                onClick={handleDelete}>
-                {deleting ? <ClipLoader color="#fff" size={20} /> : 'Delete'}
-            </button> */}
-            <DeleteButton handlClick={handleDelete} loading={deleting} defaultText='delete' />
+            <DeleteButton handleClick={handleDelete} loading={deleting} defaultText='delete' />
         </div>
     );
 };
