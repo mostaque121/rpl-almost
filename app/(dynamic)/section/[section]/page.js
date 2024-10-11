@@ -141,15 +141,11 @@ export default async function Page({ params }) {
                 </div>
             </div>
 
-            <div>
-                <RPLTimeline />
-            </div>
-            <RPLInfoSection />
-            <div className='bg-light-blue'>
-                <WhyChooseUs />
-            </div>
-            <HappyClientSection />
 
+            <RPLTimeline />
+            <RPLInfoSection />
+            <WhyChooseUs />
+            <HappyClientSection />
             <UserReview />
             <GetInTouchSection />
 

@@ -1,3 +1,4 @@
+import GetInTouchSection from '@/app/components/content/GetInTouch';
 import HappyClientSection from '@/app/components/content/HappyClientSection';
 import RPLInfoSection from '@/app/components/content/RPLInfoSection';
 import RPLTimeline from '@/app/components/content/StepsSection';
@@ -76,25 +77,13 @@ export default function Home() {
                 </div>
             </div>
 
-
-            <div>
-                <RPLTimeline />
-            </div>
+            <RPLTimeline />
             <RPLInfoSection />
-            <div>
-                <WhyChooseUs />
-            </div>
-
-            <div>
-                <FAQ />
-            </div>
-
-            <div>
-                <HappyClientSection />
-            </div>
-
-
+            <WhyChooseUs />
+            <FAQ />
+            <HappyClientSection />
             <UserReview />
+            <GetInTouchSection />
 
         </div>
     )

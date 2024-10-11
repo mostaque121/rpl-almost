@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 
 const GetInTouchSection = () => {
@@ -45,6 +46,15 @@ const GetInTouchSection = () => {
                             </p>
                         </div>
                     </div>
+                    {/* Contact Us */}
+                    <Link to="/contact" className="flex items-center w-full space-x-4 bg-white bg-opacity-10 p-6 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-opacity-20">
+                        <FaEnvelope className="text-4xl text-blue-400" />
+                        <div>
+                            <h3 className="text-xl font-bold">Contact Us</h3>
+                            <p className="text-gray-300">Reach out for any inquiries</p>
+                        </div>
+                    </Link>
+
                 </div>
             </div>
         </div>

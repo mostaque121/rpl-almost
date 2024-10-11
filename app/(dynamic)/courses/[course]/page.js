@@ -1,6 +1,6 @@
+import GetInTouchSection from "@/app/components/content/GetInTouch";
 import HappyClientSection from "@/app/components/content/HappyClientSection";
 import RPLInfoSection from "@/app/components/content/RPLInfoSection";
-import RPLOutcomeSection from "@/app/components/content/RPLOutcome";
 import RPLTimeline from "@/app/components/content/StepsSection";
 import UserReview from "@/app/components/content/UserReview";
 import ResponseForm from "@/app/components/form/ResponseForm";
@@ -136,17 +136,13 @@ export default async function Page({ params }) {
                 <h1 className="text-xl font-semibold text-gray-800 mb-4">Units</h1>
                 <Units coreUnits={data.coreUnits} electiveUnits={data.electiveUnits} />
             </section>
+
             <RPLTimeline />
             <RPLInfoSection />
             <WhyChooseUs />
-
-
-            <div className='bg-white px-3 py-10 sm:px-8'>
-                <RPLOutcomeSection />
-            </div>
             <HappyClientSection />
-
             <UserReview />
+            <GetInTouchSection />
 
         </div>
     );
