@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Toaster } from 'react-hot-toast';
 import Footer from "./components/footer/Footer";
 import Navbar from './components/navbar/Navbar2';
@@ -44,6 +45,7 @@ export default async function RootLayout({ children }) {
         <Toaster position="top-right" reverseOrder={false} />
         <Navbar fetchedData={fetchedData} />
         {children}
+        <GoogleAnalytics gaId="G-C5F83DW248" />
         <Footer />
       </body>
     </html>
