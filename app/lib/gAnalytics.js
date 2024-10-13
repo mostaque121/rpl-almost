@@ -74,28 +74,40 @@ export async function getAnalyticsData(filter) {
             userData.dailyData.push({ date: dimensionValue, totalUsers: metrics[0], newUsers: metrics[1] });
         });
 
-        // Fetch page view metrics
         const [pageViewResponse] = await analyticsDataClient.runReport({
             property: `properties/${propertyId}`,
             dateRanges: [{ startDate: formatDate(startDate), endDate: formatDate(endDate) }],
             dimensions: [{ name: 'pagePath' }],
-            metrics: [{ name: 'screenPageViews' }],
+            metrics: [
+                { name: 'screenPageViews' },
+                { name: 'averageEngagementTime' } // Add the average engagement time metric
+            ],
         });
 
         let totalPageViews = 0;
+        let totalEngagementTime = 0;
         const pageViews = {};
+        const engagementTimes = {};
 
         pageViewResponse.rows.forEach((row) => {
             const pagePath = row.dimensionValues[0].value; // Extract the page path
-            const pageViewCount = parseInt(row.metricValues[0].value);
+            const pageViewCount = parseInt(row.metricValues[0].value); // screenPageViews
+            const avgEngagementTime = parseFloat(row.metricValues[1].value); // averageEngagementTime
+
             totalPageViews += pageViewCount;
+            totalEngagementTime += avgEngagementTime;
+
             pageViews[pagePath] = pageViewCount; // Store page views per page path
+            engagementTimes[pagePath] = avgEngagementTime; // Store average engagement time per page path
         });
+
 
         // Return combined data
         return {
             userData,
             totalPageViews,
+            totalEngagementTime,
+            engagementTimes,
             pageViews,
         };
     } catch (error) {

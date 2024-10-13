@@ -79,7 +79,7 @@ export default function AnalyticsDashboard() {
                         <UserMetricsChart metricsData={data.userData.dailyData} dateType={filter} />
 
                         <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-700">Page Views</h2>
-                        <PageViewTable totalPageViews={data.totalPageViews} data={data.pageViews} />
+                        <PageViewTable totalPageViews={data.totalPageViews} pageViews={data.pageViews} totalEngagementTime={data.totalEngagementTime} engagementTimes={data.engagementTimes} />
                     </>
                 ) : (
                     <p className="text-gray-500">No data available. Please apply filters and click "Load Analytics Data."</p>
