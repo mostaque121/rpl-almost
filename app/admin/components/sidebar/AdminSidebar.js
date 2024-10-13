@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { FaBars, FaCloudUploadAlt, FaGlobe, FaHome, FaPaperPlane, FaUsers } from 'react-icons/fa';
+import { FaBars, FaChartBar, FaCloudUploadAlt, FaGlobe, FaPaperPlane, FaUsers } from 'react-icons/fa';
 import { IoMdHappy } from "react-icons/io";
 import { MdReviews } from "react-icons/md";
 import SidebarItem from './SidebarItem';
@@ -29,7 +29,7 @@ const AdminSidebar = () => {
         {/* Sidebar Items */}
         <nav className="flex flex-col p-3 sm:p-4 space-y-4 scrollbar-hidden overflow-y-auto max-h-screen">
           {/* Sidebar items without sub-items */}
-          <SidebarItem href="/admin/home" icon={<FaHome />} label="Home" setIsOpen={setIsOpen} />
+          <SidebarItem href="/admin/analytics" icon={<FaChartBar />} label="Analytics" setIsOpen={setIsOpen} />
           <SidebarItem href="/admin/users" icon={<FaUsers />} label="Users" setIsOpen={setIsOpen} />
           <SidebarItem href="/admin/response" icon={<FaPaperPlane />} label="Response" setIsOpen={setIsOpen} />
 

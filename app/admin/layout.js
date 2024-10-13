@@ -24,11 +24,11 @@ export default async function AdminLayout({ children }) {
       <div className="flex flex-col h-screen">
         <AdminNavbar />
         <div className="flex overflow-y-auto flex-1">
-          <div className="relative overflow-y-auto scrollbar-hidden">
+          <div className="relative overflow-y-auto shadow-md scrollbar-hidden">
             <AdminSidebar />
           </div>
 
-          <main className="flex-1 bg-light-gray overflow-y-auto">
+          <main className="flex-1 bg-white  overflow-y-auto">
             {children}
           </main>
         </div>
