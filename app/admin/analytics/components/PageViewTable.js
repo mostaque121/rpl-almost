@@ -28,7 +28,7 @@ const PageViewTable = ({ pageViews, totalPageViews, totalEngagementTime, engagem
         <div>
             <table className="border-collapse w-full">
                 <thead>
-                    <tr className="border border-black">
+                    <tr className="border">
                         <th className="py-2 px-3 text-left">Page</th>
                         <th className="py-2 px-3 text-right">Total Views</th>
                         <th className="py-2 px-3 text-right">Total Engage Time</th>
@@ -48,7 +48,7 @@ const PageViewTable = ({ pageViews, totalPageViews, totalEngagementTime, engagem
                             </td>
                         </tr>
                     ))}
-                    <tr className="border border-black">
+                    <tr className="border">
                         <td className="py-2 px-3 font-bold">Total</td>
                         <td className="py-2 px-3 font-bold text-right">{totalPageViews}</td>
                         <td className="py-2 px-3 font-bold text-right">{formatTime(totalEngagementTime)}</td>
