@@ -80,7 +80,7 @@ export async function getAnalyticsData(filter) {
             dimensions: [{ name: 'pagePath' }],
             metrics: [
                 { name: 'screenPageViews' },
-                { name: 'averageEngagementTime' } // Add the average engagement time metric
+                { name: 'userEngagementDuration' } // Add the average engagement time metric
             ],
         });
 

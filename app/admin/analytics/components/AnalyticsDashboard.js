@@ -31,7 +31,7 @@ export default function AnalyticsDashboard() {
     }
 
     return (
-        <div className="p-6 py-16 max-w-4xl mx-auto bg-white ">
+        <div className="sm:px-6 px-3 py-16 max-w-4xl mx-auto bg-white ">
             <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Analytics Dashboard</h1>
 
             <div className="flex items-center justify-center mb-6 space-x-4">
