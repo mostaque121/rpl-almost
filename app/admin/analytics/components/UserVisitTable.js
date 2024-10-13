@@ -41,7 +41,7 @@ const UserVisitTable = ({ data, totalEngagementTime }) => {
                         <td className="border border-gray-300 p-4">Total New User Visit</td>
                         <td className="border border-gray-300 p-4">{data.newUsers}</td>
                     </tr>
-                    <tr className="bg-gray-50">
+                    <tr>
                         <td className="border border-gray-300 p-4">Avg Engagement of User</td>
                         <td className="border border-gray-300 p-4">{getAvgEngageTime(totalEngagementTime, data.totalUsers)}</td>
                     </tr>
