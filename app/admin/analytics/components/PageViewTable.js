@@ -26,33 +26,33 @@ const PageViewTable = ({ pageViews, totalPageViews, totalEngagementTime, engagem
 
     return (
         <div>
-            <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+            <table className="border-collapse w-full">
                 <thead>
-                    <tr>
-                        <th style={{ padding: '8px', textAlign: 'left', border: '1px solid black' }}>Page</th>
-                        <th style={{ padding: '8px', textAlign: 'center', border: '1px solid black' }}>Total Views</th>
-                        <th style={{ padding: '8px', textAlign: 'center', border: '1px solid black' }}>Total Engage Time</th>
-                        <th style={{ padding: '8px', textAlign: 'center', border: '1px solid black' }}>Avg Engage Time</th>
+                    <tr className="border-b-2 border-black">
+                        <th className="py-2 text-left">Page</th>
+                        <th className="py-2 text-right">Total Views</th>
+                        <th className="py-2 text-right">Total Engage Time</th>
+                        <th className="py-2 text-right">Avg Engage Time</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.keys(pageViews).map((path) => (
-                        <tr key={path}>
-                            <td style={{ padding: '8px', border: '1px solid black' }}>{path}</td>
-                            <td style={{ padding: '8px', border: '1px solid black', textAlign: 'center' }}>{pageViews[path]}</td>
-                            <td style={{ padding: '8px', border: '1px solid black', textAlign: 'center' }}>
+                    {Object.keys(pageViews).map((path, index) => (
+                        <tr key={path} className={`border-t border-b ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
+                            <td className="py-2 pl-2">{path}</td>
+                            <td className="py-2 text-right">{pageViews[path]}</td>
+                            <td className="py-2 text-right">
                                 {engagementTimes[path] !== undefined ? formatTime(engagementTimes[path]) : 'N/A'}
                             </td>
-                            <td style={{ padding: '8px', border: '1px solid black', textAlign: 'center' }}>
+                            <td className="py-2 text-right">
                                 {engagementTimes[path] !== undefined ? getAvgEngageTime(engagementTimes[path], pageViews[path]) : 'N/A'}
                             </td>
                         </tr>
                     ))}
-                    <tr>
-                        <td style={{ padding: '8px', fontWeight: 'bold', border: '1px solid black' }}>Total</td>
-                        <td style={{ padding: '8px', fontWeight: 'bold', border: '1px solid black', textAlign: 'center' }}>{totalPageViews}</td>
-                        <td style={{ padding: '8px', fontWeight: 'bold', border: '1px solid black', textAlign: 'center' }}>{formatTime(totalEngagementTime)}</td>
-                        <td style={{ padding: '8px', fontWeight: 'bold', border: '1px solid black', textAlign: 'center' }}>{getAvgEngageTime(totalEngagementTime, totalPageViews)}</td>
+                    <tr className="border-t border-b-2 border-black">
+                        <td className="py-2 font-bold">Total</td>
+                        <td className="py-2 font-bold text-right">{totalPageViews}</td>
+                        <td className="py-2 font-bold text-right">{formatTime(totalEngagementTime)}</td>
+                        <td className="py-2 font-bold text-right">{getAvgEngageTime(totalEngagementTime, totalPageViews)}</td>
                     </tr>
                 </tbody>
             </table>
