@@ -74,7 +74,7 @@ export default function AnalyticsDashboard() {
                 ) : data ? (
                     <>
                         <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700">User Metrics</h2>
-                        <UserVisitTable data={data.userData} />
+                        <UserVisitTable data={data.userData} totalEngagementTime={data.totalEngagementTime} />
                         <div className='h-7'></div>
                         <UserMetricsChart metricsData={data.userData.dailyData} dateType={filter} />
 
