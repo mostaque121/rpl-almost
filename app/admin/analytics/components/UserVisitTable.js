@@ -23,7 +23,7 @@ const getAvgEngageTime = (engagementTimes, pageViews) => {
 const UserVisitTable = ({ data, totalEngagementTime }) => {
 
     return (
-        <div className="p-6 max-w-2xl mx-auto bg-white shadow-md rounded-lg">
+        <div>
             <h1 className="text-2xl font-bold mb-4 text-gray-800">User Visit Statistics</h1>
             <table className="min-w-full border-collapse border border-gray-300">
                 <thead>
