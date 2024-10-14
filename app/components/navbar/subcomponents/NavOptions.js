@@ -6,8 +6,8 @@ export default function NavOptions() {
     const pathname = usePathname();
     return (
         <div className='flex gap-5'>
-            <Link href="/home">
-                <p className={`nav-option ${pathname === '/home' && 'active'} `}>
+            <Link href="/">
+                <p className={`nav-option ${pathname === '/' && 'active'} `}>
                     Home
                 </p>
             </Link>

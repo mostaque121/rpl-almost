@@ -11,6 +11,11 @@ export default function Page() {
     <div className="bg-white p-8 max-w-4xl mx-auto">
       <h1 className="sm:text-4xl text-xl font-bold text-center mb-8">Frequently Asked Questions</h1>
       <Faq />
+      <section className="text-center mt-10">
+        <Link href="/" className="text-copy underline">
+          Back to Home
+        </Link>
+      </section>
     </div>
   );
 };

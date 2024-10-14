@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MdStar, MdStarHalf } from "react-icons/md"; // Whole star icon
 
 const TopReviews = ({ reviews }) => {
@@ -68,9 +69,12 @@ const TopReviews = ({ reviews }) => {
                     );
                 })}
             </div>
-            <div>
-                <button className="px-5 py-2 rounded-md bg-yellow-500 font-semibold mt-5 block mx-auto transition-all  hover:scale-105 active:scale-95">Add a review</button>
-            </div>
+            <Link href={'/write-review'}>
+                <div>
+                    <button className="px-5 py-2 rounded-md bg-yellow-500 font-semibold mt-5 block mx-auto transition-all  hover:scale-105 active:scale-95">Add a review</button>
+                </div>
+            </Link>
+
         </div>
     );
 };

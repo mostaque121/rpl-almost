@@ -28,7 +28,7 @@ const ContactUs = () => {
       <ContactDetails />
 
       <section className="text-center mt-10">
-        <Link href="/" className="text-blue-500 underline">
+        <Link href="/" className="text-copy underline">
           Back to Home
         </Link>
       </section>

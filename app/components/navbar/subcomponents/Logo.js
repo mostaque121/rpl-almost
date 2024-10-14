@@ -5,10 +5,10 @@ import Link from 'next/link';
 export default function Logo() {
   return (
     <div>
-      <Link href="/home">
+      <Link href="/">
         <div className="relative w-36 h-[40px] sm:w-44">
-          <Image 
-            src={logo} 
+          <Image
+            src={logo}
             fill
             priority
             alt="Logo"

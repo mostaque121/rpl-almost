@@ -6,8 +6,8 @@ export default function SideOptions({ closeSidebar }) {
     const pathname = usePathname();
     return (
         <div>
-            <Link href="/home">
-                <p onClick={closeSidebar} className={`sidebar-option ${pathname === '/home' && 'active'} `}>
+            <Link href="/">
+                <p onClick={closeSidebar} className={`sidebar-option ${pathname === '/' && 'active'} `}>
                     Home
                 </p>
             </Link>

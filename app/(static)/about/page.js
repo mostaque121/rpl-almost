@@ -80,8 +80,8 @@ const AboutUs = () => {
         </section>
 
         <p className="text-center text-sm mt-10 text-gray-600">
-          <Link href="/home">
-            <span className="text-blue-600 underline cursor-pointer">Back to Home</span>
+          <Link href="/">
+            <span className="text-copy underline cursor-pointer">Back to Home</span>
           </Link>
         </p>
       </div>

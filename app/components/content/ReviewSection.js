@@ -73,7 +73,7 @@ const ReviewSection = ({ reviews }) => {
                             );
                         })}
                     </div>
-                    <Link href={'/writereview'}>
+                    <Link href={'/write-review'}>
                         <button className='py-1 px-3 font-semibold mt-4 border-dark-gray rounded-full border-2 hover:bg-dark-gray hover:text-white transition-all duration-200 ease-in-out'>
                             Write a review
                         </button>

@@ -80,9 +80,11 @@ export default function Page() {
         </ul>
       </div>
 
-      <p className="text-center text-sm mt-10">
-        <Link href="/">Back to Home</Link>
-      </p>
+      <section className="text-center mt-10">
+        <Link href="/" className="text-copy underline">
+          Back to Home
+        </Link>
+      </section>
     </div>
   );
 };
