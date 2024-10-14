@@ -40,8 +40,8 @@ export default async function sitemap() {
 
         {
             url: 'https://rplfasttrack.com/review',
-            lastModified: new Date('2024-10-14'),
-            changeFrequency: 'yearly',
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
             priority: 0.8,
         },
 

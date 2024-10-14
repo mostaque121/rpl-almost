@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BsSignpostFill } from "react-icons/bs";
 import { FaGraduationCap, FaHandsHelping, FaLightbulb } from "react-icons/fa";
 import { FaPuzzlePiece } from "react-icons/fa6";
