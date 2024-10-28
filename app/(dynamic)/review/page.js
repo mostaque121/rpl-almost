@@ -18,7 +18,7 @@ export async function generateMetadata() {
       openGraph: {
         title: 'Reviews',
         description: `Read real testimonials from our clients and learn how RPL Fast Track has positively impacted their career paths through recognition of prior learning. We have ${totalReviews} reviews with an average rating of ${averageRating} stars.`,
-        url: 'https://rplfasttrack.com/review',
+        url: 'https://rplfastrack.com/review',
         images: [
           '/review.png', // Replace with a relevant image for the reviews
         ],

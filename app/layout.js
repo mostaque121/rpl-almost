@@ -17,7 +17,7 @@ export const metadata = {
   openGraph: {
     title: "RPL Fast Track Australia",
     description: "Quickly and efficiently gain recognition for your prior learning and experiences in Australia.",
-    url: "https://rplfasttrack.com",
+    url: "https://rplfastrack.com",
     type: "website",
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@RPLFastTrack", // Replace with your Twitter handle
+    site: "@", // Replace with your Twitter handle
     title: "RPL Fast Track Australia",
     description: "Gain recognition for your prior learning and fast track your career in Australia.",
     image: "/career.jpg",// Replace with your Twitter image URL

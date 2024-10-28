@@ -8,6 +8,7 @@ import FAQ from '@/app/components/Home/FAQ';
 import PopularCourse from '@/app/components/Home/PopularCourse';
 import WhyChooseUs from '@/app/components/Home/WhyChooseUs';
 import Link from 'next/link';
+import DocumentSection from './components/qualifications/DocumentSection';
 
 export const metadata = {
   title: 'RPL Fast Track - Accelerate Your Skills Recognition in Australia',
@@ -80,12 +81,6 @@ export default function Home() {
         <ResponseForm />
       </div>
 
-
-      <div>
-        <PopularCourse />
-      </div>
-
-
       <div className='sm:px-8 px-3'>
         <div className=" flex-col md:flex-row overflow-hidden flex justify-center items-center">
           <div className=" w-full md:w-1/2 h-96">
@@ -116,14 +111,16 @@ export default function Home() {
         </div>
       </div>
 
+      <PopularCourse />
+
       <RPLTimeline />
+      <DocumentSection />
       <RPLInfoSection />
       <WhyChooseUs />
-      <FAQ />
       <HappyClientSection />
       <UserReview />
       <GetInTouchSection />
-
+      <FAQ />
     </div>
   )
 }

@@ -62,10 +62,10 @@ export default async function Page() {
             <RPLTimeline />
             <RPLInfoSection />
             <WhyChooseUs />
-            <FAQ />
             <HappyClientSection />
             <UserReview />
             <GetInTouchSection />
+            <FAQ />
         </div>
     );
 }

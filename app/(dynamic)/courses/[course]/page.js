@@ -5,6 +5,7 @@ import RPLTimeline from "@/app/components/content/StepsSection";
 import UserReview from "@/app/components/content/UserReview";
 import ResponseForm from "@/app/components/form/ResponseForm";
 import WhyChooseUs from "@/app/components/Home/WhyChooseUs";
+import DocumentSection from "@/app/components/qualifications/DocumentSection";
 import Units from "@/app/components/qualifications/Units";
 import { fetchData } from "@/app/lib/fetchData";
 import Image from "next/image";
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }) {
             openGraph: {
                 title: data.title,
                 description: `Discover the ${data.title} course at RPL Fast Track Australia. This course is designed to equip you with the necessary skills and knowledge to succeed in your field.`,
-                url: `https://rplfasttrack.com/courses/${course}`, // Adjust with your actual course URL
+                url: `https://rplfastrack.com/courses/${course}`, // Adjust with your actual course URL
                 images: [
                     `${data.imageCoverLink}`,
                 ],
@@ -111,9 +112,7 @@ export default async function Page({ params }) {
                 </div>
             </div>
 
-            <div className="qualification-container">
-
-                {/* Qualification Description */}
+            <div className="qualification-container max-w-7xl mx-auto">
                 <section className=" qualification sm:px-8 px-4 py-6 bg-white">
                     <h1 className="text-xl font-semibold text-gray-800 mb-4">Qualification Description</h1>
                     <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.description }} />
@@ -136,12 +135,14 @@ export default async function Page({ params }) {
                     <h1 className="text-xl font-semibold text-black mb-4">Packaging Rules</h1>
                     <div className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.packagingRule }} />
                 </section>
+                {/* Units Section */}
+                <section className="bg-white qualification sm:px-8 px-4 py-6">
+                    <h1 className="text-xl font-semibold text-gray-800 mb-4">Units</h1>
+                    <Units coreUnits={data.coreUnits} electiveUnits={data.electiveUnits} />
+                </section>
             </div>
-            {/* Units Section */}
-            <section className="bg-white qualification sm:px-8 px-4 py-6">
-                <h1 className="text-xl font-semibold text-gray-800 mb-4">Units</h1>
-                <Units coreUnits={data.coreUnits} electiveUnits={data.electiveUnits} />
-            </section>
+            <DocumentSection />
+
 
             <RPLTimeline />
             <RPLInfoSection />

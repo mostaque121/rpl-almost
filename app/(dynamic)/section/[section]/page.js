@@ -26,7 +26,7 @@ export async function generateMetadata({ params }) {
             openGraph: {
                 title: `Courses in ${data.title}`,
                 description: `Join our diverse courses in ${data.title} at RPL Fast Track Australia. Elevate your career with our expert-led training programs tailored to your needs.`,
-                url: `https://rplfasttrack.com/section/${section}`, // Adjust with your actual section URL
+                url: `https://rplfastrack.com/section/${section}`, // Adjust with your actual section URL
                 images: [
                     `${data.imageCoverLink}`, // Ensure this is the relevant cover image for the section
                 ],
@@ -118,29 +118,31 @@ export default async function Page({ params }) {
                                 key={course._id}
                                 className="group bg-white shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl"
                             >
-                                {/* Image Section */}
-                                <div className="relative h-48 w-full">
-                                    <Image
-                                        src={course.imageCoverLink}
-                                        alt="image"
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="object-cover"
-                                        priority
-                                    />
-                                </div>
+                                <Link href={`/courses/${course.link}`}>
+                                    {/* Image Section */}
+                                    <div className="relative h-48 w-full">
+                                        <Image
+                                            src={course.imageCoverLink}
+                                            alt="image"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            className="object-cover"
+                                            priority
+                                        />
+                                    </div>
 
-                                {/* Text Section */}
-                                <div className="p-6  space-y-4">
-                                    <h3 className="text-xl font-bold text-gray-800  transition-all duration-300">
-                                        {course.title}
-                                    </h3>
-                                    <Link href={`/courses/${course.link}`}>
+                                    {/* Text Section */}
+                                    <div className="p-6  space-y-4">
+                                        <h3 className="text-xl font-bold text-gray-800  transition-all duration-300">
+                                            {course.title}
+                                        </h3>
+
                                         <p className="inline-block mt-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 px-5 rounded-full shadow-md hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-600 transition-all duration-300">
                                             Learn More
                                         </p>
-                                    </Link>
-                                </div>
+
+                                    </div>
+                                </Link>
                             </div>
                         ))}
                     </div>

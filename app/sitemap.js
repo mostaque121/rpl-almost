@@ -6,47 +6,47 @@ export default async function sitemap() {
 
     return [
         {
-            url: 'https://rplfasttrack.com',
+            url: 'https://rplfastrack.com',
             lastModified: new Date('2024-10-14'),
             changeFrequency: 'yearly',
             priority: 1,
         },
 
         {
-            url: 'https://rplfasttrack.com/about',
+            url: 'https://rplfastrack.com/about',
             lastModified: new Date('2024-10-14'),
             changeFrequency: 'yearly',
             priority: 0.8,
         },
 
         {
-            url: 'https://rplfasttrack.com/courses',
+            url: 'https://rplfastrack.com/courses',
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: 'https://rplfasttrack.com/benefits',
+            url: 'https://rplfastrack.com/benefits',
             lastModified: new Date('2024-10-14'),
             changeFrequency: 'yearly',
             priority: 0.8,
         },
         {
-            url: 'https://rplfasttrack.com/contact',
+            url: 'https://rplfastrack.com/contact',
             lastModified: new Date('2024-10-14'),
             changeFrequency: 'yearly',
             priority: 0.8,
         },
 
         {
-            url: 'https://rplfasttrack.com/review',
+            url: 'https://rplfastrack.com/review',
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.8,
         },
 
         {
-            url: 'https://rplfasttrack.com/rpl',
+            url: 'https://rplfastrack.com/rpl',
             lastModified: new Date('2024-10-14'),
             changeFrequency: 'yearly',
             priority: 0.7,
@@ -54,44 +54,44 @@ export default async function sitemap() {
 
 
         ...courses.map((course) => ({
-            url: `https://rplfasttrack.com/course/${course.link}`,
+            url: `https://rplfastrack.com/course/${course.link}`,
             lastModified: new Date(course.updatedAt),
             changeFrequency: 'yearly',
             priority: 0.8,
         })),
         // Dynamically include blog post routes with `[id]`
         ...sections.map((section) => ({
-            url: `https://rplfasttrack.com/section/${section.link}`,
+            url: `https://rplfastrack.com/section/${section.link}`,
             lastModified: new Date(section.updatedAt),
             changeFrequency: 'yearly',
             priority: 0.6,
         })),
         {
-            url: 'https://rplfasttrack.com/faq',
+            url: 'https://rplfastrack.com/faq',
             lastModified: new Date('2024-10-14'),
             changeFrequency: 'yearly',
             priority: 0.5,
         },
         {
-            url: 'https://rplfasttrack.com/privacy',
+            url: 'https://rplfastrack.com/privacy',
             lastModified: new Date('2024-10-14'),
             changeFrequency: 'yearly',
             priority: 0.5,
         },
         {
-            url: 'https://rplfasttrack.com/refund',
+            url: 'https://rplfastrack.com/refund',
             lastModified: new Date('2024-10-14'),
             changeFrequency: 'yearly',
             priority: 0.5,
         },
         {
-            url: 'https://rplfasttrack.com/terms',
+            url: 'https://rplfastrack.com/terms',
             lastModified: new Date('2024-10-14'),
             changeFrequency: 'yearly',
             priority: 0.5,
         },
         {
-            url: 'https://rplfasttrack.com/write-review',
+            url: 'https://rplfastrack.com/write-review',
             lastModified: new Date('2024-10-14'),
             changeFrequency: 'yearly',
             priority: 0.5,

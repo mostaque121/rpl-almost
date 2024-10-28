@@ -6,11 +6,11 @@ import 'react-vertical-timeline-component/style.min.css';
 const RPLTimeline = () => {
 
     return (
-        <div className="rpl-section sm:pt-16 bg-gray-100 pt-10 ">
+        <div className="rpl-section sm:pt-16 bg-white pt-10 ">
             <h2 className="sm:text-center ml-6 text-[#3A94D0] sm:ml-0 text-3xl font-bold">RPL Process</h2>
 
             <VerticalTimeline
-                lineColor="#3A94D0"
+                lineColor="transparent"
             >
                 <VerticalTimelineElement
                     visible={true}
@@ -19,7 +19,7 @@ const RPLTimeline = () => {
                         borderRadius: '8px',
                         boxShadow: 'none',
                     }}
-                    className="vertical-timeline-element--work"
+                    className="vertical-timeline-element--work custom-line"
                     date="Step 1"
                     iconStyle={{ background: '#3A94D0', color: '#fff', boxShadow: 'none', }}
                     icon={<IoIosCheckmarkCircle />}
@@ -37,7 +37,7 @@ const RPLTimeline = () => {
                         borderRadius: '8px',
                         boxShadow: 'none',
                     }}
-                    className="vertical-timeline-element--work"
+                    className="vertical-timeline-element--work  custom-line"
                     date="Step 2"
                     iconStyle={{ background: '#3A94D0', color: '#fff', boxShadow: 'none', }}
                     icon={<IoIosCheckmarkCircle />}
@@ -55,7 +55,7 @@ const RPLTimeline = () => {
                         borderRadius: '8px',
                         boxShadow: 'none',
                     }}
-                    className="vertical-timeline-element--work"
+                    className="vertical-timeline-element--work  custom-line"
                     date="Step 3"
                     iconStyle={{ background: '#3A94D0', color: '#fff', boxShadow: 'none', }}
                     icon={<IoIosCheckmarkCircle />}
@@ -73,7 +73,7 @@ const RPLTimeline = () => {
                         borderRadius: '8px',
                         boxShadow: 'none',
                     }}
-                    className="vertical-timeline-element--work"
+                    className="vertical-timeline-element--work "
                     date="Step 4"
                     iconStyle={{ background: '#3A94D0', color: '#fff', boxShadow: 'none', }}
                     icon={<IoIosCheckmarkCircle />}

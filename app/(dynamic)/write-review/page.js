@@ -9,7 +9,7 @@ export async function generateMetadata() {
     openGraph: {
       title: 'Write a Review for RPL Fast Track',
       description: `Share your feedback and experience with RPL Fast Track Australia. Your review helps us improve and provides valuable insights to others.`,
-      url: 'https://rplfasttrack.com/write-review',
+      url: 'https://rplfastrack.com/write-review',
       images: [
         '/write-review.png', // Replace with a relevant image for writing reviews
       ],
