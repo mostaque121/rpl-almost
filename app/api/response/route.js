@@ -12,7 +12,6 @@ const transporter = nodemailer.createTransport(
 );
 
 export async function POST(req) {
-    console.log(process.env.SENDINBLUE_API_KEY)
     try {
         const body = await req.json();
         const { name, email, phone, message, interest } = body;
