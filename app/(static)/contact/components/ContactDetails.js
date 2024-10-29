@@ -13,10 +13,10 @@ const ContactDetails = () => {
                     <div className="flex items-center justify-center space-x-3">
                         <span className="font-semibold text-gray-600">Email:</span>
                         <a
-                            href="mailto:rplfasttrack@gmail.com"
+                            href="mailto:rplfastrack@gmail.com"
                             className="text-blue-500 hover:underline hover:text-blue-600 transition duration-200"
                         >
-                            rplfasttrack@gmail.com
+                            rplfastrack@gmail.com
                         </a>
                     </div>
                     <div className="flex items-center justify-center space-x-3">
@@ -38,7 +38,7 @@ const ContactDetails = () => {
 
                 <div className="mt-8 flex justify-center space-x-4">
                     <a
-                        href="mailto:rplfasttrack@gmail.com"
+                        href="mailto:rplfastrack@gmail.com"
                         className="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition duration-200"
                     >
                         Send Us an Email

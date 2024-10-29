@@ -10,7 +10,7 @@ export default function UpperBar() {
                 </div>
                 <div className="flex gap-1 items-center">
                     <MdMail className='text-white' />
-                    <a href="mailto:rplfasttrack@gmail.com" className='text-white cursor-pointer hover:underline'> rplfasttrack@gmail.com</a>
+                    <a href="mailto:rplfastrack@gmail.com" className='text-white cursor-pointer hover:underline'> rplfastrack@gmail.com</a>
                 </div>
             </div>
             <div className="flex gap-1 items-center">

@@ -26,7 +26,7 @@ export default function Sidebar({ closeSidebar }) {
                     </div>
                     <div className="px-3 mb-3 text-lg">
                         <p className="font-semibold">Email</p>
-                        <a href="mailto:rplfasttrack@gmail.com" className="text-blue-600 cursor-pointer hover:text-blue-700">rplfasttrack@gmail.com</a>
+                        <a href="mailto:rplfastrack@gmail.com" className="text-blue-600 cursor-pointer hover:text-blue-700">rplfastrack@gmail.com</a>
                     </div>
                     <div className="px-3 mb-3 text-lg">
                         <p className="font-semibold">Adress</p>

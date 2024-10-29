@@ -22,7 +22,7 @@ const GetInTouchSection = () => {
                         <FaEnvelope className="text-4xl text-yellow-300" />
                         <div>
                             <h3 className="text-xl font-bold">Email Us</h3>
-                            <a href="mailto:rplfasttrack@gmail.com" className="text-gray-300 hover:text-white transition-all">rplfasttrack@gmail.com</a>
+                            <a href="mailto:rplfastrack@gmail.com" className="text-gray-300 hover:text-white transition-all">rplfastrack@gmail.com</a>
                         </div>
                     </div>
 
