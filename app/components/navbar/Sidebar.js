@@ -37,10 +37,11 @@ export default function Sidebar({ closeSidebar }) {
 
                     <h1 className="font-semibold block mb-2 text-lg text-center">Connect With</h1>
                     <div className="flex gap-1 justify-center px-3 items-center">
-                        <Link href={`https://wa.me/${whatsAppNumber}`}></Link>
-                        <div className="hover:scale-95 cursor-pointer active:scale-90 transition duration-200 ease-in-out">
-                            <FaWhatsappSquare className="text-blue-600 hover:text-blue-700 transition duration-200 ease-in-out active:text-blue-800  w-8 h-8  " />
-                        </div>
+                        <Link href={`https://wa.me/${whatsAppNumber}`}>
+                            <div className="hover:scale-95 cursor-pointer active:scale-90 transition duration-200 ease-in-out">
+                                <FaWhatsappSquare className="text-blue-600 hover:text-blue-700 transition duration-200 ease-in-out active:text-blue-800  w-8 h-8  " />
+                            </div>
+                        </Link>
                         <div className="hover:scale-95 cursor-pointer active:scale-90 transition duration-200 ease-in-out">
                             <FaFacebookSquare className="text-blue-600 hover:text-blue-700 transition duration-200 ease-in-out active:text-blue-800  w-8 h-8  " />
                         </div>

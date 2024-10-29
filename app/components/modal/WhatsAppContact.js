@@ -9,7 +9,7 @@ const WhatsAppContact = () => {
             href={`https://wa.me/${whatsappNumber}`} // Use the environment variable
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-5 border-2 right-5 bg-gray-50 rounded-full p-3 shadow-sm transition-transform transform hover:scale-110 z-50 flex items-center justify-center"
+            className="fixed bottom-5 border-2 right-3 sm:right-5 bg-gray-50 rounded-full p-3 shadow-sm transition-transform transform hover:scale-110 z-50 flex items-center justify-center"
             aria-label="Contact us on WhatsApp" // Accessibility feature
         >
             <Image

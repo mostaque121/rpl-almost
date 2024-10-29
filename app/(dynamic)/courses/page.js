@@ -40,7 +40,7 @@ export default async function Page() {
                     />
                 </div>
                 <div className="absolute inset-0 bg-black opacity-70"></div>
-                <div className="flex flex-col justify-center items-center relative h-full text-center text-white">
+                <div className="flex flex-col px-3 justify-center items-center relative h-full text-center text-white">
                     <h1 className="text-5xl text-copy-2 font-extrabold mb-4">Explore Our Courses</h1>
                     <p className="text-xl max-w-2xl mb-6">
                         Discover a wide range of courses designed to help you enhance your skills, achieve your goals, and unlock your potential. Whether you're looking to advance your career or explore a new passion, we have the right course for you.
