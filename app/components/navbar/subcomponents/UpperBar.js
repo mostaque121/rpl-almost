@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { FaFacebookSquare, FaLinkedin, FaWhatsappSquare } from "react-icons/fa";
 import { MdCall, MdMail } from "react-icons/md";
 export default function UpperBar() {
+    const whatsAppNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
     return (
         <div className="bg-copy shadow-sm py-2 flex justify-between px-5">
             <div className="flex gap-5 text-dark-gray text-sm">
@@ -14,9 +16,11 @@ export default function UpperBar() {
                 </div>
             </div>
             <div className="flex gap-1 items-center">
-                <div className="hover:scale-95 cursor-pointer active:scale-90 transition duration-200 ease-in-out">
-                    <FaWhatsappSquare className="text-white hover:text-light-gray-hover transition duration-200 ease-in-out active:text-light-gray-active  w-6 h-6  " />
-                </div>
+                <Link href={`https://wa.me/${whatsAppNumber}`}>
+                    <div className="hover:scale-95 cursor-pointer active:scale-90 transition duration-200 ease-in-out">
+                        <FaWhatsappSquare className="text-white hover:text-light-gray-hover transition duration-200 ease-in-out active:text-light-gray-active  w-6 h-6  " />
+                    </div>
+                </Link>
                 <div className="hover:scale-95 cursor-pointer active:scale-90 transition duration-200 ease-in-out">
                     <FaFacebookSquare className="text-white hover:text-light-gray-hover transition duration-200 ease-in-out active:text-light-gray-active  w-6 h-6  " />
                 </div>

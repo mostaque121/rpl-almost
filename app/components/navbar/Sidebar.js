@@ -1,8 +1,10 @@
+import Link from "next/link";
 import { FaFacebookSquare, FaLinkedin, FaWhatsappSquare } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import Logo from "./subcomponents/Logo";
 import SideOptions from "./subcomponents/SideOptions";
 export default function Sidebar({ closeSidebar }) {
+    const whatsAppNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
     return (
         <div className="bg-gray-100 h-screen py-3">
             <div className="flex w-full h-full flex-col">
@@ -35,6 +37,7 @@ export default function Sidebar({ closeSidebar }) {
 
                     <h1 className="font-semibold block mb-2 text-lg text-center">Connect With</h1>
                     <div className="flex gap-1 justify-center px-3 items-center">
+                        <Link href={`https://wa.me/${whatsAppNumber}`}></Link>
                         <div className="hover:scale-95 cursor-pointer active:scale-90 transition duration-200 ease-in-out">
                             <FaWhatsappSquare className="text-blue-600 hover:text-blue-700 transition duration-200 ease-in-out active:text-blue-800  w-8 h-8  " />
                         </div>

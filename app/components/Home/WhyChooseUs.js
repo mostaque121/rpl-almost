@@ -46,7 +46,7 @@ const WhyChooseUs = () => {
 
 
   return (
-    <div className="sm:py-16 py-10 bg-gray-100 sm:px-8 px-6">
+    <div className="sm:py-16 py-10 bg-gray-100 px-3 sm:px-8">
       <div className=' block max-w-7xl mx-auto '>
         <h2 className='text-center text-3xl font-bold mb-5'>Why Choose Us</h2>
         <div className='rounded-md grid md:grid-cols-3 sm:grid-cols-2 gap-3 sm:gap-5'>
