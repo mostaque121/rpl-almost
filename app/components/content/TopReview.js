@@ -1,80 +1,100 @@
 import Link from "next/link";
-import { MdStar, MdStarHalf } from "react-icons/md"; // Whole star icon
+import { MdStar, MdStarHalf, MdStarOutline } from "react-icons/md";
 
 const TopReviews = ({ reviews }) => {
     const totalReviews = reviews.length;
 
     // Count star ratings and calculate average
-    const starCounts = [0, 0, 0, 0, 0]; // Index 0 = 5 stars, Index 1 = 4 stars, ..., Index 4 = 1 star
+    const starCounts = [0, 0, 0, 0, 0];
     let totalStars = 0;
 
     reviews.forEach(review => {
         if (review.givenStar >= 1 && review.givenStar <= 5) {
-            starCounts[5 - review.givenStar] += 1; // Count reverse index for star ratings
-            totalStars += review.givenStar; // Sum up stars for average calculation
+            starCounts[5 - review.givenStar] += 1;
+            totalStars += review.givenStar;
         }
     });
 
     const avgStar = totalReviews > 0 ? (totalStars / totalReviews).toFixed(1) : 0;
 
-    // Calculate whole, fractional, and empty stars
+    // Calculate stars to display
     const wholeStars = Math.floor(avgStar);
-    const fractionalStar = avgStar - wholeStars;
-    const emptyStars = 5 - Math.ceil(avgStar); // Calculate empty stars
+    const decimalPart = avgStar - wholeStars;
+    const emptyStars = 5 - (wholeStars + (decimalPart >= 0.5 ? 1 : 0));
 
     return (
-        <div className="bg-white shadow-lg rounded-xl p-6 mb-6">
-            <h2 className="text-center font-semibold mb-4  text-xl">Reviews</h2>
-            <div className="flex items-center justify-center  mb-2">
+        <div className="bg-gradient-to-b from-white to-blue-50 shadow-xl rounded-lg px-3 py-8 sm:px-8 mb-10">
+            <div className="text-center mb-8 px-4">
+                <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">
+                    What Our Clients Say
+                </h1>
+                <p className="text-gray-600 text-lg sm:text-xl max-w-xl mx-auto">
+                    Real experiences from clients who advanced their careers through our RPL Fast Track program. Discover their stories of growth, success, and transformation.
+                </p>
+            </div>
 
-                <div className="bg-light-gray py-2 px-6 items-center flex rounded-full ">
-                    <div className="flex items-center">
+            {/* Star Rating Summary Section */}
+            <div className="flex flex-col items-center mb-6">
+                <div className="bg-light-gray py-4 px-4 sm:px-6 items-center flex flex-col rounded-lg shadow-lg w-full max-w-md text-center">
+                    <div className="flex items-center mb-2">
                         {/* Render whole stars */}
                         {[...Array(wholeStars)].map((_, index) => (
-                            <MdStar key={index} className="text-yellow-500 h-6 w-6 sm:h-8 sm:w-8" />
+                            <MdStar key={index} className="text-yellow-500 h-5 w-5 sm:h-6 sm:w-6" />
                         ))}
-                        {/* Render fractional star if present */}
-                        {fractionalStar >= 0.25 && fractionalStar < 0.75 && (
-                            <MdStarHalf className="text-yellow-500 h-6 w-6 sm:h-8 sm:w-8" />
+
+                        {/* Render fractional star based on updated logic */}
+                        {decimalPart >= 0.75 ? (
+                            <MdStar className="text-yellow-500 h-5 w-5 sm:h-6 sm:w-6" />
+                        ) : decimalPart >= 0.25 ? (
+                            <MdStarHalf className="text-yellow-500 h-5 w-5 sm:h-6 sm:w-6" />
+                        ) : (
+                            <MdStarOutline className="text-gray-300 h-5 w-5 sm:h-6 sm:w-6" />
                         )}
-                        {/* Render empty stars */}
+
+                        {/* Render remaining empty stars */}
                         {[...Array(emptyStars)].map((_, index) => (
-                            <MdStar key={index + wholeStars + (fractionalStar ? 1 : 0)} className="text-gray-300 h-6 w-6 sm:h-8 sm:w-8" />
+                            <MdStarOutline key={index + wholeStars + 1} className="text-gray-300 h-5 w-5 sm:h-6 sm:w-6" />
                         ))}
                     </div>
-                    <span className="text-gray-600 ml-2">
-                        <span className="text-yellow-500 font-semibold"> {avgStar} </span> out of 5
-                    </span>
+                    <div className="flex items-center justify-center mt-2 space-x-1 text-gray-700">
+                        <span className="text-yellow-500 text-xl sm:text-2xl font-bold">{avgStar}</span>
+                        <span className="text-gray-500 font-medium text-sm sm:text-base">out of 5</span>
+                    </div>
+                    <p className="text-gray-600 mt-2 text-sm sm:text-base">Based on {totalReviews} reviews</p>
                 </div>
-
             </div>
-            <p className="text-gray-600 text-center mb-4">Total Reviews: {totalReviews}</p>
-            <div className="flex flex-col">
+
+            {/* Detailed Breakdown */}
+            <div className="flex flex-col space-y-3 mt-6">
                 {starCounts.map((count, index) => {
-                    const starValue = 5 - index; // Calculate star value (5, 4, 3, 2, 1)
+                    const starValue = 5 - index;
                     const percentage = totalReviews > 0 ? ((count / totalReviews) * 100).toFixed(1) : 0;
 
                     return (
-                        <div key={index} className="flex items-center mb-2">
-                            <span className="text-gray-800 font-semibold">{starValue} Star</span>
-                            <span className="text-gray-600 ml-2 w-12">( {count} )</span>
-                            <div className="flex-1 bg-light-gray h-4 rounded mx-4">
+                        <div key={index} className="flex items-center">
+                            <span className="flex items-center space-x-1 text-gray-800 font-semibold w-20">
+                                <MdStar className="text-yellow-500" />
+                                <span>{starValue} Star</span>
+                            </span>
+                            <div className="flex-1  bg-gray-200 h-2 sm:h-4 rounded-full mx-4 shadow-inner overflow-hidden">
+
                                 <div
-                                    className="bg-yellow-500 h-4 rounded"
-                                    style={{ width: `${percentage}%` }}
+                                    className="bg-yellow-500  h-full rounded-full" style={{ width: `${percentage}%` }}
                                 ></div>
+
                             </div>
-                            <span>{percentage}%</span>
+                            <span className="text-gray-600 w-12">{percentage}%</span>
+                            <span className="text-gray-500 ml-2">({count} reviews)</span>
                         </div>
                     );
                 })}
             </div>
-            <Link href={'/write-review'}>
-                <div>
-                    <button className="px-5 py-2 rounded-md bg-yellow-500 font-semibold mt-5 block mx-auto transition-all  hover:scale-105 active:scale-95">Add a review</button>
-                </div>
-            </Link>
 
+            <Link href="/write-review">
+                <p className="inline-block mx-auto mt-8 px-6 py-2 rounded-lg bg-yellow-500 text-white font-semibold text-lg shadow-md hover:scale-105 active:scale-95 transition-transform">
+                    Add a Review
+                </p>
+            </Link>
         </div>
     );
 };

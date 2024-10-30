@@ -13,12 +13,11 @@ const formatDate = (dateString) => {
 
 const ReviewCard = ({ review }) => {
     const { userImage, userName, reviewText, reviewImage, givenStar, purchasedCourse, createdAt } = review;
-
     return (
-        <div className="bg-white shadow-md rounded-xl p-6 mb-6">
+        <div className="bg-white shadow-sm rounded-lg p-3 sm:p-6 mb-4 text-sm sm:text-base">
             {/* User Info */}
-            <div className="flex  items-center mb-6">
-                <div className="relative shrink-0 w-14 h-14 mr-4">
+            <div className="flex items-center mb-4">
+                <div className="relative shrink-0 w-10 h-10 sm:w-12 sm:h-12 mr-3">
                     {userImage ? (
                         <Image
                             src={userImage}
@@ -28,51 +27,48 @@ const ReviewCard = ({ review }) => {
                         />
                     ) : (
                         <div className="bg-gray-300 rounded-full w-full h-full flex items-center justify-center">
-                            <span className="text-xl font-bold text-indigo-500">{userName.charAt(0)}</span>
+                            <span className="text-sm font-bold text-indigo-500">{userName.charAt(0)}</span>
                         </div>
                     )}
                 </div>
-                <div className='w-full'>
-                    <div className='flex items-center justify-between w-full'>
-                        <h3 className="text-lg text-black font-semibold">{userName}</h3>
-                        <p className="text-sm text-gray-500">{formatDate(createdAt)}</p>
+                <div className="flex flex-col w-full">
+                    <div className="flex items-center justify-between">
+                        <h3 className="font-semibold text-gray-900 text-base sm:text-lg">{userName}</h3>
+                        <p className="text-xs sm:text-sm text-gray-500">{formatDate(createdAt)}</p>
                     </div>
-
                     {/* Stars */}
-                    <div className="flex mb-1">
+                    <div className="flex">
                         {[...Array(5)].map((_, index) => (
                             <MdStar
                                 key={index}
-                                className={`h-5 w-5 ${index < givenStar ? 'text-yellow-500' : 'text-gray-300'}`}
-                                style={{ marginRight: '2px' }}
+                                className={`h-4 w-4 ${index < givenStar ? 'text-yellow-500' : 'text-gray-300'}`}
                             />
                         ))}
                     </div>
-
                 </div>
             </div>
 
             {/* Course Link */}
-
-            {purchasedCourse &&
+            {purchasedCourse && (
                 <Link href={`/courses/${purchasedCourse.link}`}>
-                    <p className="text-charcoal font-semibold text-sm bg-light-gray hover:bg-light-gray-hover px-2 py-1 rounded-md transition-all mb-4">{purchasedCourse.title}</p>
+                    <p className="text-blue-600 text-xs sm:text-sm font-medium bg-gray-100 hover:bg-gray-200 px-2 py-1 rounded transition duration-200 mb-3">
+                        {purchasedCourse.title}
+                    </p>
                 </Link>
-            }
-
+            )}
 
             {/* Review Text */}
-            <p className="text-black mb-4">"{reviewText}"</p>
+            <p className="text-gray-800 ">"{reviewText}"</p>
 
             {/* Review Image */}
             {reviewImage && (
-                <div className="mt-4">
+                <div className="mt-3 relative flex justify-center">
                     <Image
                         src={reviewImage}
                         alt="Review image"
-                        width={500}
-                        height={500}
-                        className="rounded-lg h-40 w-auto mx-auto object-contain"
+                        width={150}
+                        height={150}
+                        className="rounded-lg object-contain"
                     />
                 </div>
             )}

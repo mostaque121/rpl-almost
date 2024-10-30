@@ -1,7 +1,7 @@
 'use client';
 import ScrollReveal from '@/app/lib/ScrollReveal';
 import Link from 'next/link';
-import { MdStar, MdStarHalf } from "react-icons/md";
+import { MdStar, MdStarHalf, MdStarOutline } from "react-icons/md";
 import ReviewCard from '../card/ReviewCard';
 
 const ReviewSection = ({ reviews }) => {
@@ -20,36 +20,45 @@ const ReviewSection = ({ reviews }) => {
 
     const avgStar = totalReviews > 0 ? (totalStars / totalReviews).toFixed(1) : 0;
 
-    // Calculate whole, fractional, and empty stars
+    // Calculate stars to display
     const wholeStars = Math.floor(avgStar);
-    const fractionalStar = avgStar - wholeStars;
-    const emptyStars = 5 - Math.ceil(avgStar);
-
-    // Get the currently visible reviews
+    const decimalPart = avgStar - wholeStars;
+    const emptyStars = 5 - (wholeStars + (decimalPart >= 0.5 ? 1 : 0));
     const displayedReviews = reviews.slice(0, 5);
 
     return (
-        <div className='bg-white sm:py-16 py-8 sm:px-8 px-3'>
+        <div className='bg-white sm:py-16 py-8 sm:px-8 px-4'>
             <h1 className="text-3xl font-semibold mb-6 text-center">What Our Clients Say</h1>
             <div className="flex flex-col md:flex-row">
                 <div className="md:w-96 w-full mb-6 md:mb-0">
-                    <p className="text-charcoal text-2xl font-semibold mb-4">{totalReviews} reviews</p>
-                    <p className="text-dark-gray mb-2">Overall rating </p>
-                    <div className="flex items-center gap-3 mb-4">
-                        <span className="text-3xl text-yellow-500">{avgStar}</span>
-                        <div className="flex items-center">
-                            {/* Render whole stars */}
-                            {[...Array(wholeStars)].map((_, index) => (
-                                <MdStar key={index} className="text-yellow-500 h-6 w-6 sm:h-8 sm:w-8" />
-                            ))}
-                            {/* Render fractional star if present */}
-                            {fractionalStar >= 0.25 && fractionalStar < 0.75 && (
-                                <MdStarHalf className="text-yellow-500 h-6 w-6 sm:h-8 sm:w-8" />
-                            )}
-                            {/* Render empty stars */}
-                            {[...Array(emptyStars)].map((_, index) => (
-                                <MdStar key={index + wholeStars + (fractionalStar ? 1 : 0)} className="text-gray-300 h-6 w-6 sm:h-8 sm:w-8" />
-                            ))}
+                    {/* Star Rating Summary Section */}
+                    <div className="flex flex-col items-center mb-6">
+                        <div className="bg-light-gray py-4 px-4 sm:px-6 items-center flex flex-col rounded-lg shadow-sm w-full max-w-md text-center">
+                            <div className="flex items-center mb-2">
+                                {/* Render whole stars */}
+                                {[...Array(wholeStars)].map((_, index) => (
+                                    <MdStar key={index} className="text-yellow-500 h-5 w-5 sm:h-6 sm:w-6" />
+                                ))}
+
+                                {/* Render fractional star based on updated logic */}
+                                {decimalPart >= 0.75 ? (
+                                    <MdStar className="text-yellow-500 h-5 w-5 sm:h-6 sm:w-6" />
+                                ) : decimalPart >= 0.25 ? (
+                                    <MdStarHalf className="text-yellow-500 h-5 w-5 sm:h-6 sm:w-6" />
+                                ) : (
+                                    <MdStarOutline className="text-gray-300 h-5 w-5 sm:h-6 sm:w-6" />
+                                )}
+
+                                {/* Render remaining empty stars */}
+                                {[...Array(emptyStars)].map((_, index) => (
+                                    <MdStarOutline key={index + wholeStars + 1} className="text-gray-300 h-5 w-5 sm:h-6 sm:w-6" />
+                                ))}
+                            </div>
+                            <div className="flex items-center justify-center mt-2 space-x-1 text-gray-700">
+                                <span className="text-yellow-500 text-xl sm:text-2xl font-bold">{avgStar}</span>
+                                <span className="text-gray-500 font-medium text-sm sm:text-base">out of 5</span>
+                            </div>
+                            <p className="text-gray-600 mt-2 text-sm sm:text-base">Based on {totalReviews} reviews</p>
                         </div>
                     </div>
                     <div className="flex flex-col">
@@ -90,9 +99,9 @@ const ReviewSection = ({ reviews }) => {
                     {5 < totalReviews && ( // Show "Show More" button only if there are more reviews
                         <Link href="/review">
                             <button
-                                className="mt-4 py-2 px-4 border border-gray-300 rounded bg-white hover:bg-gray-100 transition duration-200 ease-in-out"
+                                className="mt-4 py-2 px-4 border block mx-auto border-gray-300 rounded bg-white hover:bg-gray-100 transition duration-200 ease-in-out"
                             >
-                                Show More
+                                See all review
                             </button>
                         </Link>
                     )}
