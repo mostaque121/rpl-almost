@@ -9,7 +9,7 @@ const StarRating = ({ error, rating, setRating }) => {
     };
 
     return (
-        <div className="flex flex-col items-center p-6 bg-gradient-to-r from-purple-500 to-indigo-500  rounded-lg shadow-lg">
+        <div className="flex flex-col items-center p-6 bg-gradient-to-r from-cyan-500 to-blue-600  rounded-lg shadow-lg">
             <label className="block font-medium text-lg text-white mb-4">Rate the Course</label>
             <div className="flex space-x-2 mb-2">
                 {[...Array(5)].map((_, index) => (

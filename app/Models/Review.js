@@ -10,12 +10,10 @@ const reviewSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    userEmail: {
-        type: String,
-        required: true,
-    },
+
     userImage: {
         type: String,
+        required: true,
     },
     reviewImage: {
         type: String,

@@ -48,7 +48,7 @@ export default async function Page() {
                 </div>
             </div>
 
-            <div className="bg-gradient-to-r from-blue-100 to-cyan-100 sm:px-10 px-5  py-10 ">
+            <div className="bg-gradient-to-r from-blue-100 to-cyan-100 sm:px-10 px-3 py-10 ">
                 <div className="max-w-7xl block mx-auto">
                     <div>
                         {sections.map((section) => (

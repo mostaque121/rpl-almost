@@ -81,14 +81,14 @@ export default async function Page({ params }) {
                         <h1 className="text-4xl text-charcoal font-semibold">{data.title}</h1>
                         <div className="mt-2">
                             <Link href='/courses'>
-                                <span className="inline-block text-copy hover:scale-95 active:scale-90 transition duration-200 ease-in-out cursor-pointer ">
+                                <span className="inline-block text-blue-500 hover:text-blue-600 active:scale-95 transition duration-200 ease-in-out cursor-pointer ">
                                     Courses
                                 </span>
                             </Link>
 
                             <span className="inline-block  align-middle"><MdOutlineNavigateNext /></span>
                             <Link href={`/section/${data.section.link}`}>
-                                <span className="inline-block text-copy hover:scale-95 active:scale-90 transition duration-200 ease-in-out cursor-pointer ">
+                                <span className="inline-block text-blue-500 hover:text-blue-600 active:scale-95 transition duration-200 ease-in-out cursor-pointer ">
                                     {data.section.title}
                                 </span>
                             </Link>

@@ -17,33 +17,30 @@ const ReviewForm = ({ availableCourses }) => {
     const [rating, setRating] = useState(0);
     const [errors, setErrors] = useState({});
     const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false); // Submitting state
+    const [userInput, setUserInput] = useState('');
 
     const resetForm = () => {
         setName('');
-        setEmail('');
         setProfileImageUrl('');
         setSelectedCourseId(null);
         setReviewText('');
         setReviewImageUrl('');
         setRating(0);
         setErrors({});
+        setUserInput('')
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Reset errors
         setErrors({});
 
         // Validate required fields
         const newErrors = {};
         if (!name) newErrors.name = "Name is required.";
-        if (!email) newErrors.email = "Email is required.";
         if (!profileImageUrl) newErrors.userImage = "Profile image is required.";
         if (!selectedCourseId) newErrors.course = "Please select a course.";
         if (!reviewText) newErrors.review = "Review text is required.";
-        if (!reviewImageUrl) newErrors.reviewImage = "Review image is required.";
         if (rating === 0) newErrors.rating = "Rating is required.";
 
         // If there are errors, set them and stop the submission
@@ -57,7 +54,6 @@ const ReviewForm = ({ availableCourses }) => {
         // Prepare the data for submission
         const reviewData = {
             userName: name,
-            userEmail: email,
             userImage: profileImageUrl,
             purchasedCourse: selectedCourseId,
             reviewText,
@@ -88,14 +84,13 @@ const ReviewForm = ({ availableCourses }) => {
     };
 
     // Determine if the button should be disabled
-    const isButtonDisabled = !name || !email || !profileImageUrl || !selectedCourseId || !reviewText || !reviewImageUrl || rating === 0 || isSubmitting;
+    const isButtonDisabled = !name || !profileImageUrl || !selectedCourseId || !reviewText || !reviewImageUrl || rating === 0 || isSubmitting;
 
     return (
         <div className="max-w-3xl mx-auto bg-white pb-10 py-8 sm:px-8 px-4 rounded-lg">
             <h2 className="text-2xl font-bold mb-6 text-center">Post a Review</h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name */}
                 <div>
                     <InputField
                         type={"text"}
@@ -107,22 +102,12 @@ const ReviewForm = ({ availableCourses }) => {
                     />
                 </div>
 
-                {/* Email */}
-                <div>
-                    <InputField
-                        type={"email"}
-                        label="Email"
-                        value={email}
-                        setValue={setEmail}
-                        placeholder="Your Email"
-                        error={errors.email}
-                    />
-                </div>
 
                 {/* Upload Profile Image */}
                 <div>
                     <h1>User Profile</h1>
                     <ProfileImageUpload profileImageUrl={profileImageUrl} setProfileImageUrl={setProfileImageUrl} />
+                    {errors.userImage && <span className="text-red-500">{errors.userImage}</span>}
                 </div>
 
                 {/* Course with Searchable Select */}
@@ -132,8 +117,9 @@ const ReviewForm = ({ availableCourses }) => {
                         suggestions={availableCourses}
                         setSelectedCourse={setSelectedCourseId}
                         error={errors.course}
+                        userInput={userInput}
+                        setUserInput={setUserInput}
                     />
-                    {errors.course && <span className="text-red-500">{errors.course}</span>}
                 </div>
 
                 {/* Review Text */}
@@ -145,7 +131,7 @@ const ReviewForm = ({ availableCourses }) => {
 
                 {/* Upload Course Image */}
                 <div>
-                    <h1>Add Image</h1>
+                    <h1>Add Image (optional)</h1>
                     <ReviewImageUpload reviewImageUrl={reviewImageUrl} setReviewImageUrl={setReviewImageUrl} />
                 </div>
 
@@ -155,7 +141,6 @@ const ReviewForm = ({ availableCourses }) => {
                 {/* Submit Button */}
                 <SubmitButton
                     isSubmitting={isSubmitting}
-                    isDisabled={isButtonDisabled}
                 />
             </form>
         </div>

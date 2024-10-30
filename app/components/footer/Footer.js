@@ -7,14 +7,14 @@ const Footer = () => {
   const isAdminPath = pathname.startsWith('/admin');
   const isAuthPath = pathname.startsWith('/signin') || pathname.startsWith('/signup') || pathname.startsWith('/reset');
   return (!isAdminPath && !isAuthPath &&
-    <div className="bg-dark-gray">
+    <div className="bg-gray-900">
       <footer className=" px-3 sm:px-5 max-w-7xl block mx-auto text-white py-8">
         <div className=" grid md:grid-cols-4 grid-cols-2 gap-8">
           {/* About Section */}
           <div>
             <h3 className="text-lg font-semibold mb-2">About Us</h3>
             <p className="text-sm">We help you get recognized for your skills through the RPL process, empowering your career and personal growth.</p>
-            <Link href="/about" className="text-light-blue">Learn More</Link>
+            <Link href="/about" className="text-copy">Learn More About Us</Link>
           </div>
 
           {/* Quick Links */}
@@ -92,7 +92,7 @@ const Footer = () => {
         <div className="text-center text-sm mt-8">
           <p>&copy; 2024 RPL Fast Track Website. All Rights Reserved.</p>
           <p className="mt-2">
-            Designed and developed by <a href="#" target="_blank" rel="noopener noreferrer" className="text-light-blue">Mostaque Ahmad</a>.
+            Designed and developed by <a href="#" target="_blank" rel="noopener noreferrer" className="text-copy">Mostaque Ahmad</a>.
           </p>
         </div>
 

@@ -4,7 +4,7 @@ const SubmitButton = ({ isSubmitting, isDisabled }) => {
         <button
             type="submit"
             disabled={isDisabled}
-            className={`relative w-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-4 py-3 rounded-lg transition-all transform ${isSubmitting ? "opacity-70 cursor-not-allowed" : "hover:shadow-lg"} active:scale-95 active:shadow-inner`}
+            className={`relative w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-3 rounded-lg transition-all transform ${isSubmitting ? "opacity-70 cursor-not-allowed" : "hover:shadow-lg"} active:scale-95 active:shadow-inner`}
         >
             {isSubmitting ? (
                 <>

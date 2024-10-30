@@ -44,7 +44,7 @@ const ProfileImageUpload = ({ profileImageUrl, setProfileImageUrl }) => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg shadow-lg">
+        <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg shadow-lg">
             {!profileImageUrl ? (
                 <>
                     {/* Hidden input */}

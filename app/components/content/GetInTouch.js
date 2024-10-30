@@ -48,7 +48,7 @@ const GetInTouchSection = () => {
                     </div>
                     {/* Contact Us */}
                     <Link href="/contact" className="flex items-center w-full space-x-4 bg-white bg-opacity-10 p-6 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-opacity-20">
-                        <FaEnvelope className="text-4xl text-blue-400" />
+                        <FaEnvelope className="text-4xl text-yellow-500" />
                         <div>
                             <h3 className="text-xl font-bold">Contact Us</h3>
                             <p className="text-gray-300">Reach out for any inquiries</p>

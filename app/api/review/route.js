@@ -8,10 +8,10 @@ export async function POST(req) {
         await dbConnect();
 
         const body = await req.json();
-        const { userName, userEmail, userImage, purchasedCourse, reviewText, reviewImage, givenStar } = body;
+        const { userName, userImage, purchasedCourse, reviewText, reviewImage, givenStar } = body;
 
         // Validate required fields
-        const requiredFields = { userName, userEmail, userImage, purchasedCourse, reviewText, reviewImage, givenStar };
+        const requiredFields = { userName, userImage, purchasedCourse, reviewText, givenStar };
         const missingFields = Object.entries(requiredFields).filter(([, value]) => !value).map(([key]) => key);
 
         if (missingFields.length > 0) {
@@ -33,7 +33,6 @@ export async function POST(req) {
         // Create a new review
         const newReview = new Review({
             userName,
-            userEmail,
             userImage,
             purchasedCourse,
             reviewText,

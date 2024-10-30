@@ -32,7 +32,7 @@ export default function SectionCard({ section }) {
                 </div>
                 <Link href={`section/${section.link}`}>
                     <p className="inline-block mt-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-2 px-10 rounded-full shadow-md hover:bg-gradient-to-r hover:from-blue-600 hover:to-cyan-600 transition-all duration-300">
-                        More
+                        More courses
                     </p>
                 </Link>
             </div>

@@ -1,10 +1,8 @@
-// AutocompleteDropdown.js
 import { useState } from 'react';
 
-const SelectCourse = ({ suggestions, setSelectedCourse, error }) => {
+const SelectCourse = ({ suggestions, setSelectedCourse, error, userInput, setUserInput }) => {
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
-    const [userInput, setUserInput] = useState('');
 
     // Handle input change and filter suggestions
     const handleChange = (e) => {
@@ -16,6 +14,22 @@ const SelectCourse = ({ suggestions, setSelectedCourse, error }) => {
         setUserInput(input);
         setFilteredSuggestions(filtered);
         setShowSuggestions(true);
+    };
+
+    // Show suggestions on input focus
+    const handleFocus = () => {
+        if (suggestions.length) {
+            setFilteredSuggestions(suggestions);
+            setShowSuggestions(true);
+        }
+    };
+
+    // Hide suggestions on blur unless there's a userInput value
+    const handleBlur = (e) => {
+        // Check if blur event is related to the suggestion click
+        if (!e.relatedTarget || !e.relatedTarget.classList.contains('suggestion-item')) {
+            setShowSuggestions(false);
+        }
     };
 
     // Handle suggestion click
@@ -36,8 +50,9 @@ const SelectCourse = ({ suggestions, setSelectedCourse, error }) => {
             <div className="absolute w-full border border-gray-300 rounded-lg shadow-lg mt-1 max-h-48 overflow-auto bg-white z-50">
                 {filteredSuggestions.map((suggestion) => (
                     <h1
-                        key={suggestion._id} // Use _id as the key
-                        className="p-2 cursor-pointer text-sm md:text-base text-ellipsis overflow-hidden text-nowrap hover:bg-blue-300 transition-colors duration-200"
+                        key={suggestion._id}
+                        className="suggestion-item p-2 cursor-pointer text-sm md:text-base text-ellipsis overflow-hidden text-nowrap hover:bg-blue-300 transition-colors duration-200"
+                        onMouseDown={(e) => e.preventDefault()} // Prevent blur on suggestion click
                         onClick={() => handleClick(suggestion)}
                     >
                         {suggestion.title}
@@ -57,10 +72,12 @@ const SelectCourse = ({ suggestions, setSelectedCourse, error }) => {
                 type="text"
                 className="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 value={userInput}
                 placeholder="Please Select a course"
             />
-            {showSuggestions && userInput && <SuggestionsListComponent />}
+            {showSuggestions && <SuggestionsListComponent />}
             {error && (
                 <div className="mt-2 text-red-600">
                     {error} {/* Display error message */}
