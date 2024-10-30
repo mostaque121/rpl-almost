@@ -1,6 +1,6 @@
 import ReviewCard from "@/app/components/card/ReviewCard";
 import TopReviews from "@/app/components/content/TopReview";
-import { fetchData } from "@/app/lib/fetchData";
+import { fetchData, fetchReview } from "@/app/lib/fetchData";
 
 export async function generateMetadata() {
   try {
@@ -38,7 +38,7 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const reviews = await fetchData('api/review')
+  const reviews = await fetchReview('api/review')
   return (reviews &&
     <div className="max-w-7xl mx-auto bg-light-gray px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-3xl font-bold text-center mb-8">User Reviews</h1>
