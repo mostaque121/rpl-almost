@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 
 const GetInTouchSection = () => {
+    const email = process.env.NEXT_PUBLIC_EMAIL
     return (
         <div className="bg-gradient-to-r from-cyan-500 to-blue-600 py-16 text-white">
             <div className="container mx-auto max-w-7xl px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-between space-y-12 lg:space-y-0">
@@ -22,7 +23,7 @@ const GetInTouchSection = () => {
                         <FaEnvelope className="text-4xl text-yellow-300" />
                         <div>
                             <h3 className="text-xl font-bold">Email Us</h3>
-                            <a href="mailto:rplfastrack@gmail.com" className="text-gray-300 hover:text-white transition-all">rplfastrack@gmail.com</a>
+                            <a href={`mailto:${email}`} className="text-gray-300 hover:text-white transition-all">{email}</a>
                         </div>
                     </div>
 

@@ -1,5 +1,6 @@
 
 const ContactDetails = () => {
+    const email = process.env.NEXT_PUBLIC_EMAIL
     return (
         <div>
             <section className="mb-12 bg-gray-100 sm:px-6 px-3 py-6 rounded-lg shadow-md">
@@ -13,10 +14,10 @@ const ContactDetails = () => {
                     <div className="flex items-center justify-center space-x-3">
                         <span className="font-semibold text-gray-600">Email:</span>
                         <a
-                            href="mailto:rplfastrack@gmail.com"
+                            href={`mailto:${email}`}
                             className="text-blue-500 hover:underline hover:text-blue-600 transition duration-200"
                         >
-                            rplfastrack@gmail.com
+                            {email}
                         </a>
                     </div>
                     <div className="flex items-center justify-center space-x-3">
@@ -38,7 +39,7 @@ const ContactDetails = () => {
 
                 <div className="mt-8 flex justify-center space-x-4">
                     <a
-                        href="mailto:rplfastrack@gmail.com"
+                        href={`mailto:${email}`}
                         className="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition duration-200"
                     >
                         Send Us an Email

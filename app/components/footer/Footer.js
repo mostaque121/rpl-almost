@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation';
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 const Footer = () => {
+  const email = process.env.NEXT_PUBLIC_EMAIL
   const pathname = usePathname();
   const isAdminPath = pathname.startsWith('/admin');
   const isAuthPath = pathname.startsWith('/signin') || pathname.startsWith('/signup') || pathname.startsWith('/reset');
@@ -44,7 +45,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
             <div className="text-sm space-y-2">
               <p><a href="tel:+61483921139">Phone: +61483921139</a></p>
-              <p><a href="mailto:rplfastrack@gmail.com">Email: rplfastrack@gmail.com</a></p>
+              <p><a href={`mailto:${email}`}>Email: {email}</a></p>
               <p>Address: 26 Clement Way, Melton South, Victoria 3338</p>
             </div>
           </div>

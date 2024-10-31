@@ -3,6 +3,7 @@ import { FaFacebookSquare, FaLinkedin, FaWhatsappSquare } from "react-icons/fa";
 import { MdCall, MdMail } from "react-icons/md";
 export default function UpperBar() {
     const whatsAppNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
+    const email = process.env.NEXT_PUBLIC_EMAIL
     return (
         <div className="bg-copy shadow-sm py-2 flex justify-between px-5">
             <div className="flex gap-5 text-dark-gray text-sm">
@@ -12,7 +13,7 @@ export default function UpperBar() {
                 </div>
                 <div className="flex gap-1 items-center">
                     <MdMail className='text-white' />
-                    <a href="mailto:rplfastrack@gmail.com" className='text-white cursor-pointer hover:underline'> rplfastrack@gmail.com</a>
+                    <a href={`mailto:${email}`} className='text-white cursor-pointer hover:underline'>{email}</a>
                 </div>
             </div>
             <div className="flex gap-1 items-center">

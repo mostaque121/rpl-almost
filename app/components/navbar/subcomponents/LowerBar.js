@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import { FaEnvelope } from "react-icons/fa";
 import { IoReorderThreeOutline, IoSearchOutline } from "react-icons/io5";
 import { MdCall } from "react-icons/md";
 import Sidebar from "../Sidebar";
@@ -9,6 +10,7 @@ import NavOptions from "./NavOptions";
 
 export default function LowerBar({ toggleModal }) {
     const [isOpen, setIsOpen] = useState(false);
+    const email = process.env.NEXT_PUBLIC_EMAIL
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
@@ -52,10 +54,18 @@ export default function LowerBar({ toggleModal }) {
                     </div>
                 </div>
             </div>
-            <div className="flex md:hidden text-black gap-1 items-center">
-                <MdCall />
-                <a href="tel:+61483921139" className=' cursor-pointer font-semibold hover:underline'>+61483921139</a>
+            <div className="flex justify-between text-sm">
+                <div className="flex md:hidden text-black gap-1 items-center">
+                    <MdCall />
+                    <a href="tel:+61483921139" className=' cursor-pointer font-semibold hover:underline'>+61483921139</a>
+                </div>
+                <div className="flex md:hidden text-black gap-1 items-center">
+                    <FaEnvelope />
+                    <a href={`mailto:${email}`} className=' cursor-pointer font-semibold hover:underline'>{email}</a>
+                </div>
+
             </div>
+
         </div>
     );
 }

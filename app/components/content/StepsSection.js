@@ -83,7 +83,7 @@ const RPLTimeline = () => {
                 >
                     <h3 className="sm:text-lg text-gray-100 font-semibold">Congratulations, You’re Now Qualified!</h3>
                     <p>
-                        Skills Certified works with Registered Training Organizations to provide nationally recognized qualifications in Australia. These qualifications are equivalent to those obtained through full-time studies and can also be used for licensing applications.
+                        RPL Fast Track works with Registered Training Organizations to provide nationally recognized qualifications in Australia. These qualifications are equivalent to those obtained through full-time studies and can also be used for licensing applications.
                     </p>
                 </VerticalTimelineElement>
             </VerticalTimeline>

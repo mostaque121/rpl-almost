@@ -44,7 +44,7 @@ export async function POST(req) {
         
               Name: ${name}
               Email: ${email}
-              Phone: ${email}
+              Phone: ${phone}
               Interest: ${interest ? interest : 'none'}
               Message: ${message}
             `,

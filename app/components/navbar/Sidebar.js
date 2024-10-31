@@ -5,6 +5,7 @@ import Logo from "./subcomponents/Logo";
 import SideOptions from "./subcomponents/SideOptions";
 export default function Sidebar({ closeSidebar }) {
     const whatsAppNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
+    const email = process.env.NEXT_PUBLIC_EMAIL
     return (
         <div className="bg-gray-100 h-screen py-3">
             <div className="flex w-full h-full flex-col">
@@ -28,7 +29,7 @@ export default function Sidebar({ closeSidebar }) {
                     </div>
                     <div className="px-3 mb-3 text-lg">
                         <p className="font-semibold">Email</p>
-                        <a href="mailto:rplfastrack@gmail.com" className="text-blue-600 cursor-pointer hover:text-blue-700">rplfastrack@gmail.com</a>
+                        <a href={`mailto:${email}`} className="text-blue-600 cursor-pointer hover:text-blue-700">{email}</a>
                     </div>
                     <div className="px-3 mb-3 text-lg">
                         <p className="font-semibold">Adress</p>
