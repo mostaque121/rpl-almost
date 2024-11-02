@@ -1,10 +1,16 @@
 // components/WhatsAppContact.js
+'use client'
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const WhatsAppContact = () => {
     const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+    const pathname = usePathname()
+    const isAdminPath = pathname.startsWith('/admin');
+    const isAuthPath = pathname.startsWith('/signin') || pathname.startsWith('/signup') || pathname.startsWith('/reset');
 
-    return (
+
+    return (!isAdminPath && !isAuthPath &&
         <a
             href={`https://wa.me/${whatsappNumber}`} // Use the environment variable
             target="_blank"

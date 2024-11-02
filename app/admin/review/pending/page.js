@@ -8,7 +8,7 @@ export default async function Page() {
         <div className="p-3 sm:p-6">
             <h2 className="text-2xl text-black text-center block font-semibold mb-4">Pending Reviews</h2>
             <p className='text-lg font-semibold text-center block py-4'>Total Pending Review :  {reviews.length}</p>
-            <div className='flex justify-center'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center'>
                 {reviews.length > 0 ? (
                     reviews.map((review) => (
                         <ReviewCard

@@ -9,11 +9,12 @@ import { FiMail, FiMenu, FiPhone, FiSearch } from "react-icons/fi"
 import { RxCross2 } from "react-icons/rx"
 import SearchModal from "../content/SearchModal"
 import Logo from "./subcomponents/Logo"
-
 export default function Navbar({ fetchedData }) {
     const [isSearchOpen, setIsSearchOpen] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const pathname = usePathname()
+    const isAdminPath = pathname.startsWith('/admin');
+    const isAuthPath = pathname.startsWith('/signin') || pathname.startsWith('/signup') || pathname.startsWith('/reset');
 
     const navItems = [
         { name: "Home", href: "/" },
@@ -31,7 +32,7 @@ export default function Navbar({ fetchedData }) {
     };
 
 
-    return (
+    return (!isAdminPath && !isAuthPath &&
         <nav className="bg-white shadow-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
