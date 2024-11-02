@@ -11,7 +11,7 @@ module.exports = {
         'md': '850px',
       },
       backgroundImage: {
-        'custom-gradient': 'linear-gradient(180deg, #3A94D0 0%, #4AC4D0 100%)',
+        'custom-gradient': 'linear-gradient(180deg, #008FFF 0%, #4AC4D0 100%)',
         'custom-gradient-hover': 'linear-gradient(180deg, #4AB8E0 0%, #55D6E0 100%)',
       },
       boxShadow: {

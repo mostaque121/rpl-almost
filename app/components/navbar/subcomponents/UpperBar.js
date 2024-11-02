@@ -5,7 +5,7 @@ export default function UpperBar() {
     const whatsAppNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
     const email = process.env.NEXT_PUBLIC_EMAIL
     return (
-        <div className="bg-copy shadow-sm py-2 flex justify-between px-5">
+        <div className="bg-[#008fff] shadow-sm py-2 flex justify-between px-5">
             <div className="flex gap-5 text-dark-gray text-sm">
                 <div className="flex gap-1 items-center">
                     <MdCall className='text-white' />

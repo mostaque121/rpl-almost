@@ -1,59 +1,51 @@
+import Link from 'next/link';
+import { FaEnvelope, FaFacebook, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 
-const ContactDetails = () => {
-    const email = process.env.NEXT_PUBLIC_EMAIL
+export default function ContactDetails() {
+    const email = process.env.NEXT_PUBLIC_EMAIL;
+    const facebookPage = process.env.NEXT_PUBLIC_FACEBOOK_PAGE
+    const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER
+    const whatsAppNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
     return (
         <div>
-            <section className="mb-12 bg-gray-100 sm:px-6 px-3 py-6 rounded-lg shadow-md">
-                <h2 className="text-3xl font-bold mb-6 text-center text-blue-600">
-                    Get In Touch With Us
-                </h2>
-                <p className="mb-6 text-lg text-center text-gray-700">
-                    You can also reach us through the following methods:
-                </p>
-                <div className="space-y-4 text-center">
-                    <div className="flex items-center justify-center space-x-3">
-                        <span className="font-semibold text-gray-600">Email:</span>
-                        <a
-                            href={`mailto:${email}`}
-                            className="text-blue-500 hover:underline hover:text-blue-600 transition duration-200"
-                        >
-                            {email}
-                        </a>
-                    </div>
-                    <div className="flex items-center justify-center space-x-3">
-                        <span className="font-semibold text-gray-600">Phone:</span>
-                        <a
-                            href="tel:+61483921139"
-                            className="text-blue-500 hover:underline hover:text-blue-600 transition duration-200"
-                        >
-                            +61483921139
-                        </a>
-                    </div>
-                    <div className="flex items-center justify-center space-x-3">
-                        <span className="font-semibold text-gray-600">Address:</span>
-                        <span className="text-gray-700">
-                            26 Clement Way, Melton South, Victoria 3338
-                        </span>
-                    </div>
+            <div className="mt-16">
+                <h2 className="text-3xl font-extrabold text-gray-900">Other Ways to Connect</h2>
+                <div className="mt-8 grid grid-cols-1 gap-8 ">
+                    {[
+                        { icon: <FaPhoneAlt className="h-6 w-6 text-white" />, label: 'Phone', contact: phoneNumber, bgColor: 'bg-indigo-500', link: `tel:${phoneNumber}` },
+                        { icon: <FaEnvelope className="h-6 w-6 text-white" />, label: 'Email', contact: email, bgColor: 'bg-green-500', link: `mailto:${email}` },
+                        { icon: <FaWhatsapp className="h-6 w-6 text-white" />, label: 'WhatsApp', contact: whatsAppNumber, bgColor: 'bg-green-400', link: `https://wa.me/${whatsAppNumber}` },
+                        { icon: <FaFacebook className="h-6 w-6 text-white" />, label: 'Facebook', contact: 'Our Facebook Page', bgColor: 'bg-blue-600', link: facebookPage }
+                    ].map(({ icon, label, contact, bgColor, link }, index) => (
+                        <div key={index} className="bg-white overflow-hidden shadow-lg rounded-lg">
+                            <Link href={link}>
+                                <div className="px-4 py-5 sm:p-6">
+                                    <div className="flex items-center">
+                                        <div className={`${bgColor} rounded-md p-3`}>
+                                            {icon}
+                                        </div>
+                                        <div className="ml-5 w-0 flex-1">
+                                            <dl>
+                                                <dt className="text-sm font-medium text-gray-500 truncate">{label}</dt>
+                                                <dd className="text-lg font-medium text-gray-900">
+                                                    {link ? (
+                                                        <p className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">
+                                                            {contact}
+                                                        </p>
+                                                    ) : (
+                                                        contact
+                                                    )}
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                    ))}
                 </div>
-
-                <div className="mt-8 flex justify-center space-x-4">
-                    <a
-                        href={`mailto:${email}`}
-                        className="bg-blue-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-blue-600 transition duration-200"
-                    >
-                        Send Us an Email
-                    </a>
-                    <a
-                        href="tel:+61483921139"
-                        className="bg-green-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-green-600 transition duration-200"
-                    >
-                        Call Us Now
-                    </a>
-                </div>
-            </section>
+            </div>
         </div>
     );
 };
 
-export default ContactDetails;

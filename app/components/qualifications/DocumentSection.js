@@ -5,7 +5,7 @@ const documents = [
         id: "id",
         title: "Government ID",
         icon: <FaIdCard className="w-6 h-6 text-blue-600" />,
-        description: "A valid government-issued ID for identity verification, such as a passport or driver's license."
+        description: "Includes your PASSPORT, Visa (if not Residents in Australia) , Photo ID, Driving licence , Medicare."
     },
     {
         id: "education",

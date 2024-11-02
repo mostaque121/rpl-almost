@@ -4,6 +4,8 @@ import { usePathname } from 'next/navigation';
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   const email = process.env.NEXT_PUBLIC_EMAIL
+  const facebookPage = process.env.NEXT_PUBLIC_FACEBOOK_PAGE
+  const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER
   const pathname = usePathname();
   const isAdminPath = pathname.startsWith('/admin');
   const isAuthPath = pathname.startsWith('/signin') || pathname.startsWith('/signup') || pathname.startsWith('/reset');
@@ -44,8 +46,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
             <div className="text-sm space-y-2">
-              <p><a href="tel:+61483921139">Phone: +61483921139</a></p>
-              <p><a href={`mailto:${email}`}>Email: {email}</a></p>
+              <p><Link href={`tel:${phoneNumber}`}>Phone: {phoneNumber}</Link></p>
+              <p><Link href={`mailto:${email}`}>Email: {email}</Link></p>
               <p>Address: 26 Clement Way, Melton South, Victoria 3338</p>
             </div>
           </div>
@@ -59,12 +61,11 @@ const Footer = () => {
           <div className="flex flex-col items-center gap-4">
             <h3 className="text-xl font-semibold mb-2">Follow Us</h3>
             <div className="flex gap-4">
-              <a
-                href="#"
+              <Link href={facebookPage}
                 className="text-light-blue hover:scale-105 hover:text-light-blue-hover transition duration-300"
               >
                 <FaFacebook className="w-8 h-8 md:w-10 md:h-10" />
-              </a>
+              </Link>
               <a
                 href="#"
                 className="text-light-blue hover:scale-105 hover:text-light-blue-hover transition duration-300"
@@ -93,7 +94,7 @@ const Footer = () => {
         <div className="text-center text-sm mt-8">
           <p>&copy; 2024 RPL Fast Track Website. All Rights Reserved.</p>
           <p className="mt-2">
-            Designed and developed by <a href="#" target="_blank" rel="noopener noreferrer" className="text-copy">Mostaque Ahmad</a>.
+            Designed and developed by <Link href="https://www.facebook.com/profile.php?id=100010239342131&mibextid=ZbWKwL" className="text-copy">Mostaque Ahmad</Link>.
           </p>
         </div>
 
