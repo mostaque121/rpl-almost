@@ -2,7 +2,6 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { Toaster } from 'react-hot-toast';
 import Footer from "./components/footer/Footer";
 import WhatsAppContact from './components/modal/WhatsAppContact';
-
 import Navbar from './components/navbar/navbar';
 import "./globals.css";
 import { getCoursesAndSections } from './lib/action';

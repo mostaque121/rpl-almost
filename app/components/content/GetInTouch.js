@@ -5,6 +5,7 @@ import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 const GetInTouchSection = () => {
     const email = process.env.NEXT_PUBLIC_EMAIL
     const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER
+    const adress = process.env.NEXT_PUBLIC_ADDRESS
     return (
         <div className="bg-gradient-to-r from-cyan-500 to-blue-600 py-16 text-white">
             <div className="container mx-auto max-w-7xl px-4 sm:px-8 flex flex-col lg:flex-row items-center justify-between space-y-12 lg:space-y-0">
@@ -43,8 +44,7 @@ const GetInTouchSection = () => {
                         <div>
                             <h3 className="text-xl font-bold">Visit Us</h3>
                             <p className="text-gray-300">
-                                26 Clement Way, <br />
-                                Melton South, VIC 3338
+                                {adress}
                             </p>
                         </div>
                     </div>

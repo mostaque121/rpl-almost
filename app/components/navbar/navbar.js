@@ -26,6 +26,7 @@ export default function Navbar({ fetchedData }) {
     const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER
     const email = process.env.NEXT_PUBLIC_EMAIL
     const facebookPage = process.env.NEXT_PUBLIC_FACEBOOK_PAGE
+    const address = process.env.NEXT_PUBLIC_ADDRESS
 
     const toggleModal = async () => {
         setIsSearchOpen(!isSearchOpen);
@@ -145,7 +146,7 @@ export default function Navbar({ fetchedData }) {
                                     </div>
                                     <div className="px-3 mb-3 ">
                                         <p className="font-semibold">Adress</p>
-                                        <p className="text-blue-600 cursor-pointer hover:text-blue-700">26 Clement Way, Melton South, Victoria 3338</p>
+                                        <p className="text-blue-600 cursor-pointer hover:text-blue-700">{address}</p>
                                     </div>
 
                                     <h1 className="font-semibold block mb-2 text-center">Connect With</h1>

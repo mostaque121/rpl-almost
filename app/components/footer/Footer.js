@@ -6,6 +6,7 @@ const Footer = () => {
   const email = process.env.NEXT_PUBLIC_EMAIL
   const facebookPage = process.env.NEXT_PUBLIC_FACEBOOK_PAGE
   const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER
+  const adress = process.env.NEXT_PUBLIC_ADDRESS
   const pathname = usePathname();
   const isAdminPath = pathname.startsWith('/admin');
   const isAuthPath = pathname.startsWith('/signin') || pathname.startsWith('/signup') || pathname.startsWith('/reset');
@@ -48,7 +49,7 @@ const Footer = () => {
             <div className="text-sm space-y-2">
               <p><Link href={`tel:${phoneNumber}`}>Phone: {phoneNumber}</Link></p>
               <p><Link href={`mailto:${email}`}>Email: {email}</Link></p>
-              <p>Address: 26 Clement Way, Melton South, Victoria 3338</p>
+              <p>Address: {adress}</p>
             </div>
           </div>
         </div>
