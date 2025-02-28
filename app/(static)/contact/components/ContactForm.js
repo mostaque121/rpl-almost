@@ -1,5 +1,4 @@
 'use client';
-import { revalidateAfterResponse } from '@/app/lib/action';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
@@ -43,7 +42,6 @@ const ContactForm = () => {
                 setFormData({ name: '', email: '', phone: '', message: '', interest: '' });
                 setSuccess(true);
                 toast.success('Message sent successfully!')
-                revalidateAfterResponse(); // Revalidate data if necessary
             } else {
                 const { message } = await res.json();
                 setError(message || 'Something went wrong');

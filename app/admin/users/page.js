@@ -1,6 +1,6 @@
 import { fetchUser } from "../lib/fetchDataForAdmin";
-
 import UserTable from "./components/UserTable";
+
 export default async function Page() {
 
   const users = await fetchUser();

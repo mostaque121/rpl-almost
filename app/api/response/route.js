@@ -7,7 +7,6 @@ import brevoTransport from 'nodemailer-brevo-transport';
 const transporter = nodemailer.createTransport(
     new brevoTransport({
         apiKey: process.env.SENDINBLUE_API_KEY,
-
     })
 );
 

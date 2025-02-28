@@ -27,8 +27,7 @@ export default async function AdminLayout({ children }) {
           <div className="relative overflow-y-auto shadow-md scrollbar-hidden">
             <AdminSidebar />
           </div>
-
-          <main className="flex-1 bg-white  overflow-y-auto">
+          <main className="flex-1 bg-white overflow-y-auto">
             {children}
           </main>
         </div>

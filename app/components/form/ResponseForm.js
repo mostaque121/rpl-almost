@@ -1,6 +1,5 @@
 'use client';
 
-import { revalidateAfterResponse } from '@/app/lib/action';
 import { useState } from 'react';
 
 const ResponseForm = ({ title = 'RPL' }) => {
@@ -42,7 +41,6 @@ const ResponseForm = ({ title = 'RPL' }) => {
                 // Set form data, including interest
                 setFormData({ name: '', email: '', phone: '', message: '', interest: title ? title : '' });
                 setSuccess(true);
-                revalidateAfterResponse();
             } else {
                 const { message } = await res.json();
                 setError(message || 'Something went wrong');

@@ -1,10 +1,9 @@
 'use client'
 import DeleteButton from '@/app/components/Button/DeleteButton';
-import { revalidateAfterResponse } from '@/app/lib/action';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-const DeleteResponse = ({ id }) => {
+const DeleteResponse = ({ id, setResponses }) => {
     const [deleting, setDeleting] = useState(false)
     const handleDelete = async () => {
         setDeleting(true);
@@ -21,12 +20,12 @@ const DeleteResponse = ({ id }) => {
             if (!res.ok) {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
-            revalidateAfterResponse();
 
             toast.success('Deleted successfully!', {
                 duration: 3000,
                 position: 'top-right',
             });
+            setResponses(prevResponses => prevResponses.filter(response => response._id !== id));
 
         } catch (error) {
             console.error('Error deleting data:', error);
